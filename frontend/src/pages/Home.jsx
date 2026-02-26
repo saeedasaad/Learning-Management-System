@@ -1,10 +1,23 @@
-import React from "react";
-import Navbar from "../components/Navbar";
+import Hero from "../components/home/Hero";
+import Features from "../components/home/Features";
+import PopularCourses from "../components/home/PopularCourses";
+import InstructorHighlight from "../components/home/InstructorHighlight";
+import Testimonials from "../components/home/Testimonials";
+import HowItWorks from "../components/home/HowItWorks";
+import CallToAction from "../components/home/CallToAction";
 
-export default function Home() {
+function Home() {
   return (
     <>
-    <h1>home page</h1>
+      <Hero />
+      <Features />
+      <PopularCourses />
+      <InstructorHighlight />
+      <Testimonials />
+      <HowItWorks />
+      <CallToAction />
     </>
   );
 }
+
+export default Home;
