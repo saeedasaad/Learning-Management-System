@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -42,7 +42,7 @@ import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
 
       <Routes>
@@ -84,7 +84,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </Router>
+    </>
   );
 }
 

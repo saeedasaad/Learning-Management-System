@@ -1,5 +1,19 @@
 import heroBg from "./hero-bg.jpg";
 
+import C_img_1 from "./C_img_1.png";
+import C_img_2 from "./C_img_2.png";
+import C_img_3 from "./C_img_3.png";
+import C_img_4 from "./C_img_4.png";
+import C_img_5 from "./C_img_5.png";
+import C_img_6 from "./C_img_6.png";
+
+import Inst_img_1 from "./Inst_image_1.png";
+import Inst_img_2 from "./Inst_image_2.png";
+import Inst_img_3 from "./Inst_image_3.png";
+import Inst_img_4 from "./Inst_image_4.png";
+import Inst_img_5 from "./Inst_image_5.png";
+import Inst_img_6 from "./Inst_image_6.png";
+
 export const heroData = {
   heroBg,
   title: "Guiding Your Path to Prosperity",
@@ -28,7 +42,7 @@ export const users = [
     avatar: "/assets/avatars/user1.jpg",
     bio: "Passionate learner in full-stack development.",
     enrolledCourses: ["course_101", "course_102"],
-    createdAt: "2026-03-01T10:00:00Z"
+    createdAt: "2026-03-01T10:00:00Z",
   },
   {
     _id: "user_002",
@@ -39,7 +53,7 @@ export const users = [
     avatar: "/assets/avatars/user2.jpg",
     bio: "Frontend enthusiast.",
     enrolledCourses: ["course_103"],
-    createdAt: "2026-03-02T11:00:00Z"
+    createdAt: "2026-03-02T11:00:00Z",
   },
   {
     _id: "user_003",
@@ -50,7 +64,7 @@ export const users = [
     avatar: "/assets/avatars/user3.jpg",
     bio: "Learning backend systems.",
     enrolledCourses: ["course_101"],
-    createdAt: "2026-03-03T09:30:00Z"
+    createdAt: "2026-03-03T09:30:00Z",
   },
   {
     _id: "user_004",
@@ -61,7 +75,7 @@ export const users = [
     avatar: "/assets/avatars/user4.jpg",
     bio: "Interested in UI/UX design.",
     enrolledCourses: ["course_104"],
-    createdAt: "2026-03-04T08:20:00Z"
+    createdAt: "2026-03-04T08:20:00Z",
   },
   {
     _id: "user_005",
@@ -72,7 +86,7 @@ export const users = [
     avatar: "/assets/avatars/user5.jpg",
     bio: "DevOps learner.",
     enrolledCourses: ["course_105"],
-    createdAt: "2026-03-05T07:10:00Z"
+    createdAt: "2026-03-05T07:10:00Z",
   },
   {
     _id: "user_006",
@@ -83,8 +97,8 @@ export const users = [
     avatar: "/assets/avatars/user6.jpg",
     bio: "Data science beginner.",
     enrolledCourses: ["course_106"],
-    createdAt: "2026-03-06T06:15:00Z"
-  }
+    createdAt: "2026-03-06T06:15:00Z",
+  },
 ];
 
 // ================= INSTRUCTORS =================
@@ -92,70 +106,70 @@ export const users = [
 export const instructors = [
   {
     _id: "inst_001",
-    name: "Anjali Mehta",
-    email: "anjali@example.com",
+    name: "Ryan Carter",
+    email: "ryan@gmail.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst1.jpg",
+    avatar: Inst_img_1,
     expertise: "MERN Stack Development",
     totalStudents: 520,
     totalRevenue: 120000,
-    createdCourses: ["course_101"]
+    createdCourses: ["course_101"],
   },
   {
     _id: "inst_002",
-    name: "Rohit Kumar",
-    email: "rohit@example.com",
+    name: "Vikram Joshi",
+    email: "vikram@gmail.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst2.jpg",
+    avatar: Inst_img_2,
     expertise: "React & Frontend",
     totalStudents: 410,
     totalRevenue: 95000,
-    createdCourses: ["course_102"]
+    createdCourses: ["course_102"],
   },
   {
     _id: "inst_003",
     name: "Meera Iyer",
     email: "meera@example.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst3.jpg",
+    avatar: Inst_img_3,
     expertise: "Node & Backend",
     totalStudents: 380,
     totalRevenue: 87000,
-    createdCourses: ["course_103"]
+    createdCourses: ["course_103"],
   },
   {
     _id: "inst_004",
     name: "Vikram Joshi",
     email: "vikram@example.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst4.jpg",
+    avatar: Inst_img_4,
     expertise: "UI/UX Design",
     totalStudents: 300,
     totalRevenue: 65000,
-    createdCourses: ["course_104"]
+    createdCourses: ["course_104"],
   },
   {
     _id: "inst_005",
     name: "Pooja Nair",
     email: "pooja@example.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst5.jpg",
+    avatar: Inst_img_5,
     expertise: "DevOps & Deployment",
     totalStudents: 290,
     totalRevenue: 60000,
-    createdCourses: ["course_105"]
+    createdCourses: ["course_105"],
   },
   {
     _id: "inst_006",
     name: "Arjun Rao",
     email: "arjun@example.com",
     role: "instructor",
-    avatar: "/assets/instructors/inst6.jpg",
+    avatar: Inst_img_6,
     expertise: "Data Science",
     totalStudents: 340,
     totalRevenue: 72000,
-    createdCourses: ["course_106"]
-  }
+    createdCourses: ["course_106"],
+  },
 ];
 
 // ================= COURSES =================
@@ -168,7 +182,10 @@ export const courses = [
     price: 2999,
     instructorId: "inst_001",
     studentsEnrolled: 520,
-    rating: 4.8
+    rating: 4.8,
+    thumbnail: C_img_1,
+    description:
+      "Learn to build full-stack applications using MongoDB, Express, React, and Node.js. This course covers everything from basics to advanced deployment strategies.",
   },
   {
     _id: "course_102",
@@ -177,7 +194,10 @@ export const courses = [
     price: 2499,
     instructorId: "inst_002",
     studentsEnrolled: 410,
-    rating: 4.7
+    rating: 4.7,
+    thumbnail: C_img_2,
+    description:
+      "Master advanced React concepts including hooks, context API, performance optimization, and building scalable frontend applications with modern best practices.",
   },
   {
     _id: "course_103",
@@ -186,7 +206,10 @@ export const courses = [
     price: 1999,
     instructorId: "inst_003",
     studentsEnrolled: 380,
-    rating: 4.6
+    rating: 4.6,
+    thumbnail: C_img_3,
+    description:
+      "Dive deep into backend development with Node.js and Express. Learn to build REST APIs, handle authentication, and manage databases effectively.",
   },
   {
     _id: "course_104",
@@ -195,7 +218,10 @@ export const courses = [
     price: 1799,
     instructorId: "inst_004",
     studentsEnrolled: 300,
-    rating: 4.5
+    rating: 4.5,
+    thumbnail: C_img_4,
+    description:
+      "Understand the principles of user interface and user experience design. Learn visual hierarchy, wireframing, prototyping, and accessibility best practices.",
   },
   {
     _id: "course_105",
@@ -204,7 +230,10 @@ export const courses = [
     price: 3499,
     instructorId: "inst_005",
     studentsEnrolled: 290,
-    rating: 4.7
+    rating: 4.7,
+    thumbnail: C_img_5,
+    description:
+      "Gain expertise in DevOps workflows and cloud deployment. Learn CI/CD pipelines, containerization with Docker, and deploying applications on cloud platforms.",
   },
   {
     _id: "course_106",
@@ -213,28 +242,91 @@ export const courses = [
     price: 3999,
     instructorId: "inst_006",
     studentsEnrolled: 340,
-    rating: 4.9
-  }
+    rating: 4.9,
+    thumbnail: C_img_6,
+    description:
+      "Explore data science concepts using Python. Learn data analysis, visualization, machine learning, and statistical modeling with hands-on projects.",
+  },
 ];
 
 // ================= ENROLLMENTS =================
 
 export const enrollments = [
-  { _id: "enroll_001", studentId: "user_001", courseId: "course_101", progress: 60 },
-  { _id: "enroll_002", studentId: "user_002", courseId: "course_103", progress: 40 },
-  { _id: "enroll_003", studentId: "user_003", courseId: "course_101", progress: 20 },
-  { _id: "enroll_004", studentId: "user_004", courseId: "course_104", progress: 80 },
-  { _id: "enroll_005", studentId: "user_005", courseId: "course_105", progress: 35 },
-  { _id: "enroll_006", studentId: "user_006", courseId: "course_106", progress: 50 }
+  {
+    _id: "enroll_001",
+    studentId: "user_001",
+    courseId: "course_101",
+    progress: 60,
+  },
+  {
+    _id: "enroll_002",
+    studentId: "user_002",
+    courseId: "course_103",
+    progress: 40,
+  },
+  {
+    _id: "enroll_003",
+    studentId: "user_003",
+    courseId: "course_101",
+    progress: 20,
+  },
+  {
+    _id: "enroll_004",
+    studentId: "user_004",
+    courseId: "course_104",
+    progress: 80,
+  },
+  {
+    _id: "enroll_005",
+    studentId: "user_005",
+    courseId: "course_105",
+    progress: 35,
+  },
+  {
+    _id: "enroll_006",
+    studentId: "user_006",
+    courseId: "course_106",
+    progress: 50,
+  },
 ];
 
 // ================= REVIEWS =================
 
 export const reviews = [
-  { _id: "review_001", courseId: "course_101", rating: 5, comment: "Excellent course!" },
-  { _id: "review_002", courseId: "course_102", rating: 4, comment: "Very detailed React concepts." },
-  { _id: "review_003", courseId: "course_103", rating: 5, comment: "Backend explained clearly." },
-  { _id: "review_004", courseId: "course_104", rating: 4, comment: "Great design examples." },
-  { _id: "review_005", courseId: "course_105", rating: 5, comment: "Deployment made easy!" },
-  { _id: "review_006", courseId: "course_106", rating: 5, comment: "Best data science course." }
+  {
+    _id: "review_001",
+    courseId: "course_101",
+    rating: 5,
+    comment: "Excellent course!",
+  },
+  {
+    _id: "review_002",
+    courseId: "course_102",
+    rating: 4,
+    comment: "Very detailed React concepts.",
+  },
+  {
+    _id: "review_003",
+    courseId: "course_103",
+    rating: 5,
+    comment: "Backend explained clearly.",
+  },
+  {
+    _id: "review_004",
+    courseId: "course_104",
+    rating: 4,
+    comment: "Great design examples.",
+  },
+  {
+    _id: "review_005",
+    courseId: "course_105",
+    rating: 5,
+    comment: "Deployment made easy!",
+  },
+  {
+    _id: "review_006",
+    courseId: "course_106",
+    rating: 5,
+    comment: "Best data science course.",
+  },
 ];
