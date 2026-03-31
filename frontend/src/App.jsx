@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-
-// Components
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import PublicLayout from "./components/layouts/PublicLayout";
+import DashboardLayout from "./components/layouts/DashboardLayout";
 
 // Public Pages
 import Home from "./pages/Home";
@@ -42,11 +40,9 @@ import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
 
 function App() {
   return (
-    <>
-      <Navbar />
-
-      <Routes>
-        {/* Public Routes */}
+    <Routes>
+      {/* Public Routes */}
+      <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<CourseListing />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
@@ -54,8 +50,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+      </Route>
 
-        {/* Student Dashboard Routes */}
+      {/* Student Dashboard */}
+      <Route element={<DashboardLayout role="student" />}>
         <Route path="/student/dashboard" element={<DashboardOverview />} />
         <Route path="/student/my-courses" element={<MyCourses />} />
         <Route path="/student/course/:id" element={<CourseLearning />} />
@@ -63,8 +61,10 @@ function App() {
         <Route path="/student/chat" element={<StudentChat />} />
         <Route path="/student/profile" element={<StudentProfile />} />
         <Route path="/student/settings" element={<StudentSettings />} />
+      </Route>
 
-        {/* Instructor Dashboard Routes */}
+      {/* Instructor Dashboard */}
+      <Route element={<DashboardLayout role="instructor" />}>
         <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
         <Route path="/instructor/create-course" element={<CreateCourse />} />
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
@@ -73,18 +73,18 @@ function App() {
         <Route path="/instructor/revenue" element={<Revenue />} />
         <Route path="/instructor/chat" element={<InstructorChat />} />
         <Route path="/instructor/profile" element={<InstructorProfile />} />
+      </Route>
 
-        {/* Admin Dashboard Routes */}
+      {/* Admin Dashboard */}
+      <Route element={<DashboardLayout role="admin" />}>
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/manage-users" element={<ManageUsers />} />
         <Route path="/admin/manage-courses" element={<AdminManageCourses />} />
         <Route path="/admin/approve-courses" element={<ApproveCourses />} />
         <Route path="/admin/analytics" element={<Analytics />} />
         <Route path="/admin/revenue-analytics" element={<RevenueAnalytics />} />
-      </Routes>
-
-      <Footer />
-    </>
+      </Route>
+    </Routes>
   );
 }
 
