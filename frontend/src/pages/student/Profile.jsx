@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import DashboardCard from "../../components/layout/DashboardCard";
 
 export default function Profile() {
   return (
-    <div>
-      <h1>Student Profile</h1>
-    </div>
+    <DashboardCard title="Student Profile">
+      <p className="text-gray-600">Name: Saeeda</p>
+      <p className="text-gray-600">Email: saeeda@example.com</p>
+      <p className="text-gray-600">Enrolled Courses: 5</p>
+    </DashboardCard>
   );
 }

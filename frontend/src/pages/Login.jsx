@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/authSlice";
-import { loginUser } from "../api";
+import { loginUser } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -14,7 +14,8 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await loginUser({ email, password });
-      const response = { user: res.data.user, token: res.data.token };
+
+      const response = { user: res.user, token: res.token };
 
       localStorage.setItem("token", response.token);
       dispatch(loginSuccess(response));
@@ -34,17 +35,28 @@ export default function Login() {
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label className="block text-gray-700">Email</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]" />
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]"
+          />
         </div>
         <div>
           <label className="block text-gray-700">Password</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]" />
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]"
+          />
         </div>
-        <button type="submit" className="w-full bg-[#f49f35] text-white py-2 rounded hover:bg-[#e08c20]">
+        <button
+          type="submit"
+          className="w-full bg-[#f49f35] text-white py-2 rounded hover:bg-[#e08c20]"
+        >
           Login
         </button>
       </form>
