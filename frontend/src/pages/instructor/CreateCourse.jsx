@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../utils/api";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 function CreateCourse() {
   const [title, setTitle] = useState("");
@@ -18,15 +19,14 @@ function CreateCourse() {
   };
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Create Course</h2>
+    <DashboardCard title="Create Course">
       <form onSubmit={handleSubmit} className="space-y-4">
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Course Title" className="border p-2 w-full" />
         <input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" className="border p-2 w-full" />
         <input value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" type="number" className="border p-2 w-full" />
         <button type="submit" className="bg-[#134f93] text-white px-4 py-2 rounded">Create</button>
       </form>
-    </div>
+    </DashboardCard>
   );
 }
 

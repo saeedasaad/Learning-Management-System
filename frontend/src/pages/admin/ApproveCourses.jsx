@@ -1,5 +1,6 @@
 import useFetch from "../../hooks/useFetch";
 import api from "../../utils/api";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 function ApproveCourses() {
   const { data: courses, loading, error } = useFetch("/admin/courses");
@@ -9,12 +10,11 @@ function ApproveCourses() {
     window.location.reload();
   };
 
-  if (loading) return <p>Loading courses...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <DashboardCard title="Approve Courses"><p>Loading courses...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Approve Courses"><p>Error: {error}</p></DashboardCard>;
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Approve Courses</h2>
+    <DashboardCard title="Approve Courses">
       {courses?.map((c) => (
         <div key={c._id} className="flex justify-between items-center border p-2">
           <span>{c.title}</span>
@@ -28,7 +28,7 @@ function ApproveCourses() {
           )}
         </div>
       ))}
-    </div>
+    </DashboardCard>
   );
 }
 

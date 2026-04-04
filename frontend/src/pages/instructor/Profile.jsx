@@ -1,10 +1,11 @@
+import DashboardCard from "../../components/layouts/DashboardCard";
+
 function InstructorProfile() {
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Instructor Profile</h2>
+    <DashboardCard title="Instructor Profile">
       <p>Update your profile information here.</p>
-      {/* Later: integrate with backend user profile update */}
-    </div>
+
+    </DashboardCard>
   );
 }
 

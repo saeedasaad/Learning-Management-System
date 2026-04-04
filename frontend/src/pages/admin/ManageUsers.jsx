@@ -1,14 +1,14 @@
 import useFetch from "../../hooks/useFetch";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 function ManageUsers() {
   const { data: users, loading, error } = useFetch("/admin/users");
 
-  if (loading) return <p>Loading users...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <DashboardCard title="Manage Users"><p>Loading users...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Manage Users"><p>Error: {error}</p></DashboardCard>;
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Manage Users</h2>
+    <DashboardCard title="Manage Users">
       <table className="table-auto w-full border">
         <thead>
           <tr>
@@ -29,7 +29,7 @@ function ManageUsers() {
           ))}
         </tbody>
       </table>
-    </div>
+    </DashboardCard>
   );
 }
 

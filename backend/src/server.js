@@ -21,7 +21,9 @@ connectDB();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(logger); 
+app.use(logger);
+
+app.use("/uploads", express.static("src/uploads"));
 
 // Routes
 app.use("/api/auth", authRoutes);

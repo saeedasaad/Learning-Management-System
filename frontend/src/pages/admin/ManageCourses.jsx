@@ -1,14 +1,14 @@
 import useFetch from "../../hooks/useFetch";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 function ManageCourses() {
   const { data: courses, loading, error } = useFetch("/admin/courses");
 
-  if (loading) return <p>Loading courses...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <DashboardCard title="Manage Courses"><p>Loading courses...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Manage Courses"><p>Error: {error}</p></DashboardCard>;
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Manage Courses</h2>
+    <DashboardCard title="Manage Courses">
       <ul>
         {courses?.map((c) => (
           <li key={c._id}>
@@ -16,7 +16,7 @@ function ManageCourses() {
           </li>
         ))}
       </ul>
-    </div>
+    </DashboardCard>
   );
 }
 

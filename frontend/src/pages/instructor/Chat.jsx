@@ -1,10 +1,11 @@
+import DashboardCard from "../../components/layouts/DashboardCard";
+
 function InstructorChat() {
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Instructor Chat</h2>
+    <DashboardCard title="Instructor Chat">
       <p>Chat with your students here.</p>
-      {/* Later: integrate ChatMessage model with backend */}
-    </div>
+
+    </DashboardCard>
   );
 }
 

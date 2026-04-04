@@ -1,20 +1,21 @@
+import DashboardCard from "../../components/layouts/DashboardCard";
 import useFetch from "../../hooks/useFetch";
+
 
 function ManageStudents() {
   const { data: students, loading, error } = useFetch("/instructor/students");
 
-  if (loading) return <p>Loading students...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <DashboardCard title="Manage Students"><p>Loading students...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Manage Students"><p>Error: {error}</p></DashboardCard>;
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Manage Students</h2>
+    <DashboardCard title="Manage Students">
       <ul>
         {students?.map((s) => (
           <li key={s._id}>{s.name} - {s.email}</li>
         ))}
       </ul>
-    </div>
+    </DashboardCard>
   );
 }
 

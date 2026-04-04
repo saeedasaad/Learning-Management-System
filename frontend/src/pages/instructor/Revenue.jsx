@@ -1,17 +1,18 @@
+import DashboardCard from "../../components/layouts/DashboardCard";
 import useFetch from "../../hooks/useFetch";
+
 
 function Revenue() {
   const { data, loading, error } = useFetch("/instructor/revenue");
 
-  if (loading) return <p>Loading revenue...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <DashboardCard title="Revenue"><p>Loading revenue...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Revenue"><p>Error: {error}</p></DashboardCard>;
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-4">Revenue</h2>
+    <DashboardCard title="Revenue">
       <p>Total Revenue: ${data?.totalRevenue}</p>
       <p>Courses Sold: {data?.coursesSold}</p>
-    </div>
+    </DashboardCard>
   );
 }
 

@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 export default function VideoPlayer() {
   return (
-    <div>
-      <h1>Video Player</h1>
-    </div>
+    <DashboardCard title="Video Player">
+      <p>Here you can watch your course videos.</p>
+
+    </DashboardCard>
   );
 }
