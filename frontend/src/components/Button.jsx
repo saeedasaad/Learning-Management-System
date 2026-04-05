@@ -10,6 +10,9 @@ export default function Button({ children, variant = "filled", className = "", .
     duration-300 
     ease-in-out 
     transform 
+    inline-flex 
+    items-center 
+    gap-2
   `;
 
   const filledStyles = `
@@ -30,9 +33,29 @@ export default function Button({ children, variant = "filled", className = "", .
     hover:text-white
   `;
 
+  const primaryBlueStyles = `
+    bg-[#02448d] 
+    text-white 
+    border-2 
+    border-[#02448d] 
+    hover:bg-transparent 
+    hover:text-[#02448d]
+  `;
+
+  const getVariantStyles = () => {
+    switch (variant) {
+      case "outline":
+        return outlineStyles;
+      case "primaryBlue":
+        return primaryBlueStyles;
+      default:
+        return filledStyles;
+    }
+  };
+
   return (
     <button
-      className={`${baseStyles} ${variant === "filled" ? filledStyles : outlineStyles} ${className}`}
+      className={`${baseStyles} ${getVariantStyles()} ${className}`}
       {...props}
     >
       {children || "Click Me"}

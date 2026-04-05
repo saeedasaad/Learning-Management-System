@@ -4,7 +4,7 @@ import EduMasterLogo from "../assets/edumaster-logo-white.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#044089] text-white mt-10 relative">
+    <footer className="bg-[#044089] text-white relative">
       {/* Bottom Accent Line */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-[#feaf0f]"></div>
 

@@ -4,7 +4,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 
 // Public Pages
 import Home from "./pages/Home";
-import CourseListing from "./pages/CourseListing";
+import Courses from "./pages/Courses";
 import CourseDetails from "./pages/CourseDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -44,7 +44,7 @@ function App() {
       {/* Public Routes */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<CourseListing />} />
+        <Route path="/courses" element={<Courses/>} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

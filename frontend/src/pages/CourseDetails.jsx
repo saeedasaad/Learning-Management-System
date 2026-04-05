@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { courses, instructors } from "../assets/assets.js";
+import CallToAction from "../components/home/CallToAction.jsx";
 
 export default function CourseDetails() {
   const { id } = useParams();
@@ -20,10 +21,10 @@ export default function CourseDetails() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section */}
+
       <div className="relative bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white pt-28 pb-8 ">
         <div className=" mx-auto w-[85%] grid lg:grid-cols-2 gap-10 items-center">
-        {/* Left Content */}
+
         <div className="text-center lg:text-left">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4">
             {course.title}
@@ -136,18 +137,8 @@ export default function CourseDetails() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 px-6 bg-[#02448d] text-center text-white">
-        <h2 className="text-3xl font-bold mb-6">
-          Transform Your Learning Into a Career Breakthrough
-        </h2>
-        <p className="max-w-2xl mx-auto mb-8">
-          Join thousands of learners who have advanced their careers with our
-          expert-led, project-based courses.
-        </p>
-        <button className="bg-[#ffac0b] text-[#02448d] px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#02448d] transition">
-          Enroll Now
-        </button>
-      </div>
+      <CallToAction/>
+
     </div>
   );
 }

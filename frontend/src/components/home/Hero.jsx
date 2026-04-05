@@ -12,7 +12,7 @@ function Hero() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#14509562]"></div>
+      <div className="absolute inset-0 bg-[#044089]/60"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6">
@@ -26,7 +26,7 @@ function Hero() {
 
         <div className="mt-8 flex justify-center">
           <Link to={heroData.linkPrimary}>
-            <Button variant="filled">{heroData.ctaPrimary}</Button>
+            <Button variant="filled">{heroData.ctaPrimary} <i className="ri-arrow-right-line"></i></Button>
           </Link>
         </div>
       </div>

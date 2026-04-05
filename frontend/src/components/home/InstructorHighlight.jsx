@@ -40,13 +40,13 @@ export default function InstructorHighlight() {
             instructors.map((inst) => (
               <div
                 key={inst._id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 flex flex-col items-center"
+                className="bg-white rounded-bl-[80px] rounded-tr-[80px] shadow-lg hover:shadow-2xl transition duration-300 flex flex-col items-center"
               >
                 <div className="overflow-hidden transition">
                   <img
                     src={`http://localhost:5000${inst.avatar}`}
                     alt={inst.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-tr-[80px]"
                   />
                 </div>
 

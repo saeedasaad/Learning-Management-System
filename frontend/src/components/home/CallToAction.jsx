@@ -1,16 +1,36 @@
 import React from "react";
-import { callToActionData } from "../../assets/assets";
+import EduMasterCTA from "../../assets/cta-banner.png";
+import Button from "../Button";
 
 export default function CallToAction() {
   return (
-    <section className="py-16 bg-blue-600 text-white text-center">
-      <h2 className="text-3xl font-bold mb-6">{callToActionData.title}</h2>
-      <a
-        href={callToActionData.link}
-        className="bg-yellow-400 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-500 transition"
-      >
-        {callToActionData.buttonText}
-      </a>
+    <section
+      className="relative py-38 text-center text-white"
+      style={{
+        backgroundImage: `url(${EduMasterCTA})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-[#044089]/60"></div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-6">
+        <h2 className="text-4xl font-extrabold mb-4">
+          Let’s Discuss Your Learning Goals
+        </h2>
+        <p className="text-lg leading-relaxed text-gray-100 mb-8 font-medium">
+          Empower your future with{" "}
+          <span className="text-[#feaf0f] font-semibold">EduMaster</span> —
+          where knowledge meets innovation and growth. Join a community of
+          learners and instructors dedicated to helping you achieve excellence.
+        </p>
+        <Button
+          variant="filled"
+          onClick={() => (window.location.href = "/contact")}
+        >
+          Get Started <i className="ri-arrow-right-line"></i>
+        </Button>
+      </div>
     </section>
   );
 }

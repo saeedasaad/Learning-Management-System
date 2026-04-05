@@ -19,7 +19,7 @@ export const heroData = {
   title: "Guiding Your Path to Prosperity",
   subtitle:
     "Our experienced advisors are dedicated to guiding you through every step of your learning journey, offering personalized strategies that align with your goals and ambitions.",
-  ctaPrimary: "Start Your Journey Today",
+  ctaPrimary: "Begin Your Journey",
   linkPrimary: "/register",
 };
 
@@ -177,7 +177,7 @@ export const instructors = [
 export const courses = [
   {
     _id: "course_101",
-    title: "Complete MERN Stack Development",
+    title: "MERN Stack Development",
     category: "Web Development",
     price: 2999,
     instructorId: "inst_001",
