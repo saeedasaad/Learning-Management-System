@@ -23,13 +23,13 @@ export default function PopularCourses() {
           courses.map((course) => (
             <div
               key={course._id}
-              className="relative group rounded-xl shadow hover:shadow-xl transition duration-300 overflow-hidden"
+              className="relative group shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
             >
               {/* Course Image */}
               <img
                 src={course.thumbnail || "/assets/course-placeholder.jpg"}
                 alt={course.title}
-                className="w-full h-56 object-cover rounded-xl transform group-hover:scale-105 transition duration-500"
+                className="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500"
               />
 
               {/* Overlay with smooth fade */}

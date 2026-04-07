@@ -10,7 +10,6 @@ import MissionVisionSection from "../components/about/MissionVisionSection.jsx";
 export default function About() {
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Banner */}
       <Banner
         title="About Us"
         description="Passionate About Driving Success For Learners"
