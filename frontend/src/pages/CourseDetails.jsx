@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { courses, instructors } from "../assets/assets.js";
+import { getCourseById } from "../utils/api.js";
 import CourseHero from "../components/Courses/CourseHero.jsx";
 import CourseHighlights from "../components/Courses/CourseHighlights.jsx";
 import CurriculumSection from "../components/Courses/CurriculumSection.jsx";
@@ -10,8 +10,19 @@ import CallToAction from "../components/home/CallToAction.jsx";
 
 export default function CourseDetails() {
   const { id } = useParams();
-  const course = courses.find((c) => c._id === id);
-  const instructor = instructors.find((inst) => inst._id === course?.instructorId);
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const data = await getCourseById(id);
+        setCourse(data);
+      } catch (err) {
+        console.error("Error fetching course:", err);
+      }
+    };
+    fetchCourse();
+  }, [id]);
 
   if (!course) {
     return (
@@ -23,10 +34,7 @@ export default function CourseDetails() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-
-      <CourseHero course={course} instructor={instructor} />
-
-
+      <CourseHero course={course} instructor={{ name: course.instructorId }} />
       <CourseHighlights
         duration={course.duration}
         modules={course.modules}

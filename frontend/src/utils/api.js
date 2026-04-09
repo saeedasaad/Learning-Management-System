@@ -25,4 +25,15 @@ export const registerUser = async (userData) => {
   return data;
 };
 
+export const getCourses = async () => {
+  const { data } = await api.get("/courses");
+  return data;
+};
+
+export const getCourseById = async (id) => {
+  const { data } = await api.get(`/courses/${id}`);
+  return data;
+};
+
+
 export default api;

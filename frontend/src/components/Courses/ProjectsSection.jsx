@@ -12,27 +12,13 @@ export default function ProjectsSection({ projects }) {
 
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((proj, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-md overflow-hidden"
-          >
-            {/* Project Image */}
+          <div key={index} className="bg-white shadow-md overflow-hidden">
             {proj.image && (
-              <img
-                src={proj.image}
-                alt={proj.title}
-                className="w-full h-56 object-cover"
-              />
+              <img src={`http://localhost:5000${proj.image}`} alt={proj.title} className="w-full h-56 object-cover" />
             )}
-
-            {/* Project Content */}
             <div className="p-6 text-center">
-              <h3 className="text-xl font-semibold text-[#02448d] mb-3">
-                {proj.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {proj.desc}
-              </p>
+              <h3 className="text-xl font-semibold text-[#02448d] mb-3">{proj.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{proj.desc}</p>
             </div>
           </div>
         ))}

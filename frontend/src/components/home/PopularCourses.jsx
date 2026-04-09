@@ -1,12 +1,21 @@
-import React from "react";
-import { courses, instructors } from "../../assets/assets";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getCourses } from "../../utils/api.js"; 
 
 export default function PopularCourses() {
-  const getInstructorName = (id) => {
-    const instructor = instructors.find((inst) => inst._id === id);
-    return instructor ? instructor.name : "Unknown Instructor";
-  };
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const data = await getCourses();
+        setCourses(data);
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   const truncateText = (text, wordLimit) => {
     const words = text.split(" ");
@@ -25,14 +34,12 @@ export default function PopularCourses() {
               key={course._id}
               className="relative group shadow-lg hover:shadow-xl transition duration-300 overflow-hidden"
             >
-              {/* Course Image */}
               <img
-                src={course.thumbnail || "/assets/course-placeholder.jpg"}
+                src={`http://localhost:5000${course.thumbnail}`}
                 alt={course.title}
                 className="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500"
               />
 
-              {/* Overlay with smooth fade */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d488d] via-[#1a579d] to-[#3772b6] flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
                 <h3 className="text-white text-lg font-bold mb-2 drop-shadow-lg">
                   {course.title}

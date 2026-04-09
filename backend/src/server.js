@@ -32,7 +32,7 @@ app.use("/api/instructor", instructorRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/courses", courseRoutes);
 
-// Error Handling Middleware
+
 app.use(notFound);
 app.use(errorHandler);
 

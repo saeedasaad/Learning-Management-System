@@ -32,7 +32,7 @@ export default function CertificationSection({ certificates = [] }) {
           >
             {cert.certificateImage && (
               <img
-                src={cert.certificateImage}
+                src={`http://localhost:5000${cert.certificateImage}`}
                 alt={`${cert.courseTitle} Certificate`}
                 className="w-full object-cover"
               />

@@ -2,31 +2,14 @@ import React from "react";
 import { FaSeedling, FaChartLine, FaRocket } from "react-icons/fa";
 import EduMasterCTA from "../../assets/39eecbeca86920e153e277780f20feed.jpg";
 
-
-export default function CurriculumSection() {
+export default function CurriculumSection({ curriculum }) {
   const levels = [
-    {
-      icon: <FaSeedling />,
-      title: "Beginner",
-      content: "Python, Data Analysis, Statistics",
-      color: "text-green-600",
-    },
-    {
-      icon: <FaChartLine />,
-      title: "Intermediate",
-      content: "Machine Learning, Deep Learning, SQL",
-      color: "text-blue-600",
-    },
-    {
-      icon: <FaRocket />,
-      title: "Advanced",
-      content: "GenAI, Deployment, Capstone Project",
-      color: "text-purple-600",
-    },
+    { icon: <FaSeedling />, title: "Beginner", content: curriculum?.beginner?.join(", "), color: "text-green-600" },
+    { icon: <FaChartLine />, title: "Intermediate", content: curriculum?.intermediate?.join(", "), color: "text-blue-600" },
+    { icon: <FaRocket />, title: "Advanced", content: curriculum?.advanced?.join(", "), color: "text-purple-600" },
   ];
 
   return (
-
     <section
       className="relative py-20 text-white"
       style={{
@@ -37,7 +20,7 @@ export default function CurriculumSection() {
     >
       <div className="absolute inset-0 bg-[#044089]/70"></div>
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-12">        Curriculum Overview</h2>
+        <h2 className="text-4xl font-bold mb-12">Curriculum Overview</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {levels.map((level, index) => (
             <div key={index} className="p-6 text-center">
@@ -51,6 +34,5 @@ export default function CurriculumSection() {
         </div>
       </div>
     </section>
-
   );
 }
