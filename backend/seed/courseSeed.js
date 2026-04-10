@@ -7,7 +7,7 @@ dotenv.config();
 
 export const courses = [
   {
-    _id: "course_101",
+    // _id: "course_101",
     title: "MERN Stack Development",
     category: "Web Development",
     price: 2999,
@@ -44,7 +44,7 @@ export const courses = [
     status: "approved",
   },
   {
-    _id: "course_102",
+    // _id: "course_102",
     title: "Advanced React Masterclass",
     category: "Frontend",
     price: 2499,
@@ -81,7 +81,7 @@ export const courses = [
     status: "approved",
   },
   {
-    _id: "course_103",
+    // _id: "course_103",
     title: "Node.js & Express Bootcamp",
     category: "Backend",
     price: 1999,
@@ -118,7 +118,7 @@ export const courses = [
     status: "approved",
   },
   {
-    _id: "course_104",
+    // _id: "course_104",
     title: "UI/UX Design Fundamentals",
     category: "Design",
     price: 1799,
@@ -155,7 +155,7 @@ export const courses = [
     status: "approved",
   },
 {
-  _id: "course_105",
+  // _id: "course_105",
   title: "DevOps & Cloud Deployment",
   category: "DevOps",
   price: 3499,
@@ -192,7 +192,7 @@ export const courses = [
   status: "approved",
 },
 {
-  _id: "course_106",
+  // _id: "course_106",
   title: "Data Science with Python",
   category: "Data Science",
   price: 3999,
@@ -236,7 +236,7 @@ const seedCourses = async () => {
     await connectDB();
 
     for (const course of courses) {
-      const existing = await Course.findOne({ _id: course._id });
+      const existing = await Course.findOne({ title: course.title });
       if (!existing) {
         const newCourse = new Course(course);
         await newCourse.save();

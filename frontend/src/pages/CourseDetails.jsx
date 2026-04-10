@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCourseById } from "../utils/api.js";
+import { getCourseById, registerUser, enrollCourse } from "../utils/api.js";
 import CourseHero from "../components/Courses/CourseHero.jsx";
 import CourseHighlights from "../components/Courses/CourseHighlights.jsx";
 import CurriculumSection from "../components/Courses/CurriculumSection.jsx";
 import ProjectsSection from "../components/Courses/ProjectsSection.jsx";
 import CertificationSection from "../components/Courses/CertificationSection.jsx";
 import CallToAction from "../components/home/CallToAction.jsx";
+import EnrollmentModal from "../components/Courses/EnrollmentModal.jsx";
 
 export default function CourseDetails() {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -34,7 +36,7 @@ export default function CourseDetails() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <CourseHero course={course} instructor={{ name: course.instructorId }} />
+      <CourseHero course={course} onEnroll={() => setShowModal(true)} />
       <CourseHighlights
         duration={course.duration}
         modules={course.modules}
@@ -45,6 +47,13 @@ export default function CourseDetails() {
       <ProjectsSection projects={course.projects} />
       <CertificationSection certificates={course.certificates} />
       <CallToAction />
+
+      {showModal && (
+        <EnrollmentModal
+          course={course}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 }

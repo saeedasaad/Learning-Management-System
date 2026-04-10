@@ -11,7 +11,6 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-// ✅ Admin-only routes
 router.get("/users", protect, adminOnly, getUsers);
 router.patch("/users/:id", protect, adminOnly, updateUserStatus);
 router.get("/courses", protect, adminOnly, getCourses);

@@ -16,9 +16,11 @@ import DashboardOverview from "./pages/student/DashboardOverview";
 import MyCourses from "./pages/student/MyCourses";
 import CourseLearning from "./pages/student/CourseLearning";
 import VideoPlayer from "./pages/student/VideoPlayer";
-import StudentChat from "./pages/student/Chat";
-import StudentProfile from "./pages/student/Profile";
-import StudentSettings from "./pages/student/Settings";
+import StudentChat from "./pages/student/StudentChat";
+import StudentProfile from "./pages/student/StudentProfile";
+import StudentSettings from "./pages/student/StudentSettings";
+import MyActivities from "./pages/student/MyActivities";
+import TraineeServices from "./pages/student/TraineeServices";
 
 // Instructor Pages
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
@@ -38,13 +40,14 @@ import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
 
+
 function App() {
   return (
     <Routes>
       {/* Public Routes */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses/>} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -55,10 +58,13 @@ function App() {
       {/* Student Dashboard */}
       <Route element={<DashboardLayout role="student" />}>
         <Route path="/student/dashboard" element={<DashboardOverview />} />
-        <Route path="/student/my-courses" element={<MyCourses />} />
-        <Route path="/student/course/:id" element={<CourseLearning />} />
-        <Route path="/student/video/:id" element={<VideoPlayer />} />
+        <Route path="/student/my-courses" element={<MyCourses />}>
+          <Route path=":id" element={<CourseLearning />} />
+          <Route path=":id/video/:videoId" element={<VideoPlayer />} />
+        </Route>
         <Route path="/student/chat" element={<StudentChat />} />
+        <Route path="/student/activities" element={<MyActivities />} />
+        <Route path="/student/services" element={<TraineeServices />} />
         <Route path="/student/profile" element={<StudentProfile />} />
         <Route path="/student/settings" element={<StudentSettings />} />
       </Route>
@@ -68,8 +74,14 @@ function App() {
         <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
         <Route path="/instructor/create-course" element={<CreateCourse />} />
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
-        <Route path="/instructor/upload-lectures" element={<UploadLectures />} />
-        <Route path="/instructor/manage-students" element={<ManageStudents />} />
+        <Route
+          path="/instructor/upload-lectures"
+          element={<UploadLectures />}
+        />
+        <Route
+          path="/instructor/manage-students"
+          element={<ManageStudents />}
+        />
         <Route path="/instructor/revenue" element={<Revenue />} />
         <Route path="/instructor/chat" element={<InstructorChat />} />
         <Route path="/instructor/profile" element={<InstructorProfile />} />

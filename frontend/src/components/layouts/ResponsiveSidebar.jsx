@@ -34,15 +34,15 @@ export default function ResponsiveSidebar({ role }) {
         icon: <RiBook2Line />,
       },
       {
-        path: "/student/course/:id",
-        label: "Course Learning",
+        path: "/student/activities",
+        label: "My Activities",
         icon: <RiBookOpenLine />,
-      }, 
+      },
       {
-        path: "/student/video/:id",
-        label: "Video Player",
+        path: "/student/services",
+        label: "Trainee Services",
         icon: <RiVideoLine />,
-      }, 
+      },
       { path: "/student/chat", label: "Chat", icon: <RiChat3Line /> },
       { path: "/student/profile", label: "Profile", icon: <RiUser3Line /> },
       {
@@ -51,6 +51,7 @@ export default function ResponsiveSidebar({ role }) {
         icon: <RiSettings3Line />,
       },
     ],
+
     instructor: [
       {
         path: "/instructor/dashboard",
