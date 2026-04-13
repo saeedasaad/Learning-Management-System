@@ -7,7 +7,6 @@ export default function CourseHero({ course, instructor, onEnroll }) {
 
       <div className="mx-auto w-[85%] grid lg:grid-cols-2 gap-10 items-center">
         
-
         <div className="text-center lg:text-left">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">{course.title}</h1>
           <p className="text-md mb-6 max-w-md mx-auto lg:mx-0 text-gray-200">
@@ -19,7 +18,6 @@ export default function CourseHero({ course, instructor, onEnroll }) {
             </p>
           )}
         </div>
-
 
         <div className="flex justify-center">
           <div className="shadow-xl rounded-xl overflow-hidden">

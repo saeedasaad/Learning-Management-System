@@ -33,8 +33,8 @@ export const getCourses = async () => {
   return data;
 };
 
-export const getCourseById = async (id) => {
-  const { data } = await api.get(`/courses/${id}`);
+export const getCourseById = async (_id) => {
+  const { data } = await api.get(`/courses/${_id}`);
   return data;
 };
 

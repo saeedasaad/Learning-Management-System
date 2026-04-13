@@ -7,7 +7,7 @@ dotenv.config();
 
 export const courses = [
   {
-    // _id: "course_101",
+    id: "course_101",
     title: "MERN Stack Development",
     category: "Web Development",
     price: 2999,
@@ -44,7 +44,7 @@ export const courses = [
     status: "approved",
   },
   {
-    // _id: "course_102",
+    id: "course_102",
     title: "Advanced React Masterclass",
     category: "Frontend",
     price: 2499,
@@ -81,7 +81,7 @@ export const courses = [
     status: "approved",
   },
   {
-    // _id: "course_103",
+    id: "course_103",
     title: "Node.js & Express Bootcamp",
     category: "Backend",
     price: 1999,
@@ -118,7 +118,7 @@ export const courses = [
     status: "approved",
   },
   {
-    // _id: "course_104",
+    id: "course_104",
     title: "UI/UX Design Fundamentals",
     category: "Design",
     price: 1799,
@@ -155,7 +155,7 @@ export const courses = [
     status: "approved",
   },
 {
-  // _id: "course_105",
+  id: "course_105",
   title: "DevOps & Cloud Deployment",
   category: "DevOps",
   price: 3499,
@@ -192,7 +192,7 @@ export const courses = [
   status: "approved",
 },
 {
-  // _id: "course_106",
+  id: "course_106",
   title: "Data Science with Python",
   category: "Data Science",
   price: 3999,

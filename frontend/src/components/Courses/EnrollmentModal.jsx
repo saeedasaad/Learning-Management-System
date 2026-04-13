@@ -18,7 +18,7 @@ export default function EnrollmentModal({ course, onClose }) {
 
   const handleEnroll = async () => {
     try {
-      await enrollCourse(course._id); 
+      await enrollCourse(course.id); 
       alert("Enrollment successful!");
       onClose();
       navigate("/student/dashboard");

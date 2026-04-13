@@ -18,11 +18,12 @@ const quizSchema = new mongoose.Schema({
 });
 
 const courseSchema = new mongoose.Schema({
+  id: { type: String, required: true, unique: true },   // custom course ID
   title: { type: String, required: true },
   category: { type: String, required: true },
   price: { type: Number, required: true },
   originalPrice: { type: Number },
-  instructorId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  instructorId: { type: String, required: true },       // stored as String
   studentsEnrolled: { type: Number, default: 0 },
   rating: { type: Number, default: 0 },
   thumbnail: { type: String },
@@ -33,17 +34,20 @@ const courseSchema = new mongoose.Schema({
   notes: [noteSchema],
   quizzes: [quizSchema],
 
+  modules: { type: String },
+  questions: { type: String },
+
   certificates: [
     {
-      courseTitle: String,
-      certificateImage: String,
+      courseTitle: { type: String },
+      certificateImage: { type: String },
     },
   ],
   projects: [
     {
-      title: String,
-      desc: String,
-      image: String,
+      title: { type: String },
+      desc: { type: String },
+      image: { type: String },
     },
   ],
   curriculum: {
@@ -57,4 +61,5 @@ const courseSchema = new mongoose.Schema({
 });
 
 const Course = mongoose.model("Course", courseSchema);
+
 export default Course;

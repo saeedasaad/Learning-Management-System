@@ -5,6 +5,7 @@ import { getCourses } from "../../utils/api.js";
 
 export default function CourseListing() {
   const [courses, setCourses] = useState([]);
+  console.log(courses);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -27,7 +28,7 @@ export default function CourseListing() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {courses.map((course) => (
           <div
-            key={course._id}
+            key={course.id}
             className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border border-[#02448d]/10"
           >
             <img
@@ -41,7 +42,7 @@ export default function CourseListing() {
             <p className="text-[#ffac0b] mt-2 font-medium flex items-center gap-1">
               <i className="ri-star-fill"></i> {course.rating}
             </p>
-            <p className="text-[#02448d] font-bold mt-2">₹ {course.price}</p>
+            <p className="text-[#02448d] font-bold mt-2">$ {course.price}</p>
             <Link to={`/courses/${course._id}`}>
               <Button variant="primaryBlue" className="mt-4">
                 View Details <i className="ri-arrow-right-line"></i>

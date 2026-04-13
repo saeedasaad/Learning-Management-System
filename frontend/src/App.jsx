@@ -40,7 +40,6 @@ import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
 
-
 function App() {
   return (
     <Routes>

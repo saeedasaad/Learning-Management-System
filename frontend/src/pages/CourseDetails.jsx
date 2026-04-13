@@ -10,21 +10,22 @@ import CallToAction from "../components/home/CallToAction.jsx";
 import EnrollmentModal from "../components/Courses/EnrollmentModal.jsx";
 
 export default function CourseDetails() {
-  const { id } = useParams();
+  const { _id } = useParams();
   const [course, setCourse] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    if (!id) return;
     const fetchCourse = async () => {
       try {
-        const data = await getCourseById(id);
+        const data = await getCourseById(_id);
         setCourse(data);
       } catch (err) {
         console.error("Error fetching course:", err);
       }
     };
     fetchCourse();
-  }, [id]);
+  }, [_id]);
 
   if (!course) {
     return (
@@ -49,10 +50,7 @@ export default function CourseDetails() {
       <CallToAction />
 
       {showModal && (
-        <EnrollmentModal
-          course={course}
-          onClose={() => setShowModal(false)}
-        />
+        <EnrollmentModal course={course} onClose={() => setShowModal(false)} />
       )}
     </div>
   );
