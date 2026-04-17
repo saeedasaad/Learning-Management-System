@@ -1,3 +1,4 @@
+// backend/seeds/adminseed.js
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
@@ -11,11 +12,10 @@ const seedAdmin = async () => {
     await connectDB();
 
     const adminEmail = "admin@gmail.com";
-    const adminPassword = "Admin@123"; 
-    const existingAdmin = await User.findOne({ email: adminEmail });
+    const adminPassword = "Admin@123";
 
+    const existingAdmin = await User.findOne({ email: adminEmail });
     if (existingAdmin) {
-      console.log(" Admin already exists");
       process.exit();
     }
 
@@ -29,10 +29,10 @@ const seedAdmin = async () => {
     });
 
     await adminUser.save();
-    console.log("Admin user created successfully");
+    console.log(" Admin user created successfully");
     process.exit();
   } catch (err) {
-    console.error(" Error seeding admin:", err.message);
+    console.error("Error seeding admin:", err.message);
     process.exit(1);
   }
 };

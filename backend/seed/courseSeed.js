@@ -6,43 +6,101 @@ import Course from "../models/Course.js";
 dotenv.config();
 
 export const courses = [
-  {
-    id: "course_101",
-    title: "MERN Stack Development",
-    category: "Web Development",
-    price: 2999,
-    originalPrice: 3999,
-    instructorId: "inst_001",
-    studentsEnrolled: 520,
-    rating: 4.8,
-    thumbnail: "/uploads/courses/C_img_1.png",
-    description:
-      "Learn to build full-stack applications using MongoDB, Express, React, and Node.js. This course covers everything from basics to advanced deployment strategies, helping you master end-to-end web development.",
-    duration: "120+ Hours",
-    modules: "15+ Modules",
-    questions: "800+ Practice Questions",
-    certificates: [
-      { courseTitle: "MERN Stack Development", certificateImage: "/uploads/certificates/mern_certificate.jpg" },
-    ],
-    projects: [
-      { title: "E-commerce Platform", desc: "Build a complete MERN-based e-commerce application with product listings, cart functionality, and secure payment integration.", image: "/uploads/projects/mern_ecommerce.jpg" },
-      { title: "Social Media Clone", desc: "Develop a scalable social media app featuring user authentication, posts, likes, and real-time chat using Socket.io.", image: "/uploads/projects/mern_social_clone.jpg" },
-      { title: "Admin Dashboard", desc: "Create a modular admin dashboard with analytics, charts, and role-based access using React and Node.js.", image: "/uploads/projects/mern_dashboard.jpg" },
-    ],
-    curriculum: {
-      beginner: ["HTML, CSS, JavaScript", "Intro to React", "Node.js Basics"],
-      intermediate: ["Express.js", "MongoDB CRUD", "Authentication"],
-      advanced: ["React Hooks & Context", "Deployment", "Capstone Project"],
+{
+  id: "course_101",
+  title: "MERN Stack Development",
+  category: "Web Development",
+  price: 2999,
+  instructorId: "inst_001",
+  status: "approved",
+  modules: [
+    {
+      title: "Module 1 - Introduction",
+      lectures: [
+        { title: "Intro to MERN", videoUrl: "/uploads/lectures/mern_intro.mp4", releaseDate: new Date("2026-04-10") },
+        { title: "React Basics", videoUrl: "/uploads/lectures/react_basics.mp4", releaseDate: new Date("2026-04-12") },
+        { title: "JS Fundamentals", videoUrl: "/uploads/lectures/js_fundamentals.mp4", releaseDate: new Date("2026-04-13") },
+        { title: "Node.js Basics", videoUrl: "/uploads/lectures/node_basics.mp4", releaseDate: new Date("2026-04-14") },
+        { title: "Environment Setup", videoUrl: "/uploads/lectures/env_setup.mp4", releaseDate: new Date("2026-04-15") }
+      ],
+      note: { title: "Module 1 Notes", fileUrl: "/uploads/notes/module1.pdf", releaseDate: new Date("2026-04-10") },
+      quiz: {
+        questions: [
+          { question: "What does MERN stand for?", options: ["MongoDB","Express","React","Node"], answer: "All of the above" },
+          { question: "Which language is used in MERN?", options: ["Python","JavaScript","Java"], answer: "JavaScript" },
+          { question: "Which part of MERN is frontend?", options: ["MongoDB","React","Node"], answer: "React" },
+          { question: "Which part of MERN is backend?", options: ["Express","React","CSS"], answer: "Express" },
+          { question: "Which database is used in MERN?", options: ["MySQL","MongoDB","Postgres"], answer: "MongoDB" }
+        ],
+        releaseDate: new Date("2026-04-15")
+      }
     },
-    outcomes: [
-      "Build full-stack web apps",
-      "Work with MongoDB databases",
-      "Deploy apps to cloud platforms",
-      "Create a professional portfolio",
-    ],
-    certificate: true,
-    status: "approved",
-  },
+    {
+      title: "Module 2 - MongoDB",
+      lectures: [
+        { title: "MongoDB CRUD", videoUrl: "/uploads/lectures/mongo_crud.mp4", releaseDate: new Date("2026-04-20") },
+        { title: "Indexes", videoUrl: "/uploads/lectures/mongo_indexes.mp4", releaseDate: new Date("2026-04-21") },
+        { title: "Aggregation", videoUrl: "/uploads/lectures/mongo_aggregation.mp4", releaseDate: new Date("2026-04-22") },
+        { title: "Relationships", videoUrl: "/uploads/lectures/mongo_relationships.mp4", releaseDate: new Date("2026-04-23") },
+        { title: "Security", videoUrl: "/uploads/lectures/mongo_security.mp4", releaseDate: new Date("2026-04-24") }
+      ],
+      note: { title: "Module 2 Notes", fileUrl: "/uploads/notes/module2.pdf", releaseDate: new Date("2026-04-20") },
+      quiz: {
+        questions: [
+          { question: "Which database engine is used in MERN?", options: ["MySQL","MongoDB","Oracle"], answer: "MongoDB" },
+          { question: "Which command inserts a document?", options: ["insertOne","addDoc","push"], answer: "insertOne" },
+          { question: "Which MongoDB feature speeds queries?", options: ["Indexes","Aggregation","Replication"], answer: "Indexes" },
+          { question: "Which operator is used for filtering?", options: ["$match","$filter","$where"], answer: "$match" },
+          { question: "Which MongoDB feature ensures security?", options: ["Authentication","Replication","Aggregation"], answer: "Authentication" }
+        ],
+        releaseDate: new Date("2026-04-20")
+      }
+    },
+    {
+      title: "Module 3 - Express",
+      lectures: [
+        { title: "Express Routing", videoUrl: "/uploads/lectures/express_routing.mp4", releaseDate: new Date("2026-04-25") },
+        { title: "Middleware", videoUrl: "/uploads/lectures/middleware.mp4", releaseDate: new Date("2026-04-26") },
+        { title: "Authentication", videoUrl: "/uploads/lectures/authentication.mp4", releaseDate: new Date("2026-04-27") },
+        { title: "Error Handling", videoUrl: "/uploads/lectures/error_handling.mp4", releaseDate: new Date("2026-04-28") },
+        { title: "API Design", videoUrl: "/uploads/lectures/api_design.mp4", releaseDate: new Date("2026-04-29") }
+      ],
+      note: { title: "Module 3 Notes", fileUrl: "/uploads/notes/module3.pdf", releaseDate: new Date("2026-04-25") },
+      quiz: {
+        questions: [
+          { question: "Which library handles routing?", options: ["React Router","Express","Axios"], answer: "Express" },
+          { question: "What is middleware used for?", options: ["Routing","Handling requests","Database"], answer: "Handling requests" },
+          { question: "Which package is required for Express?", options: ["express","axios","react"], answer: "express" },
+          { question: "Which method handles GET requests?", options: ["app.get","app.post","app.use"], answer: "app.get" },
+          { question: "Which method handles POST requests?", options: ["app.get","app.post","app.put"], answer: "app.post" }
+        ],
+        releaseDate: new Date("2026-04-25")
+      }
+    },
+    {
+      title: "Module 4 - Deployment",
+      lectures: [
+        { title: "Deployment Basics", videoUrl: "/uploads/lectures/deployment.mp4", releaseDate: new Date("2026-05-01") },
+        { title: "Heroku Deployment", videoUrl: "/uploads/lectures/heroku.mp4", releaseDate: new Date("2026-05-02") },
+        { title: "Netlify Deployment", videoUrl: "/uploads/lectures/netlify.mp4", releaseDate: new Date("2026-05-03") },
+        { title: "CI/CD Pipelines", videoUrl: "/uploads/lectures/cicd.mp4", releaseDate: new Date("2026-05-04") },
+        { title: "Cloud Scaling", videoUrl: "/uploads/lectures/cloud_scaling.mp4", releaseDate: new Date("2026-05-05") }
+      ],
+      note: { title: "Module 4 Notes", fileUrl: "/uploads/notes/module4.pdf", releaseDate: new Date("2026-05-01") },
+      quiz: {
+        questions: [
+          { question: "Which service is used for deployment?", options: ["Heroku","Netlify","Both"], answer: "Both" },
+          { question: "What does CI/CD stand for?", options: ["Continuous Integration/Continuous Deployment","Code Integration/Code Delivery","Continuous Improvement/Continuous Delivery"], answer: "Continuous Integration/Continuous Deployment" },
+          { question: "Which tool is used for pipelines?", options: ["Jenkins","MongoDB","React"], answer: "Jenkins" },
+          { question: "Which service is best for frontend hosting?", options: ["Netlify","Heroku","MongoDB"], answer: "Netlify" },
+          { question: "Which service is best for backend hosting?", options: ["Heroku","Netlify","React"], answer: "Heroku" }
+        ],
+        releaseDate: new Date("2026-05-01")
+      }
+    }
+  ]
+},
+
   {
     id: "course_102",
     title: "Advanced React Masterclass",

@@ -6,10 +6,11 @@ const enrollmentSchema = new mongoose.Schema(
     course: { type: mongoose.Schema.Types.ObjectId, ref: "Course", required: true },
     status: { type: String, enum: ["pending", "active", "completed"], default: "pending" },
     progress: { type: Number, default: 0 }, 
-    results: { type: Object }, 
+    results: { type: String },              
   },
   { timestamps: true }
 );
 
-const Enrollment = mongoose.model("Enrollment", enrollmentSchema);
+const Enrollment = mongoose.models.Enrollment || mongoose.model("Enrollment", enrollmentSchema);
+
 export default Enrollment;

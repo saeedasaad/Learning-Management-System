@@ -1,6 +1,6 @@
-
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import { logger } from "./utils/logger.js";
@@ -12,7 +12,10 @@ import instructorRoutes from "./routes/instructor.js";
 import studentRoutes from "./routes/student.js";
 import courseRoutes from "./routes/course.js";
 
+// Controllers
 import { stripeWebhook } from "./controllers/studentController.js";
+
+dotenv.config();
 
 const app = express();
 
@@ -23,14 +26,17 @@ connectDB();
 app.use(cors());
 app.use(logger);
 
-// Stripe webhook (raw body required)
+console.log(
+  "Stripe key:",
+  process.env.STRIPE_SECRET_KEY ? "Loaded" : "Missing",
+);
+
 app.post(
   "/api/student/payment/webhook",
   express.raw({ type: "application/json" }),
-  stripeWebhook
+  stripeWebhook,
 );
 
-// JSON parser
 app.use(express.json());
 
 // Static uploads

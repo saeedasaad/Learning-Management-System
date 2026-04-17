@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCourseById, registerUser, enrollCourse } from "../utils/api.js";
+import { getCourseById, registerUser, enrollCourse } from "../utils/apis.js";
 import CourseHero from "../components/Courses/CourseHero.jsx";
 import CourseHighlights from "../components/Courses/CourseHighlights.jsx";
 import CurriculumSection from "../components/Courses/CurriculumSection.jsx";
@@ -10,7 +10,7 @@ import CallToAction from "../components/home/CallToAction.jsx";
 import EnrollmentModal from "../components/Courses/EnrollmentModal.jsx";
 
 export default function CourseDetails() {
-  const { _id } = useParams();
+  const { id } = useParams();
   const [course, setCourse] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -18,14 +18,14 @@ export default function CourseDetails() {
     if (!id) return;
     const fetchCourse = async () => {
       try {
-        const data = await getCourseById(_id);
+        const data = await getCourseById(id);
         setCourse(data);
       } catch (err) {
         console.error("Error fetching course:", err);
       }
     };
     fetchCourse();
-  }, [_id]);
+  }, [id]);
 
   if (!course) {
     return (

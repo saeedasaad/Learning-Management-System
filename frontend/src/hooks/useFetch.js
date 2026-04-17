@@ -8,11 +8,12 @@ const useFetch = (url) => {
 
   useEffect(() => {
     let isMounted = true;
+
     api.get(url)
       .then((res) => {
         if (isMounted) setData(res.data);
       })
-      .catch((err) => setError(err.message))
+      .catch((err) => setError(err.response?.data?.error || err.message))
       .finally(() => setLoading(false));
 
     return () => { isMounted = false; };

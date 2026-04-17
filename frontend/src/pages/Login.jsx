@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/authSlice";
-import { loginUser } from "../utils/api";
+import { loginUser } from "../utils/apis";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -10,24 +10,29 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await loginUser({ email, password });
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    console.log("Login payload:", { email, password });
+    const res = await loginUser({ email, password });
+    console.log("Login response:", res);
 
-      const response = { user: res.user, token: res.token };
+    localStorage.setItem("token", res.token);
+    localStorage.setItem("user", JSON.stringify(res.user));
 
-      localStorage.setItem("token", response.token);
-      dispatch(loginSuccess(response));
+    dispatch(loginSuccess({ user: res.user, token: res.token }));
 
-      // Redirect based on role
-      if (response.user.role === "student") navigate("/student/dashboard");
-      else if (response.user.role === "instructor") navigate("/instructor/dashboard");
-      else if (response.user.role === "admin") navigate("/admin/dashboard");
-    } catch (err) {
-      alert(err.response?.data?.error || "Login failed");
-    }
-  };
+    console.log("User role:", res.user.role);
+
+    if (res.user.role === "student") navigate("/student/dashboard");
+    else if (res.user.role === "instructor") navigate("/instructor/dashboard");
+    else if (res.user.role === "admin") navigate("/admin/dashboard");
+  } catch (err) {
+    console.error("Login error:", err.response?.data || err.message);
+    alert(err.response?.data?.error || "Login failed");
+  }
+};
+
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 mt-[200px] mb-[200px]">
