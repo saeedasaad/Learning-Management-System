@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import api from "../../utils/api";
+import api from "../../utils/apis";
 import DashboardCard from "../../components/layouts/DashboardCard";
 
 function ManageCourses() {

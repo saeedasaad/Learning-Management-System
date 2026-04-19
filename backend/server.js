@@ -49,6 +49,7 @@ app.use("/api/instructor", instructorRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/courses", courseRoutes);
 
+
 // Error handlers
 app.use(notFound);
 app.use(errorHandler);

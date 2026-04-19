@@ -61,6 +61,8 @@ function App() {
           <Route path=":id" element={<CourseLearning />} />
           <Route path=":id/video/:videoId" element={<VideoPlayer />} />
         </Route>
+
+        {/* Other student features */}
         <Route path="/student/chat" element={<StudentChat />} />
         <Route path="/student/activities" element={<MyActivities />} />
         <Route path="/student/services" element={<TraineeServices />} />

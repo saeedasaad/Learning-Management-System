@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCourses } from "../../utils/api.js"; 
+import { getCourses } from "../../utils/apis.js"; 
 
 export default function PopularCourses() {
   const [courses, setCourses] = useState([]);

@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "http://localhost:5000/api", 
 });
 
+// Attach token automatically
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -13,6 +14,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Auth endpoints
 export const registerUser = async (userData) => {
   const { data } = await api.post("/auth/register", userData);
   return data;
@@ -23,6 +25,7 @@ export const loginUser = async (credentials) => {
   return data;
 };
 
+// Student endpoints
 export const enrollCourse = async (courseId) => {
   const { data } = await api.post(`/student/enroll/${courseId}`);
   return data;
@@ -50,6 +53,11 @@ export const getMyCourses = async () => {
 
 export const getProgress = async () => {
   const { data } = await api.get("/student/progress");
+  return data;
+};
+
+export const getActivities = async () => {
+  const { data } = await api.get("/student/activities");
   return data;
 };
 

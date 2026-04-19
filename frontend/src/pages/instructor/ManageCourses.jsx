@@ -1,6 +1,6 @@
 import DashboardCard from "../../components/layouts/DashboardCard";
 import useFetch from "../../hooks/useFetch";
-import api from "../../utils/api";
+import api from "../../utils/apis";
 
 
 function ManageCourses() {

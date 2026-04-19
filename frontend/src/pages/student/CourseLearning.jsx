@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import DashboardCard from "../../components/layouts/DashboardCard";
+import { getCourseDetails } from "../../utils/apis";
 
 export default function CourseLearning() {
+  const { id } = useParams();
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const data = await getCourseDetails(id); 
+        setCourse(data);
+      } catch (err) {
+        console.error("Error fetching course details:", err);
+      }
+    };
+    fetchCourse();
+  }, [id]);
+
+  if (!course) return <p>Loading...</p>;
+
   return (
-    <DashboardCard title="Course Learning">
-      <p className="text-gray-600">Welcome to your course. Select a lecture to begin learning.</p>
+    <DashboardCard title={course.title}>
+      <p className="text-gray-600">{course.description}</p>
       <ul className="mt-4 space-y-2 text-gray-600">
-        <li>Lecture 1: Introduction</li>
-        <li>Lecture 2: Advanced Concepts</li>
-        <li>Lecture 3: Project Work</li>
+        {course.lectures?.map((lecture, index) => (
+          <li key={index}>{lecture.title}</li>
+        ))}
       </ul>
     </DashboardCard>
   );
