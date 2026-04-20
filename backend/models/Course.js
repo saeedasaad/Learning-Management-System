@@ -7,12 +7,6 @@ const lectureSchema = new mongoose.Schema({
   duration: { type: String },
 });
 
-const noteSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  fileUrl: { type: String, required: true },
-  releaseDate: { type: Date, required: true },
-});
-
 const quizSchema = new mongoose.Schema({
   releaseDate: { type: Date, required: true },
   questions: [
@@ -51,9 +45,9 @@ const courseSchema = new mongoose.Schema({
   instructorId: { type: String, required: true },
   studentsEnrolled: { type: Number, default: 0 },
   rating: { type: Number, default: 0 },
-  thumbnail: { type: String },
-  description: { type: String },
-  duration: { type: String },
+  description: { type: String, required: true },
+  thumbnail: { type: String, required: true },
+  duration: { type: String, required: true },
 
   modules: [moduleSchema],
 
@@ -70,14 +64,14 @@ const courseSchema = new mongoose.Schema({
 
   faqs: [
     {
-      q: { type: String },
-      a: { type: String },
+      q: { type: String, required: true },
+      a: { type: String, required: true },
     },
   ],
   glossary: [
     {
-      term: { type: String },
-      definition: { type: String },
+      term: { type: String, required: true },
+      definition: { type: String, required: true },
     },
   ],
   completionCriteria: [String],

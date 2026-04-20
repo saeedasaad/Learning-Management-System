@@ -19,6 +19,7 @@ export default function CourseDetails() {
     const fetchCourse = async () => {
       try {
         const data = await getCourseById(id);
+        console.log("Fetched course:", data);
         setCourse(data);
       } catch (err) {
         console.error("Error fetching course:", err);

@@ -11,8 +11,16 @@ export const courses = [
     title: "MERN Stack Development",
     category: "Web Development",
     price: 2999,
+    originalPrice: 3999,
     instructorId: "inst_001",
+    studentsEnrolled: 520,
+    rating: 4.8,
+    thumbnail: "/uploads/courses/C_img_1.png",
+    description:
+      "Learn to build full-stack applications using MongoDB, Express, React, and Node.js.",
+    duration: "120+ Hours",
     status: "approved",
+
     modules: [
       {
         title: "Module 1 - Introduction",
@@ -283,7 +291,6 @@ export const courses = [
         },
       },
     ],
-
     faqs: [
       {
         q: "Are these courses suitable for beginners?",
@@ -341,7 +348,6 @@ export const courses = [
         definition: "Continuous Integration and Continuous Deployment",
       },
     ],
-
     completionCriteria: [
       "Complete all lectures in each module",
       "Attempt quizzes for each module",
@@ -349,7 +355,35 @@ export const courses = [
       "Achieve at least 70% in quizzes",
       "Participate in capstone project review",
     ],
+    certificates: [
+      {
+        courseTitle: "MERN Stack Development",
+        certificateImage: "/uploads/certificates/mern_certificate.jpg",
+      },
+    ],
+
+    projects: [
+      {
+        title: "MERN Dashboard",
+        desc: "Build a modular student dashboard with authentication, dynamic charts, and responsive design.",
+        image: "/uploads/projects/mern_dashboard.jpg",
+      },
+      {
+        title: "MERN Ecommerce",
+        desc: "Develop a full-stack ecommerce app with product catalog, cart, checkout, and payment integration.",
+        image: "/uploads/projects/mern_ecommerce.jpg",
+      },
+      {
+        title: "MERN Social Clone",
+        desc: "Create a social media clone with posts, likes, comments, and real-time notifications.",
+        image: "/uploads/projects/mern_social_clone.jpg",
+      },
+    ],
+    certificate: true,
+    status: "approved",
   },
+
+  // course_102
   {
     id: "course_102",
     title: "Advanced React Masterclass",
@@ -361,8 +395,10 @@ export const courses = [
     rating: 4.7,
     thumbnail: "/uploads/courses/C_img_2.png",
     description:
-      "Master advanced React concepts including hooks, context API, performance optimization, and scalable architecture. This course focuses on building production-ready frontends with reusable components.",
+      "Master advanced React concepts including hooks, context API, performance optimization, and scalable architecture.",
     duration: "90+ Hours",
+    status: "approved",
+
     modules: [
       {
         title: "Module 1 - React Fundamentals",
@@ -370,164 +406,298 @@ export const courses = [
         lectures: [
           {
             title: "React Basics Refresher",
-            videoUrl: "/uploads/lectures/react_basics.mp4",
+            videoUrl: "/uploads/lectures/react1.mp4",
             releaseDate: "2026-04-10",
-            duration: "00:12:00",
+            duration: "00:10:00",
           },
           {
             title: "JSX Deep Dive",
-            videoUrl: "/uploads/lectures/jsx.mp4",
+            videoUrl: "/uploads/lectures/react2.mp4",
             releaseDate: "2026-04-11",
-            duration: "00:10:30",
+            duration: "00:09:00",
           },
           {
-            title: "Component Patterns",
-            videoUrl: "/uploads/lectures/components.mp4",
+            title: "Components & Props",
+            videoUrl: "/uploads/lectures/react3.mp4",
             releaseDate: "2026-04-12",
-            duration: "00:14:20",
+            duration: "00:08:30",
+          },
+          {
+            title: "State & Lifecycle",
+            videoUrl: "/uploads/lectures/react4.mp4",
+            releaseDate: "2026-04-13",
+            duration: "00:11:00",
+          },
+          {
+            title: "Event Handling",
+            videoUrl: "/uploads/lectures/react5.mp4",
+            releaseDate: "2026-04-14",
+            duration: "00:07:45",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-12",
+          releaseDate: "2026-04-14",
           questions: [
             {
-              question: "What does JSX stand for?",
-              options: [
-                "JavaScript XML",
-                "Java Syntax Extension",
-                "JSON Syntax",
-              ],
+              question: "What is JSX?",
+              options: ["JavaScript XML", "JSON", "HTML"],
               answer: "JavaScript XML",
             },
             {
-              question: "Which hook manages state?",
-              options: ["useState", "useEffect", "useContext"],
+              question: "Which is used for state?",
+              options: ["useState", "useFetch", "useApi"],
               answer: "useState",
+            },
+            {
+              question: "Props are?",
+              options: ["Inputs", "Outputs", "Hooks"],
+              answer: "Inputs",
+            },
+            {
+              question: "React uses?",
+              options: ["Virtual DOM", "Real DOM", "Shadow DOM"],
+              answer: "Virtual DOM",
+            },
+            {
+              question: "Which handles events?",
+              options: ["Functions", "Classes", "Loops"],
+              answer: "Functions",
             },
           ],
         },
       },
+
       {
         title: "Module 2 - Hooks & Context",
         pdfUrl: "/uploads/notes/react_module2.pdf",
         lectures: [
           {
-            title: "Understanding useState & useEffect",
-            videoUrl: "/uploads/lectures/hooks_basics.mp4",
+            title: "useState & useEffect",
+            videoUrl: "/uploads/lectures/hook1.mp4",
             releaseDate: "2026-04-15",
-            duration: "00:15:00",
+            duration: "00:10:30",
           },
           {
             title: "Custom Hooks",
-            videoUrl: "/uploads/lectures/custom_hooks.mp4",
+            videoUrl: "/uploads/lectures/hook2.mp4",
             releaseDate: "2026-04-16",
-            duration: "00:12:45",
+            duration: "00:09:40",
           },
           {
-            title: "Context API",
-            videoUrl: "/uploads/lectures/context_api.mp4",
+            title: "Context API Basics",
+            videoUrl: "/uploads/lectures/hook3.mp4",
             releaseDate: "2026-04-17",
-            duration: "00:13:10",
+            duration: "00:11:20",
+          },
+          {
+            title: "Global State",
+            videoUrl: "/uploads/lectures/hook4.mp4",
+            releaseDate: "2026-04-18",
+            duration: "00:08:50",
+          },
+          {
+            title: "useReducer",
+            videoUrl: "/uploads/lectures/hook5.mp4",
+            releaseDate: "2026-04-19",
+            duration: "00:10:10",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-17",
+          releaseDate: "2026-04-19",
           questions: [
             {
-              question: "Which hook is used for side effects?",
-              options: ["useState", "useEffect", "useReducer"],
+              question: "Which hook handles side effects?",
+              options: ["useEffect", "useState", "useMemo"],
               answer: "useEffect",
             },
             {
-              question: "What problem does Context API solve?",
-              options: ["Prop drilling", "State management", "Routing"],
+              question: "Context API solves?",
+              options: ["Prop drilling", "Routing", "Styling"],
               answer: "Prop drilling",
+            },
+            {
+              question: "Custom hooks are?",
+              options: ["Reusable logic", "Components", "CSS"],
+              answer: "Reusable logic",
+            },
+            {
+              question: "useReducer is for?",
+              options: ["Complex state", "Routing", "Animation"],
+              answer: "Complex state",
+            },
+            {
+              question: "Hooks introduced in?",
+              options: ["React 16.8", "React 15", "React 17"],
+              answer: "React 16.8",
             },
           ],
         },
       },
+
       {
         title: "Module 3 - Performance Optimization",
         pdfUrl: "/uploads/notes/react_module3.pdf",
         lectures: [
           {
-            title: "Memoization Techniques",
-            videoUrl: "/uploads/lectures/memoization.mp4",
+            title: "Memoization",
+            videoUrl: "/uploads/lectures/perf1.mp4",
             releaseDate: "2026-04-20",
-            duration: "00:11:30",
+            duration: "00:09:30",
           },
           {
-            title: "React.memo & useMemo",
-            videoUrl: "/uploads/lectures/react_memo.mp4",
+            title: "React.memo",
+            videoUrl: "/uploads/lectures/perf2.mp4",
             releaseDate: "2026-04-21",
-            duration: "00:12:40",
+            duration: "00:08:20",
           },
           {
-            title: "Code Splitting & Lazy Loading",
-            videoUrl: "/uploads/lectures/code_splitting.mp4",
+            title: "useMemo",
+            videoUrl: "/uploads/lectures/perf3.mp4",
             releaseDate: "2026-04-22",
-            duration: "00:14:00",
+            duration: "00:10:15",
+          },
+          {
+            title: "useCallback",
+            videoUrl: "/uploads/lectures/perf4.mp4",
+            releaseDate: "2026-04-23",
+            duration: "00:09:45",
+          },
+          {
+            title: "Lazy Loading",
+            videoUrl: "/uploads/lectures/perf5.mp4",
+            releaseDate: "2026-04-24",
+            duration: "00:08:30",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-22",
+          releaseDate: "2026-04-24",
           questions: [
             {
-              question: "Which hook caches computed values?",
-              options: ["useMemo", "useEffect", "useState"],
-              answer: "useMemo",
+              question: "useMemo does?",
+              options: ["Caches values", "Fetch data", "Routing"],
+              answer: "Caches values",
             },
             {
-              question: "What does React.memo do?",
-              options: [
-                "Prevents re-render",
-                "Adds routing",
-                "Handles API calls",
-              ],
-              answer: "Prevents re-render",
+              question: "React.memo prevents?",
+              options: ["Re-render", "Routing", "State"],
+              answer: "Re-render",
+            },
+            {
+              question: "Lazy loading improves?",
+              options: ["Performance", "Design", "Backend"],
+              answer: "Performance",
+            },
+            {
+              question: "useCallback returns?",
+              options: ["Function", "Object", "String"],
+              answer: "Function",
+            },
+            {
+              question: "Optimization goal?",
+              options: ["Speed", "Size", "Color"],
+              answer: "Speed",
             },
           ],
         },
       },
+
       {
         title: "Module 4 - Scalable Architecture",
         pdfUrl: "/uploads/notes/react_module4.pdf",
         lectures: [
           {
-            title: "Folder Structures",
-            videoUrl: "/uploads/lectures/folder_structure.mp4",
+            title: "Folder Structure",
+            videoUrl: "/uploads/lectures/arch1.mp4",
             releaseDate: "2026-04-25",
-            duration: "00:09:50",
+            duration: "00:08:00",
           },
           {
             title: "Reusable Components",
-            videoUrl: "/uploads/lectures/reusable_components.mp4",
+            videoUrl: "/uploads/lectures/arch2.mp4",
             releaseDate: "2026-04-26",
-            duration: "00:13:20",
+            duration: "00:09:30",
           },
           {
-            title: "Large Scale State Management",
-            videoUrl: "/uploads/lectures/state_management.mp4",
+            title: "State Management",
+            videoUrl: "/uploads/lectures/arch3.mp4",
             releaseDate: "2026-04-27",
-            duration: "00:15:00",
+            duration: "00:10:10",
+          },
+          {
+            title: "Redux Basics",
+            videoUrl: "/uploads/lectures/arch4.mp4",
+            releaseDate: "2026-04-28",
+            duration: "00:11:20",
+          },
+          {
+            title: "Best Practices",
+            videoUrl: "/uploads/lectures/arch5.mp4",
+            releaseDate: "2026-04-29",
+            duration: "00:08:40",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-27",
+          releaseDate: "2026-04-29",
           questions: [
             {
-              question: "Why use reusable components?",
-              options: ["Consistency", "Performance", "Both"],
+              question: "Redux is used for?",
+              options: ["State", "Routing", "CSS"],
+              answer: "State",
+            },
+            {
+              question: "Reusable components help?",
+              options: ["Consistency", "Speed", "Both"],
               answer: "Both",
             },
             {
-              question: "Which library is often used for large state?",
-              options: ["Redux", "Axios", "React Router"],
-              answer: "Redux",
+              question: "Best practice?",
+              options: ["Modular code", "Inline everything", "Global vars"],
+              answer: "Modular code",
+            },
+            {
+              question: "Folder structure improves?",
+              options: ["Maintainability", "Color", "Size"],
+              answer: "Maintainability",
+            },
+            {
+              question: "Large apps use?",
+              options: ["State mgmt", "Only props", "No state"],
+              answer: "State mgmt",
             },
           ],
         },
       },
+    ],
+
+    faqs: [
+      {
+        q: "Is this beginner friendly?",
+        a: "It is recommended for intermediate learners.",
+      },
+      { q: "Are classes recorded?", a: "Yes, all are recorded." },
+      { q: "Do I get certificate?", a: "Yes after completion." },
+      { q: "Any projects included?", a: "Yes real-world projects." },
+      { q: "Support available?", a: "24/7 support." },
+      { q: "Offline access?", a: "Yes downloads available." },
+      { q: "Duration?", a: "90+ hours." },
+      { q: "Prerequisite?", a: "Basic React knowledge." },
+      { q: "Updated content?", a: "Yes regularly." },
+      { q: "Placement help?", a: "Yes provided." },
+    ],
+
+    glossary: [
+      { term: "Hooks", definition: "Functions for state & lifecycle" },
+      { term: "Context API", definition: "Global state sharing" },
+      { term: "Memoization", definition: "Caching results" },
+      { term: "Redux", definition: "State management library" },
+    ],
+
+    completionCriteria: [
+      "Complete all lectures",
+      "Attempt quizzes",
+      "Submit project",
+      "70% score",
+      "Final review",
     ],
 
     certificates: [
@@ -536,7 +706,6 @@ export const courses = [
         certificateImage: "/uploads/certificates/react_certificate.jpg",
       },
     ],
-
     projects: [
       {
         title: "Dashboard System",
@@ -555,153 +724,357 @@ export const courses = [
       },
     ],
 
-    curriculum: {
-      beginner: ["React Basics", "JSX & Components", "State Management"],
-      intermediate: ["Hooks", "Context API", "Routing"],
-      advanced: [
-        "Performance Optimization",
-        "Scalable Architecture",
-        "Capstone Project",
-      ],
-    },
-
-    outcomes: [
-      "Master React hooks and context",
-      "Optimize frontend performance",
-      "Build scalable React apps",
-      "Create reusable UI components",
-    ],
-
-    faqs: [
-      {
-        q: "Is this course suitable for beginners?",
-        a: "This course is designed for intermediate to advanced learners, but beginners can follow along with extra effort.",
-      },
-      {
-        q: "Do you provide placement assistance?",
-        a: "Yes, we connect students with industry partners for internships and jobs.",
-      },
-      {
-        q: "Are classes live or recorded?",
-        a: "Classes are recorded so you can learn at your own pace.",
-      },
-      {
-        q: "Do students work on real projects?",
-        a: "Yes, each course includes multiple real-world projects to apply skills.",
-      },
-      {
-        q: "Is there a certificate after completion?",
-        a: "Yes, certificates are awarded upon successful completion.",
-      },
-      {
-        q: "Can I access content offline?",
-        a: "Yes, you can download PDFs and videos for offline use.",
-      },
-      {
-        q: "What support is available?",
-        a: "We provide 24/7 chat and email support for all students.",
-      },
-      {
-        q: "How long do I have access to the course?",
-        a: "You get lifetime access to all course materials once enrolled.",
-      },
-      {
-        q: "Are there any prerequisites?",
-        a: "Basic knowledge of JavaScript and React fundamentals is recommended.",
-      },
-      {
-        q: "Do you update course content?",
-        a: "Yes, we regularly update lectures and notes to reflect the latest industry practices.",
-      },
-    ],
-
-    glossary: [
-      {
-        term: "Hooks",
-        definition:
-          "Functions that let you use state and lifecycle features in functional components.",
-      },
-      {
-        term: "Context API",
-        definition:
-          "A way to pass data through the component tree without prop drilling.",
-      },
-      {
-        term: "React Query",
-        definition:
-          "A library for fetching, caching, and updating server state in React apps.",
-      },
-      {
-        term: "Virtual DOM",
-        definition:
-          "A lightweight representation of the real DOM used by React for efficient updates.",
-      },
-    ],
-
-    completionCriteria: [
-      "Complete all lectures in each module",
-      "Attempt quizzes for each module",
-      "Submit all assigned projects",
-      "Achieve at least 70% in quizzes",
-      "Participate in capstone project review",
-    ],
-
     certificate: true,
     status: "approved",
   },
 
+  // course_103
   {
-    id: "course_105",
-    title: "DevOps & Cloud Deployment",
-    category: "DevOps",
-    price: 3499,
-    originalPrice: 4499,
-    instructorId: "inst_005",
-    studentsEnrolled: 290,
-    rating: 4.7,
-    thumbnail: "/uploads/courses/C_img_5.png",
+    id: "course_103",
+    title: "Node.js & Express Bootcamp",
+    category: "Backend Development",
+    price: 2799,
+    originalPrice: 3799,
+    instructorId: "inst_003",
+    studentsEnrolled: 360,
+    rating: 4.8,
+    thumbnail: "/uploads/courses/C_img_3.png",
     description:
-      "Gain expertise in DevOps workflows and cloud deployment. Learn CI/CD pipelines, containerization with Docker, and deploying applications on cloud platforms. This course blends theory with hands-on automation, helping you master modern infrastructure management.",
-    duration: "110+ Hours",
-    modules: "14+ Modules",
-    questions: "500+ Practice Questions",
+      "Learn backend development with Node.js and Express. Build APIs, handle authentication, work with databases, and create scalable server-side applications.",
+    duration: "100+ Hours",
+    status: "approved",
+
+    modules: [
+      {
+        title: "Module 1 - Node.js Fundamentals",
+        pdfUrl: "/uploads/notes/node_m1.pdf",
+        lectures: [
+          {
+            title: "Intro to Node.js",
+            videoUrl: "/uploads/lectures/node1.mp4",
+            releaseDate: "2026-04-10",
+            duration: "00:09:30",
+          },
+          {
+            title: "Node Architecture",
+            videoUrl: "/uploads/lectures/node2.mp4",
+            releaseDate: "2026-04-11",
+            duration: "00:10:10",
+          },
+          {
+            title: "Modules & NPM",
+            videoUrl: "/uploads/lectures/node3.mp4",
+            releaseDate: "2026-04-12",
+            duration: "00:09:00",
+          },
+          {
+            title: "File System",
+            videoUrl: "/uploads/lectures/node4.mp4",
+            releaseDate: "2026-04-13",
+            duration: "00:10:20",
+          },
+          {
+            title: "Event Loop",
+            videoUrl: "/uploads/lectures/node5.mp4",
+            releaseDate: "2026-04-14",
+            duration: "00:08:40",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-14",
+          questions: [
+            {
+              question: "Node.js is?",
+              options: ["Runtime", "Framework", "Library"],
+              answer: "Runtime",
+            },
+            {
+              question: "NPM used for?",
+              options: ["Packages", "Design", "DB"],
+              answer: "Packages",
+            },
+            {
+              question: "File system module does?",
+              options: ["File handling", "Routing", "UI"],
+              answer: "File handling",
+            },
+            {
+              question: "Event loop handles?",
+              options: ["Async tasks", "UI", "CSS"],
+              answer: "Async tasks",
+            },
+            {
+              question: "Node uses?",
+              options: ["JavaScript", "Python", "Java"],
+              answer: "JavaScript",
+            },
+          ],
+        },
+      },
+
+      {
+        title: "Module 2 - Express Framework",
+        pdfUrl: "/uploads/notes/node_m2.pdf",
+        lectures: [
+          {
+            title: "Intro to Express",
+            videoUrl: "/uploads/lectures/exp1.mp4",
+            releaseDate: "2026-04-15",
+            duration: "00:10:00",
+          },
+          {
+            title: "Routing",
+            videoUrl: "/uploads/lectures/exp2.mp4",
+            releaseDate: "2026-04-16",
+            duration: "00:09:30",
+          },
+          {
+            title: "Middleware",
+            videoUrl: "/uploads/lectures/exp3.mp4",
+            releaseDate: "2026-04-17",
+            duration: "00:08:50",
+          },
+          {
+            title: "Request & Response",
+            videoUrl: "/uploads/lectures/exp4.mp4",
+            releaseDate: "2026-04-18",
+            duration: "00:10:20",
+          },
+          {
+            title: "Error Handling",
+            videoUrl: "/uploads/lectures/exp5.mp4",
+            releaseDate: "2026-04-19",
+            duration: "00:09:10",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-19",
+          questions: [
+            {
+              question: "Express is?",
+              options: ["Framework", "Library", "DB"],
+              answer: "Framework",
+            },
+            {
+              question: "Middleware used for?",
+              options: ["Handling requests", "Styling", "DB"],
+              answer: "Handling requests",
+            },
+            {
+              question: "app.get handles?",
+              options: ["GET request", "POST", "PUT"],
+              answer: "GET request",
+            },
+            {
+              question: "Routing means?",
+              options: ["URL handling", "Design", "Storage"],
+              answer: "URL handling",
+            },
+            {
+              question: "Error handling improves?",
+              options: ["Stability", "Color", "Speed"],
+              answer: "Stability",
+            },
+          ],
+        },
+      },
+
+      {
+        title: "Module 3 - Databases & APIs",
+        pdfUrl: "/uploads/notes/node_m3.pdf",
+        lectures: [
+          {
+            title: "MongoDB Intro",
+            videoUrl: "/uploads/lectures/node6.mp4",
+            releaseDate: "2026-04-20",
+            duration: "00:10:10",
+          },
+          {
+            title: "Mongoose ODM",
+            videoUrl: "/uploads/lectures/node7.mp4",
+            releaseDate: "2026-04-21",
+            duration: "00:09:40",
+          },
+          {
+            title: "CRUD Operations",
+            videoUrl: "/uploads/lectures/node8.mp4",
+            releaseDate: "2026-04-22",
+            duration: "00:10:20",
+          },
+          {
+            title: "REST APIs",
+            videoUrl: "/uploads/lectures/node9.mp4",
+            releaseDate: "2026-04-23",
+            duration: "00:09:30",
+          },
+          {
+            title: "API Testing",
+            videoUrl: "/uploads/lectures/node10.mp4",
+            releaseDate: "2026-04-24",
+            duration: "00:08:50",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-24",
+          questions: [
+            {
+              question: "MongoDB is?",
+              options: ["NoSQL DB", "SQL DB", "Framework"],
+              answer: "NoSQL DB",
+            },
+            {
+              question: "CRUD means?",
+              options: [
+                "Create Read Update Delete",
+                "Code Run Upload Deploy",
+                "Control Route Use Design",
+              ],
+              answer: "Create Read Update Delete",
+            },
+            {
+              question: "Mongoose is?",
+              options: ["ODM", "UI", "API"],
+              answer: "ODM",
+            },
+            {
+              question: "REST API uses?",
+              options: ["HTTP", "CSS", "HTML"],
+              answer: "HTTP",
+            },
+            {
+              question: "POST method?",
+              options: ["Create", "Read", "Delete"],
+              answer: "Create",
+            },
+          ],
+        },
+      },
+
+      {
+        title: "Module 4 - Authentication & Deployment",
+        pdfUrl: "/uploads/notes/node_m4.pdf",
+        lectures: [
+          {
+            title: "JWT Authentication",
+            videoUrl: "/uploads/lectures/node11.mp4",
+            releaseDate: "2026-04-25",
+            duration: "00:09:50",
+          },
+          {
+            title: "User Login System",
+            videoUrl: "/uploads/lectures/node12.mp4",
+            releaseDate: "2026-04-26",
+            duration: "00:10:20",
+          },
+          {
+            title: "Security Best Practices",
+            videoUrl: "/uploads/lectures/node13.mp4",
+            releaseDate: "2026-04-27",
+            duration: "00:09:00",
+          },
+          {
+            title: "Deployment Basics",
+            videoUrl: "/uploads/lectures/node14.mp4",
+            releaseDate: "2026-04-28",
+            duration: "00:08:40",
+          },
+          {
+            title: "Cloud Deployment",
+            videoUrl: "/uploads/lectures/node15.mp4",
+            releaseDate: "2026-04-29",
+            duration: "00:10:10",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-29",
+          questions: [
+            {
+              question: "JWT used for?",
+              options: ["Authentication", "Styling", "DB"],
+              answer: "Authentication",
+            },
+            {
+              question: "Login system needs?",
+              options: ["Auth", "CSS", "HTML"],
+              answer: "Auth",
+            },
+            {
+              question: "Security ensures?",
+              options: ["Protection", "Color", "Speed"],
+              answer: "Protection",
+            },
+            {
+              question: "Deployment means?",
+              options: ["Hosting app", "Delete", "Code"],
+              answer: "Hosting app",
+            },
+            {
+              question: "Cloud hosting example?",
+              options: ["AWS", "Photoshop", "Excel"],
+              answer: "AWS",
+            },
+          ],
+        },
+      },
+    ],
+
+    faqs: [
+      { q: "Is this beginner friendly?", a: "Yes, starts from Node basics." },
+      { q: "Do I get certificate?", a: "Yes after completion." },
+      { q: "Are lectures recorded?", a: "Yes." },
+      { q: "Projects included?", a: "Yes real backend projects." },
+      { q: "Support?", a: "24/7 support." },
+      { q: "Offline access?", a: "Yes available." },
+      { q: "Duration?", a: "100+ hours." },
+      { q: "Prerequisite?", a: "Basic JavaScript recommended." },
+      { q: "Updated content?", a: "Yes regularly." },
+      { q: "Placement help?", a: "Yes provided." },
+    ],
+
+    glossary: [
+      { term: "Node.js", definition: "JavaScript runtime" },
+      { term: "Express", definition: "Backend framework" },
+      { term: "JWT", definition: "Authentication token" },
+      { term: "REST API", definition: "HTTP-based API design" },
+    ],
+
+    completionCriteria: [
+      "Complete all lectures",
+      "Attempt quizzes",
+      "Build API project",
+      "70% score",
+      "Final review",
+    ],
+
     certificates: [
       {
-        courseTitle: "DevOps & Cloud Deployment",
-        certificateImage: "/uploads/certificates/devops_certificate.jpg",
+        courseTitle: "Node.js & Express Bootcamp",
+        certificateImage: "/uploads/certificates/node_certificate.jpg",
       },
     ],
     projects: [
       {
-        title: "CI/CD Pipeline",
-        desc: "Design and implement a fully automated CI/CD pipeline using Jenkins and GitHub Actions. Learn to integrate build, test, and deployment stages for seamless delivery.",
-        image: "/uploads/projects/cicd_pipeline.jpg",
+        title: "Node REST API",
+        desc: "Develop a RESTful API with CRUD operations, authentication, and error handling using Express and MongoDB.",
+        image: "/uploads/projects/node_restapi.jpg",
       },
       {
-        title: "Dockerized App",
-        desc: "Containerize a Node.js application using Docker, configure multi-stage builds, and deploy it to a cloud environment with Kubernetes orchestration.",
-        image: "/uploads/projects/dockerized_app.jpg",
+        title: "Node Auth System",
+        desc: "Build a secure authentication system with JWT, role-based access, and password hashing.",
+        image: "/uploads/projects/node_auth.jpg",
       },
       {
-        title: "Kubernetes Scaling",
-        desc: "Deploy and scale applications using Kubernetes clusters, ensuring high availability and resilience.",
-        image: "/uploads/projects/kubernetes_scaling.jpg",
+        title: "Node Scalability",
+        desc: "Implement clustering and load balancing to scale Node.js applications for high traffic.",
+        image: "/uploads/projects/node_scalability.jpg",
       },
     ],
-    curriculum: {
-      beginner: ["Linux Basics", "Version Control", "Docker Fundamentals"],
-      intermediate: ["CI/CD Pipelines", "Cloud Basics", "Monitoring"],
-      advanced: ["Kubernetes", "Scaling Apps", "Capstone Project"],
-    },
-    outcomes: [
-      "Build CI/CD pipelines",
-      "Deploy apps with Docker",
-      "Scale apps on Kubernetes",
-      "Manage cloud deployments",
-    ],
+
     certificate: true,
     status: "approved",
   },
+
+  // course_104
   {
     id: "course_104",
     title: "UI/UX Design Fundamentals",
@@ -713,88 +1086,306 @@ export const courses = [
     rating: 4.5,
     thumbnail: "/uploads/courses/C_img_4.png",
     description:
-      "Understand the principles of user interface and user experience design. Learn visual hierarchy, wireframing, prototyping, and accessibility best practices to create intuitive digital experiences.",
+      "Learn UI/UX design principles including wireframing, prototyping, typography, and accessibility to create user-friendly digital experiences.",
     duration: "80+ Hours",
+    status: "approved",
 
     modules: [
       {
         title: "Module 1 - Design Principles",
-        pdfUrl: "/uploads/notes/uiux_module1.pdf",
+        pdfUrl: "/uploads/notes/uiux_m1.pdf",
         lectures: [
           {
-            title: "Introduction to Design",
-            videoUrl: "/uploads/lectures/design_intro.mp4",
+            title: "Intro to UI/UX",
+            videoUrl: "/uploads/lectures/uiux1.mp4",
             releaseDate: "2026-04-10",
-            duration: "00:08:00",
+            duration: "00:08:30",
           },
           {
-            title: "Color Theory Basics",
-            videoUrl: "/uploads/lectures/color_theory.mp4",
+            title: "Color Theory",
+            videoUrl: "/uploads/lectures/uiux2.mp4",
             releaseDate: "2026-04-11",
-            duration: "00:09:30",
+            duration: "00:09:10",
           },
           {
-            title: "Typography Essentials",
-            videoUrl: "/uploads/lectures/typography.mp4",
+            title: "Typography Basics",
+            videoUrl: "/uploads/lectures/uiux3.mp4",
             releaseDate: "2026-04-12",
-            duration: "00:10:15",
+            duration: "00:10:00",
+          },
+          {
+            title: "Visual Hierarchy",
+            videoUrl: "/uploads/lectures/uiux4.mp4",
+            releaseDate: "2026-04-13",
+            duration: "00:08:45",
+          },
+          {
+            title: "Spacing & Layout",
+            videoUrl: "/uploads/lectures/uiux5.mp4",
+            releaseDate: "2026-04-14",
+            duration: "00:09:20",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-12",
+          releaseDate: "2026-04-14",
           questions: [
             {
-              question: "What is typography?",
-              options: ["Font design", "Color usage", "Layout"],
-              answer: "Font design",
+              question: "UI stands for?",
+              options: ["User Interface", "User Input", "User Info"],
+              answer: "User Interface",
             },
             {
-              question: "Which color model is used in design?",
-              options: ["RGB", "CMYK", "Both"],
-              answer: "Both",
+              question: "UX focuses on?",
+              options: ["Experience", "Code", "Server"],
+              answer: "Experience",
+            },
+            {
+              question: "Typography is?",
+              options: ["Fonts", "Colors", "Layout"],
+              answer: "Fonts",
+            },
+            {
+              question: "Hierarchy means?",
+              options: ["Importance order", "Colors", "Code"],
+              answer: "Importance order",
+            },
+            {
+              question: "Spacing improves?",
+              options: ["Readability", "Speed", "Security"],
+              answer: "Readability",
             },
           ],
         },
       },
+
       {
         title: "Module 2 - Wireframing & Prototyping",
-        pdfUrl: "/uploads/notes/uiux_module2.pdf",
+        pdfUrl: "/uploads/notes/uiux_m2.pdf",
         lectures: [
           {
             title: "Wireframing Basics",
-            videoUrl: "/uploads/lectures/wireframing.mp4",
+            videoUrl: "/uploads/lectures/uiux6.mp4",
             releaseDate: "2026-04-15",
-            duration: "00:12:00",
+            duration: "00:10:00",
+          },
+          {
+            title: "Low vs High Fidelity",
+            videoUrl: "/uploads/lectures/uiux7.mp4",
+            releaseDate: "2026-04-16",
+            duration: "00:09:30",
           },
           {
             title: "Prototyping Tools",
-            videoUrl: "/uploads/lectures/prototyping_tools.mp4",
-            releaseDate: "2026-04-16",
-            duration: "00:11:20",
+            videoUrl: "/uploads/lectures/uiux8.mp4",
+            releaseDate: "2026-04-17",
+            duration: "00:08:50",
           },
           {
-            title: "Accessibility in Design",
-            videoUrl: "/uploads/lectures/accessibility.mp4",
-            releaseDate: "2026-04-17",
-            duration: "00:13:10",
+            title: "User Flows",
+            videoUrl: "/uploads/lectures/uiux9.mp4",
+            releaseDate: "2026-04-18",
+            duration: "00:10:10",
+          },
+          {
+            title: "Interactive Prototypes",
+            videoUrl: "/uploads/lectures/uiux10.mp4",
+            releaseDate: "2026-04-19",
+            duration: "00:09:40",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-17",
+          releaseDate: "2026-04-19",
           questions: [
             {
-              question: "Which tool is used for prototyping?",
-              options: ["Figma", "MongoDB", "Node.js"],
-              answer: "Figma",
+              question: "Wireframe is?",
+              options: ["Layout sketch", "Code", "Database"],
+              answer: "Layout sketch",
             },
             {
-              question: "What does accessibility ensure?",
-              options: ["Inclusive design", "Faster apps", "Better colors"],
-              answer: "Inclusive design",
+              question: "Prototype is?",
+              options: ["Interactive model", "Final app", "API"],
+              answer: "Interactive model",
+            },
+            {
+              question: "Figma used for?",
+              options: ["Design", "Database", "Backend"],
+              answer: "Design",
+            },
+            {
+              question: "User flow shows?",
+              options: ["Navigation", "Colors", "Fonts"],
+              answer: "Navigation",
+            },
+            {
+              question: "High fidelity means?",
+              options: ["Detailed design", "Simple sketch", "Code"],
+              answer: "Detailed design",
             },
           ],
         },
       },
+
+      {
+        title: "Module 3 - UX Research & Testing",
+        pdfUrl: "/uploads/notes/uiux_m3.pdf",
+        lectures: [
+          {
+            title: "User Research",
+            videoUrl: "/uploads/lectures/uiux11.mp4",
+            releaseDate: "2026-04-20",
+            duration: "00:09:30",
+          },
+          {
+            title: "Personas",
+            videoUrl: "/uploads/lectures/uiux12.mp4",
+            releaseDate: "2026-04-21",
+            duration: "00:08:20",
+          },
+          {
+            title: "Usability Testing",
+            videoUrl: "/uploads/lectures/uiux13.mp4",
+            releaseDate: "2026-04-22",
+            duration: "00:10:00",
+          },
+          {
+            title: "A/B Testing",
+            videoUrl: "/uploads/lectures/uiux14.mp4",
+            releaseDate: "2026-04-23",
+            duration: "00:09:10",
+          },
+          {
+            title: "Feedback Analysis",
+            videoUrl: "/uploads/lectures/uiux15.mp4",
+            releaseDate: "2026-04-24",
+            duration: "00:08:50",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-24",
+          questions: [
+            {
+              question: "Persona is?",
+              options: ["User profile", "Code", "UI"],
+              answer: "User profile",
+            },
+            {
+              question: "Testing improves?",
+              options: ["Usability", "Color", "Speed"],
+              answer: "Usability",
+            },
+            {
+              question: "A/B testing compares?",
+              options: ["Versions", "Servers", "Codes"],
+              answer: "Versions",
+            },
+            {
+              question: "Research helps?",
+              options: ["User needs", "Backend", "API"],
+              answer: "User needs",
+            },
+            {
+              question: "Feedback used for?",
+              options: ["Improvement", "Delete", "Ignore"],
+              answer: "Improvement",
+            },
+          ],
+        },
+      },
+
+      {
+        title: "Module 4 - Design Systems & Accessibility",
+        pdfUrl: "/uploads/notes/uiux_m4.pdf",
+        lectures: [
+          {
+            title: "Design Systems",
+            videoUrl: "/uploads/lectures/uiux16.mp4",
+            releaseDate: "2026-04-25",
+            duration: "00:09:00",
+          },
+          {
+            title: "Component Libraries",
+            videoUrl: "/uploads/lectures/uiux17.mp4",
+            releaseDate: "2026-04-26",
+            duration: "00:10:20",
+          },
+          {
+            title: "Accessibility Basics",
+            videoUrl: "/uploads/lectures/uiux18.mp4",
+            releaseDate: "2026-04-27",
+            duration: "00:08:30",
+          },
+          {
+            title: "Responsive Design",
+            videoUrl: "/uploads/lectures/uiux19.mp4",
+            releaseDate: "2026-04-28",
+            duration: "00:09:40",
+          },
+          {
+            title: "Best Practices",
+            videoUrl: "/uploads/lectures/uiux20.mp4",
+            releaseDate: "2026-04-29",
+            duration: "00:08:50",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-29",
+          questions: [
+            {
+              question: "Design system ensures?",
+              options: ["Consistency", "Speed", "DB"],
+              answer: "Consistency",
+            },
+            {
+              question: "Accessibility means?",
+              options: ["Inclusive design", "Fast app", "Small size"],
+              answer: "Inclusive design",
+            },
+            {
+              question: "Responsive design adapts to?",
+              options: ["Screen size", "Color", "Code"],
+              answer: "Screen size",
+            },
+            {
+              question: "Component library helps?",
+              options: ["Reuse", "Delete", "Slow"],
+              answer: "Reuse",
+            },
+            {
+              question: "Best practice is?",
+              options: ["User-focused", "Code-heavy", "Random"],
+              answer: "User-focused",
+            },
+          ],
+        },
+      },
+    ],
+
+    faqs: [
+      { q: "Is this beginner friendly?", a: "Yes, starts from basics." },
+      { q: "Do I get certificate?", a: "Yes after completion." },
+      { q: "Are lectures recorded?", a: "Yes." },
+      { q: "Projects included?", a: "Yes real-world projects." },
+      { q: "Support?", a: "24/7 support." },
+      { q: "Offline access?", a: "Yes available." },
+      { q: "Duration?", a: "80+ hours." },
+      { q: "Prerequisite?", a: "No prior experience required." },
+      { q: "Updated content?", a: "Yes regularly." },
+      { q: "Placement help?", a: "Yes provided." },
+    ],
+
+    glossary: [
+      { term: "Wireframe", definition: "Layout blueprint" },
+      { term: "Prototype", definition: "Interactive model" },
+      { term: "Accessibility", definition: "Inclusive design" },
+      { term: "Design System", definition: "Reusable UI rules" },
+    ],
+
+    completionCriteria: [
+      "Complete all lectures",
+      "Attempt quizzes",
+      "Submit project",
+      "70% score",
+      "Final review",
     ],
 
     certificates: [
@@ -803,115 +1394,29 @@ export const courses = [
         certificateImage: "/uploads/certificates/uiux_certificate.jpg",
       },
     ],
-
     projects: [
       {
-        title: "Mobile App Wireframe",
-        desc: "Design a mobile app prototype focusing on usability, layout consistency, and user flow optimization.",
+        title: "Interactive Prototype",
+        desc: "Design and build interactive prototypes with Figma, focusing on usability and accessibility.",
+        image: "/uploads/projects/Interactive_Prototype.jpg",
+      },
+      {
+        title: "Mobile Wireframe",
+        desc: "Create mobile app wireframes with clear navigation flows and responsive layouts.",
         image: "/uploads/projects/mobile_wireframe.jpg",
       },
       {
         title: "Website Redesign",
-        desc: "Redesign an existing website to improve accessibility, visual hierarchy, and overall user experience.",
+        desc: "Redesign an existing website with modern UI/UX principles, typography, and color theory.",
         image: "/uploads/projects/website_redesign.jpg",
       },
-      {
-        title: "Interactive Prototype",
-        desc: "Create a clickable interactive prototype using Figma or Adobe XD, simulating user flows and testing usability before development.",
-        image: "/uploads/projects/interactive_prototype.jpg",
-      },
-    ],
-
-    curriculum: {
-      beginner: ["Design Principles", "Color Theory", "Typography"],
-      intermediate: ["Wireframing", "Prototyping", "Accessibility"],
-      advanced: ["Design Systems", "User Testing", "Capstone Project"],
-    },
-
-    outcomes: [
-      "Design intuitive user interfaces",
-      "Create wireframes and prototypes",
-      "Apply accessibility best practices",
-      "Build design systems",
-    ],
-
-    faqs: [
-      {
-        q: "Is this course beginner-friendly?",
-        a: "Yes, it starts with design basics before moving to advanced topics.",
-      },
-      {
-        q: "Do you provide placement assistance?",
-        a: "Yes, we connect students with industry partners for internships and jobs.",
-      },
-      {
-        q: "Are classes live or recorded?",
-        a: "Classes are recorded so you can learn at your own pace.",
-      },
-      {
-        q: "Do students work on real projects?",
-        a: "Yes, each course includes multiple real-world projects to apply skills.",
-      },
-      {
-        q: "Is there a certificate after completion?",
-        a: "Yes, certificates are awarded upon successful completion.",
-      },
-      {
-        q: "Can I access content offline?",
-        a: "Yes, you can download PDFs and videos for offline use.",
-      },
-      {
-        q: "What support is available?",
-        a: "We provide 24/7 chat and email support for all students.",
-      },
-      {
-        q: "How long do I have access to the course?",
-        a: "You get lifetime access to all course materials once enrolled.",
-      },
-      {
-        q: "Are there any prerequisites?",
-        a: "No prerequisites required, but creativity and interest in design help.",
-      },
-      {
-        q: "Do you update course content?",
-        a: "Yes, we regularly update lectures and notes to reflect the latest industry practices.",
-      },
-    ],
-
-    glossary: [
-      {
-        term: "Wireframe",
-        definition:
-          "A basic visual guide used to suggest the layout of a website or app.",
-      },
-      {
-        term: "Prototype",
-        definition:
-          "An interactive model of a design used for testing and feedback.",
-      },
-      {
-        term: "Accessibility",
-        definition: "Designing products usable by people with disabilities.",
-      },
-      {
-        term: "Design System",
-        definition:
-          "A collection of reusable components and guidelines for consistent design.",
-      },
-    ],
-
-    completionCriteria: [
-      "Complete all lectures in each module",
-      "Attempt quizzes for each module",
-      "Submit all assigned projects",
-      "Achieve at least 70% in quizzes",
-      "Participate in capstone project review",
     ],
 
     certificate: true,
     status: "approved",
   },
 
+  // course_105
   {
     id: "course_105",
     title: "DevOps & Cloud Deployment",
@@ -923,174 +1428,306 @@ export const courses = [
     rating: 4.7,
     thumbnail: "/uploads/courses/C_img_5.png",
     description:
-      "Gain expertise in DevOps workflows and cloud deployment. Learn CI/CD pipelines, containerization with Docker, and deploying applications on cloud platforms. This course blends theory with hands-on automation, helping you master modern infrastructure management.",
+      "Master DevOps practices including CI/CD, Docker, Kubernetes, and cloud deployment with real-world projects.",
     duration: "110+ Hours",
+    status: "approved",
 
     modules: [
       {
-        title: "Module 1 - Linux & Version Control",
-        pdfUrl: "/uploads/notes/devops_module1.pdf",
+        title: "Module 1 - Linux & Git",
+        pdfUrl: "/uploads/notes/devops1.pdf",
         lectures: [
           {
             title: "Linux Basics",
-            videoUrl: "/uploads/lectures/linux_basics.mp4",
+            videoUrl: "/uploads/lectures/d1.mp4",
             releaseDate: "2026-04-10",
-            duration: "00:12:00",
+            duration: "00:10:20",
           },
           {
-            title: "Shell Scripting",
-            videoUrl: "/uploads/lectures/shell_scripting.mp4",
+            title: "File System",
+            videoUrl: "/uploads/lectures/d2.mp4",
             releaseDate: "2026-04-11",
+            duration: "00:09:00",
+          },
+          {
+            title: "Shell Commands",
+            videoUrl: "/uploads/lectures/d3.mp4",
+            releaseDate: "2026-04-12",
+            duration: "00:08:40",
+          },
+          {
+            title: "Git Basics",
+            videoUrl: "/uploads/lectures/d4.mp4",
+            releaseDate: "2026-04-13",
             duration: "00:10:30",
           },
           {
-            title: "Git & Version Control",
-            videoUrl: "/uploads/lectures/git_version_control.mp4",
-            releaseDate: "2026-04-12",
-            duration: "00:14:20",
+            title: "Branching",
+            videoUrl: "/uploads/lectures/d5.mp4",
+            releaseDate: "2026-04-14",
+            duration: "00:09:50",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-12",
+          releaseDate: "2026-04-14",
           questions: [
             {
-              question: "Which command initializes a Git repo?",
-              options: ["git init", "git start", "git create"],
-              answer: "git init",
+              question: "Linux command to list?",
+              options: ["ls", "dir", "show"],
+              answer: "ls",
             },
             {
-              question: "What is the Linux command to list files?",
-              options: ["ls", "dir", "list"],
-              answer: "ls",
+              question: "Git init?",
+              options: ["Create repo", "Delete", "Clone"],
+              answer: "Create repo",
+            },
+            {
+              question: "Shell is?",
+              options: ["CLI", "UI", "DB"],
+              answer: "CLI",
+            },
+            {
+              question: "Git branch used for?",
+              options: ["Versioning", "Design", "API"],
+              answer: "Versioning",
+            },
+            {
+              question: "Git merge?",
+              options: ["Combine", "Delete", "Push"],
+              answer: "Combine",
             },
           ],
         },
       },
+
       {
-        title: "Module 2 - CI/CD Pipelines",
-        pdfUrl: "/uploads/notes/devops_module2.pdf",
+        title: "Module 2 - CI/CD",
+        pdfUrl: "/uploads/notes/devops2.pdf",
         lectures: [
           {
-            title: "Introduction to CI/CD",
-            videoUrl: "/uploads/lectures/cicd_intro.mp4",
+            title: "CI/CD Intro",
+            videoUrl: "/uploads/lectures/d6.mp4",
             releaseDate: "2026-04-15",
-            duration: "00:15:00",
+            duration: "00:11:10",
           },
           {
-            title: "Jenkins Setup",
-            videoUrl: "/uploads/lectures/jenkins_setup.mp4",
+            title: "Jenkins",
+            videoUrl: "/uploads/lectures/d7.mp4",
             releaseDate: "2026-04-16",
-            duration: "00:12:45",
+            duration: "00:09:40",
           },
           {
             title: "GitHub Actions",
-            videoUrl: "/uploads/lectures/github_actions.mp4",
+            videoUrl: "/uploads/lectures/d8.mp4",
             releaseDate: "2026-04-17",
-            duration: "00:13:10",
+            duration: "00:10:20",
+          },
+          {
+            title: "Pipeline Flow",
+            videoUrl: "/uploads/lectures/d9.mp4",
+            releaseDate: "2026-04-18",
+            duration: "00:08:50",
+          },
+          {
+            title: "Automation",
+            videoUrl: "/uploads/lectures/d10.mp4",
+            releaseDate: "2026-04-19",
+            duration: "00:09:30",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-17",
+          releaseDate: "2026-04-19",
           questions: [
             {
-              question: "What does CI/CD stand for?",
-              options: [
-                "Continuous Integration/Continuous Deployment",
-                "Code Integration/Code Delivery",
-                "Continuous Improvement/Continuous Delivery",
-              ],
-              answer: "Continuous Integration/Continuous Deployment",
+              question: "CI means?",
+              options: ["Continuous Integration", "Code Init", "Control"],
+              answer: "Continuous Integration",
             },
             {
-              question: "Which tool is commonly used for CI/CD?",
-              options: ["Jenkins", "MongoDB", "React"],
-              answer: "Jenkins",
+              question: "CD means?",
+              options: ["Continuous Deployment", "Code Dev", "Control"],
+              answer: "Continuous Deployment",
+            },
+            {
+              question: "Jenkins is?",
+              options: ["CI tool", "DB", "UI"],
+              answer: "CI tool",
+            },
+            {
+              question: "Pipeline?",
+              options: ["Automation flow", "DB", "Code"],
+              answer: "Automation flow",
+            },
+            {
+              question: "Automation improves?",
+              options: ["Speed", "Color", "Size"],
+              answer: "Speed",
             },
           ],
         },
       },
+
       {
-        title: "Module 3 - Docker & Containers",
-        pdfUrl: "/uploads/notes/devops_module3.pdf",
+        title: "Module 3 - Docker",
+        pdfUrl: "/uploads/notes/devops3.pdf",
         lectures: [
           {
-            title: "Docker Basics",
-            videoUrl: "/uploads/lectures/docker_basics.mp4",
+            title: "Docker Intro",
+            videoUrl: "/uploads/lectures/d11.mp4",
             releaseDate: "2026-04-20",
-            duration: "00:11:30",
+            duration: "00:10:00",
           },
           {
-            title: "Docker Compose",
-            videoUrl: "/uploads/lectures/docker_compose.mp4",
+            title: "Images",
+            videoUrl: "/uploads/lectures/d12.mp4",
             releaseDate: "2026-04-21",
-            duration: "00:12:40",
+            duration: "00:09:10",
           },
           {
-            title: "Container Orchestration",
-            videoUrl: "/uploads/lectures/container_orchestration.mp4",
+            title: "Containers",
+            videoUrl: "/uploads/lectures/d13.mp4",
             releaseDate: "2026-04-22",
-            duration: "00:14:00",
+            duration: "00:08:30",
+          },
+          {
+            title: "Compose",
+            videoUrl: "/uploads/lectures/d14.mp4",
+            releaseDate: "2026-04-23",
+            duration: "00:10:40",
+          },
+          {
+            title: "Best Practices",
+            videoUrl: "/uploads/lectures/d15.mp4",
+            releaseDate: "2026-04-24",
+            duration: "00:09:20",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-22",
+          releaseDate: "2026-04-24",
           questions: [
             {
-              question: "Which command builds a Docker image?",
-              options: ["docker build", "docker run", "docker init"],
-              answer: "docker build",
+              question: "Docker used for?",
+              options: ["Containers", "CSS", "HTML"],
+              answer: "Containers",
             },
             {
-              question: "What is Docker Compose used for?",
-              options: [
-                "Multi-container apps",
-                "Database queries",
-                "Authentication",
-              ],
-              answer: "Multi-container apps",
+              question: "Image is?",
+              options: ["Blueprint", "App", "Server"],
+              answer: "Blueprint",
+            },
+            {
+              question: "docker run?",
+              options: ["Start", "Delete", "Build"],
+              answer: "Start",
+            },
+            {
+              question: "Compose used for?",
+              options: ["Multi-container", "Single", "DB"],
+              answer: "Multi-container",
+            },
+            {
+              question: "Containers are?",
+              options: ["Lightweight", "Heavy", "Slow"],
+              answer: "Lightweight",
             },
           ],
         },
       },
+
       {
-        title: "Module 4 - Kubernetes & Cloud Deployment",
-        pdfUrl: "/uploads/notes/devops_module4.pdf",
+        title: "Module 4 - Kubernetes & Cloud",
+        pdfUrl: "/uploads/notes/devops4.pdf",
         lectures: [
           {
-            title: "Kubernetes Basics",
-            videoUrl: "/uploads/lectures/kubernetes_basics.mp4",
+            title: "Kubernetes",
+            videoUrl: "/uploads/lectures/d16.mp4",
             releaseDate: "2026-04-25",
-            duration: "00:09:50",
+            duration: "00:09:40",
           },
           {
-            title: "Scaling Apps",
-            videoUrl: "/uploads/lectures/scaling_apps.mp4",
+            title: "Pods",
+            videoUrl: "/uploads/lectures/d17.mp4",
             releaseDate: "2026-04-26",
-            duration: "00:13:20",
+            duration: "00:08:50",
           },
           {
-            title: "Cloud Deployment",
-            videoUrl: "/uploads/lectures/cloud_deployment.mp4",
+            title: "Scaling",
+            videoUrl: "/uploads/lectures/d18.mp4",
             releaseDate: "2026-04-27",
-            duration: "00:15:00",
+            duration: "00:10:30",
+          },
+          {
+            title: "Cloud Intro",
+            videoUrl: "/uploads/lectures/d19.mp4",
+            releaseDate: "2026-04-28",
+            duration: "00:09:10",
+          },
+          {
+            title: "Deployment",
+            videoUrl: "/uploads/lectures/d20.mp4",
+            releaseDate: "2026-04-29",
+            duration: "00:10:20",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-27",
+          releaseDate: "2026-04-29",
           questions: [
             {
-              question: "Which tool manages containers?",
-              options: ["Kubernetes", "React", "MongoDB"],
-              answer: "Kubernetes",
+              question: "Kubernetes manages?",
+              options: ["Containers", "UI", "CSS"],
+              answer: "Containers",
             },
             {
-              question: "Which cloud service is commonly used?",
-              options: ["AWS", "Photoshop", "Excel"],
+              question: "Pod is?",
+              options: ["Smallest unit", "Server", "DB"],
+              answer: "Smallest unit",
+            },
+            {
+              question: "Scaling?",
+              options: ["Increase capacity", "Delete", "Reduce"],
+              answer: "Increase capacity",
+            },
+            {
+              question: "Cloud example?",
+              options: ["AWS", "HTML", "CSS"],
               answer: "AWS",
             },
+            {
+              question: "Deployment ensures?",
+              options: ["Availability", "Color", "Design"],
+              answer: "Availability",
+            },
           ],
         },
       },
+    ],
+
+    faqs: [
+      { q: "Is beginner friendly?", a: "Yes starts from basics." },
+      { q: "Certificate?", a: "Yes provided." },
+      { q: "Recorded?", a: "Yes." },
+      { q: "Projects?", a: "Yes included." },
+      { q: "Support?", a: "24/7 support." },
+      { q: "Offline access?", a: "Yes." },
+      { q: "Duration?", a: "110+ hours." },
+      { q: "Prerequisite?", a: "Basic coding helpful." },
+      { q: "Updated?", a: "Yes." },
+      { q: "Placement?", a: "Yes support available." },
+    ],
+
+    glossary: [
+      { term: "CI/CD", definition: "Automation pipeline" },
+      { term: "Docker", definition: "Container platform" },
+      { term: "Kubernetes", definition: "Container manager" },
+      { term: "Cloud", definition: "Remote hosting" },
+    ],
+
+    completionCriteria: [
+      "Complete all lectures",
+      "Attempt quizzes",
+      "Submit project",
+      "70% score",
+      "Final review",
     ],
 
     certificates: [
@@ -1099,11 +1736,10 @@ export const courses = [
         certificateImage: "/uploads/certificates/devops_certificate.jpg",
       },
     ],
-
     projects: [
       {
         title: "CI/CD Pipeline",
-        desc: "Design and implement a fully automated CI/CD pipeline using Jenkins and GitHub Actions. Learn to integrate build, test, and deployment stages for seamless delivery.",
+        desc: "Design and implement a fully automated CI/CD pipeline using Jenkins and GitHub Actions. Integrate build, test, and deployment stages for seamless delivery.",
         image: "/uploads/projects/cicd_pipeline.jpg",
       },
       {
@@ -1118,94 +1754,11 @@ export const courses = [
       },
     ],
 
-    curriculum: {
-      beginner: ["Linux Basics", "Version Control", "Docker Fundamentals"],
-      intermediate: ["CI/CD Pipelines", "Cloud Basics", "Monitoring"],
-      advanced: ["Kubernetes", "Scaling Apps", "Capstone Project"],
-    },
-
-    outcomes: [
-      "Build CI/CD pipelines",
-      "Deploy apps with Docker",
-      "Scale apps on Kubernetes",
-      "Manage cloud deployments",
-    ],
-
-    faqs: [
-      {
-        q: "Is this course beginner-friendly?",
-        a: "Yes, it starts with Linux basics before moving to advanced DevOps topics.",
-      },
-      {
-        q: "Do you provide placement assistance?",
-        a: "Yes, we connect students with industry partners for internships and jobs.",
-      },
-      {
-        q: "Are classes live or recorded?",
-        a: "Classes are recorded so you can learn at your own pace.",
-      },
-      {
-        q: "Do students work on real projects?",
-        a: "Yes, each course includes multiple real-world projects to apply skills.",
-      },
-      {
-        q: "Is there a certificate after completion?",
-        a: "Yes, certificates are awarded upon successful completion.",
-      },
-      {
-        q: "Can I access content offline?",
-        a: "Yes, you can download PDFs and videos for offline use.",
-      },
-      {
-        q: "What support is available?",
-        a: "We provide 24/7 chat and email support for all students.",
-      },
-      {
-        q: "How long do I have access to the course?",
-        a: "You get lifetime access to all course materials once enrolled.",
-      },
-      {
-        q: "Are there any prerequisites?",
-        a: "Basic knowledge of Linux and programming is recommended.",
-      },
-      {
-        q: "Do you update course content?",
-        a: "Yes, we regularly update lectures and notes to reflect the latest industry practices.",
-      },
-    ],
-
-    glossary: [
-      {
-        term: "CI/CD",
-        definition: "Continuous Integration and Continuous Deployment.",
-      },
-      {
-        term: "Docker",
-        definition: "A platform for containerizing applications.",
-      },
-      {
-        term: "Kubernetes",
-        definition: "An orchestration tool for managing containers.",
-      },
-      {
-        term: "Cloud Deployment",
-        definition:
-          "Hosting applications on cloud platforms like AWS, Azure, or GCP.",
-      },
-    ],
-
-    completionCriteria: [
-      "Complete all lectures in each module",
-      "Attempt quizzes for each module",
-      "Submit all assigned projects",
-      "Achieve at least 70% in quizzes",
-      "Participate in capstone project review",
-    ],
-
     certificate: true,
     status: "approved",
   },
 
+  // course_106
   {
     id: "course_106",
     title: "Data Science with Python",
@@ -1217,170 +1770,306 @@ export const courses = [
     rating: 4.9,
     thumbnail: "/uploads/courses/C_img_6.png",
     description:
-      "Explore data science concepts using Python. Learn data analysis, visualization, machine learning, and statistical modeling with hands-on projects that prepare you for real-world challenges.",
+      "Learn data science using Python including data analysis, visualization, machine learning, and AI deployment.",
     duration: "115+ Hours",
+    status: "approved",
 
     modules: [
       {
         title: "Module 1 - Python Basics",
-        pdfUrl: "/uploads/notes/ds_module1.pdf",
+        pdfUrl: "/uploads/notes/ds1.pdf",
         lectures: [
           {
-            title: "Python Fundamentals",
-            videoUrl: "/uploads/lectures/python_fundamentals.mp4",
+            title: "Python Intro",
+            videoUrl: "/uploads/lectures/p1.mp4",
             releaseDate: "2026-04-10",
-            duration: "00:12:00",
-          },
-          {
-            title: "Data Types & Structures",
-            videoUrl: "/uploads/lectures/data_types.mp4",
-            releaseDate: "2026-04-11",
             duration: "00:10:30",
           },
           {
-            title: "Functions & Modules",
-            videoUrl: "/uploads/lectures/functions_modules.mp4",
+            title: "Data Types",
+            videoUrl: "/uploads/lectures/p2.mp4",
+            releaseDate: "2026-04-11",
+            duration: "00:09:20",
+          },
+          {
+            title: "Control Flow",
+            videoUrl: "/uploads/lectures/p3.mp4",
             releaseDate: "2026-04-12",
-            duration: "00:14:20",
+            duration: "00:08:50",
+          },
+          {
+            title: "Functions",
+            videoUrl: "/uploads/lectures/p4.mp4",
+            releaseDate: "2026-04-13",
+            duration: "00:10:10",
+          },
+          {
+            title: "Modules",
+            videoUrl: "/uploads/lectures/p5.mp4",
+            releaseDate: "2026-04-14",
+            duration: "00:09:40",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-12",
+          releaseDate: "2026-04-14",
           questions: [
             {
-              question: "Which library is core to Python?",
-              options: ["os", "numpy", "pandas"],
-              answer: "os",
+              question: "Python is?",
+              options: ["Language", "DB", "OS"],
+              answer: "Language",
             },
             {
-              question: "Which keyword defines a function?",
-              options: ["func", "def", "function"],
+              question: "Function keyword?",
+              options: ["def", "func", "function"],
               answer: "def",
+            },
+            {
+              question: "List is?",
+              options: ["Collection", "Loop", "API"],
+              answer: "Collection",
+            },
+            {
+              question: "If used for?",
+              options: ["Condition", "Loop", "Import"],
+              answer: "Condition",
+            },
+            {
+              question: "Module is?",
+              options: ["Reusable code", "UI", "DB"],
+              answer: "Reusable code",
             },
           ],
         },
       },
+
       {
         title: "Module 2 - Data Analysis",
-        pdfUrl: "/uploads/notes/ds_module2.pdf",
+        pdfUrl: "/uploads/notes/ds2.pdf",
         lectures: [
           {
-            title: "Introduction to Pandas",
-            videoUrl: "/uploads/lectures/pandas_intro.mp4",
+            title: "NumPy Basics",
+            videoUrl: "/uploads/lectures/p6.mp4",
             releaseDate: "2026-04-15",
-            duration: "00:15:00",
+            duration: "00:11:00",
+          },
+          {
+            title: "Pandas Intro",
+            videoUrl: "/uploads/lectures/p7.mp4",
+            releaseDate: "2026-04-16",
+            duration: "00:10:10",
           },
           {
             title: "Data Cleaning",
-            videoUrl: "/uploads/lectures/data_cleaning.mp4",
-            releaseDate: "2026-04-16",
-            duration: "00:12:45",
-          },
-          {
-            title: "Exploratory Data Analysis",
-            videoUrl: "/uploads/lectures/eda.mp4",
+            videoUrl: "/uploads/lectures/p8.mp4",
             releaseDate: "2026-04-17",
-            duration: "00:13:10",
-          },
-        ],
-        quiz: {
-          releaseDate: "2026-04-17",
-          questions: [
-            {
-              question: "Which library is used for dataframes?",
-              options: ["numpy", "pandas", "matplotlib"],
-              answer: "pandas",
-            },
-            {
-              question: "What is EDA?",
-              options: [
-                "Exploratory Data Analysis",
-                "Extended Data Access",
-                "Efficient Data Algorithms",
-              ],
-              answer: "Exploratory Data Analysis",
-            },
-          ],
-        },
-      },
-      {
-        title: "Module 3 - Machine Learning",
-        pdfUrl: "/uploads/notes/ds_module3.pdf",
-        lectures: [
-          {
-            title: "Supervised Learning",
-            videoUrl: "/uploads/lectures/supervised_learning.mp4",
-            releaseDate: "2026-04-20",
-            duration: "00:11:30",
-          },
-          {
-            title: "Unsupervised Learning",
-            videoUrl: "/uploads/lectures/unsupervised_learning.mp4",
-            releaseDate: "2026-04-21",
-            duration: "00:12:40",
-          },
-          {
-            title: "Model Evaluation",
-            videoUrl: "/uploads/lectures/model_evaluation.mp4",
-            releaseDate: "2026-04-22",
-            duration: "00:14:00",
-          },
-        ],
-        quiz: {
-          releaseDate: "2026-04-22",
-          questions: [
-            {
-              question: "Which library is used for ML?",
-              options: ["scikit-learn", "flask", "django"],
-              answer: "scikit-learn",
-            },
-            {
-              question: "Which metric measures classification accuracy?",
-              options: ["RMSE", "Accuracy", "MAE"],
-              answer: "Accuracy",
-            },
-          ],
-        },
-      },
-      {
-        title: "Module 4 - GenAI & Deployment",
-        pdfUrl: "/uploads/notes/ds_module4.pdf",
-        lectures: [
-          {
-            title: "Introduction to GenAI",
-            videoUrl: "/uploads/lectures/genai_intro.mp4",
-            releaseDate: "2026-04-25",
             duration: "00:09:50",
           },
           {
-            title: "Deep Learning Models",
-            videoUrl: "/uploads/lectures/deep_learning.mp4",
-            releaseDate: "2026-04-26",
-            duration: "00:13:20",
+            title: "EDA",
+            videoUrl: "/uploads/lectures/p9.mp4",
+            releaseDate: "2026-04-18",
+            duration: "00:10:40",
           },
           {
-            title: "Deployment Strategies",
-            videoUrl: "/uploads/lectures/deployment_strategies.mp4",
-            releaseDate: "2026-04-27",
-            duration: "00:15:00",
+            title: "Visualization",
+            videoUrl: "/uploads/lectures/p10.mp4",
+            releaseDate: "2026-04-19",
+            duration: "00:09:30",
           },
         ],
         quiz: {
-          releaseDate: "2026-04-27",
+          releaseDate: "2026-04-19",
           questions: [
             {
-              question: "Which library is used for deep learning?",
-              options: ["TensorFlow", "Flask", "SQL"],
-              answer: "TensorFlow",
+              question: "NumPy used for?",
+              options: ["Arrays", "UI", "Routing"],
+              answer: "Arrays",
             },
             {
-              question: "What is GenAI?",
-              options: ["Generative AI", "General AI", "Genetic AI"],
-              answer: "Generative AI",
+              question: "Pandas used for?",
+              options: ["Dataframes", "CSS", "HTML"],
+              answer: "Dataframes",
+            },
+            {
+              question: "EDA means?",
+              options: ["Exploratory Data Analysis", "Edit Data", "Extra Data"],
+              answer: "Exploratory Data Analysis",
+            },
+            {
+              question: "Cleaning removes?",
+              options: ["Errors", "Design", "Speed"],
+              answer: "Errors",
+            },
+            {
+              question: "Visualization shows?",
+              options: ["Graphs", "Code", "API"],
+              answer: "Graphs",
             },
           ],
         },
       },
+
+      {
+        title: "Module 3 - Machine Learning",
+        pdfUrl: "/uploads/notes/ds3.pdf",
+        lectures: [
+          {
+            title: "ML Intro",
+            videoUrl: "/uploads/lectures/p11.mp4",
+            releaseDate: "2026-04-20",
+            duration: "00:10:20",
+          },
+          {
+            title: "Supervised Learning",
+            videoUrl: "/uploads/lectures/p12.mp4",
+            releaseDate: "2026-04-21",
+            duration: "00:09:40",
+          },
+          {
+            title: "Unsupervised Learning",
+            videoUrl: "/uploads/lectures/p13.mp4",
+            releaseDate: "2026-04-22",
+            duration: "00:08:50",
+          },
+          {
+            title: "Model Training",
+            videoUrl: "/uploads/lectures/p14.mp4",
+            releaseDate: "2026-04-23",
+            duration: "00:10:30",
+          },
+          {
+            title: "Evaluation Metrics",
+            videoUrl: "/uploads/lectures/p15.mp4",
+            releaseDate: "2026-04-24",
+            duration: "00:09:20",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-24",
+          questions: [
+            {
+              question: "ML stands for?",
+              options: ["Machine Learning", "Manual Logic", "Main Loop"],
+              answer: "Machine Learning",
+            },
+            {
+              question: "Supervised uses?",
+              options: ["Labels", "No labels", "Random"],
+              answer: "Labels",
+            },
+            {
+              question: "Unsupervised uses?",
+              options: ["No labels", "Labels", "Code"],
+              answer: "No labels",
+            },
+            {
+              question: "Model training?",
+              options: ["Learning", "Design", "UI"],
+              answer: "Learning",
+            },
+            {
+              question: "Accuracy is?",
+              options: ["Metric", "Library", "Code"],
+              answer: "Metric",
+            },
+          ],
+        },
+      },
+
+      {
+        title: "Module 4 - AI & Deployment",
+        pdfUrl: "/uploads/notes/ds4.pdf",
+        lectures: [
+          {
+            title: "Deep Learning",
+            videoUrl: "/uploads/lectures/p16.mp4",
+            releaseDate: "2026-04-25",
+            duration: "00:10:10",
+          },
+          {
+            title: "TensorFlow",
+            videoUrl: "/uploads/lectures/p17.mp4",
+            releaseDate: "2026-04-26",
+            duration: "00:09:30",
+          },
+          {
+            title: "GenAI Intro",
+            videoUrl: "/uploads/lectures/p18.mp4",
+            releaseDate: "2026-04-27",
+            duration: "00:08:40",
+          },
+          {
+            title: "Model Deployment",
+            videoUrl: "/uploads/lectures/p19.mp4",
+            releaseDate: "2026-04-28",
+            duration: "00:10:20",
+          },
+          {
+            title: "Best Practices",
+            videoUrl: "/uploads/lectures/p20.mp4",
+            releaseDate: "2026-04-29",
+            duration: "00:09:00",
+          },
+        ],
+        quiz: {
+          releaseDate: "2026-04-29",
+          questions: [
+            {
+              question: "TensorFlow is?",
+              options: ["DL library", "DB", "UI"],
+              answer: "DL library",
+            },
+            {
+              question: "Deep learning uses?",
+              options: ["Neural networks", "Tables", "CSS"],
+              answer: "Neural networks",
+            },
+            {
+              question: "GenAI means?",
+              options: ["Generative AI", "General AI", "Graph AI"],
+              answer: "Generative AI",
+            },
+            {
+              question: "Deployment means?",
+              options: ["Release model", "Delete", "Train"],
+              answer: "Release model",
+            },
+            {
+              question: "Best practice?",
+              options: ["Clean code", "Messy code", "No code"],
+              answer: "Clean code",
+            },
+          ],
+        },
+      },
+    ],
+
+    faqs: [
+      { q: "Is beginner friendly?", a: "Yes starts from Python basics." },
+      { q: "Certificate?", a: "Yes provided." },
+      { q: "Recorded?", a: "Yes." },
+      { q: "Projects?", a: "Yes included." },
+      { q: "Support?", a: "24/7 support." },
+      { q: "Offline access?", a: "Yes." },
+      { q: "Duration?", a: "115+ hours." },
+      { q: "Prerequisite?", a: "Basic programming helpful." },
+      { q: "Updated?", a: "Yes regularly." },
+      { q: "Placement?", a: "Yes support available." },
+    ],
+
+    glossary: [
+      { term: "NumPy", definition: "Array processing library" },
+      { term: "Pandas", definition: "Data analysis library" },
+      { term: "Machine Learning", definition: "Model training from data" },
+      { term: "TensorFlow", definition: "Deep learning framework" },
+    ],
+
+    completionCriteria: [
+      "Complete all lectures",
+      "Attempt quizzes",
+      "Submit project",
+      "70% score",
+      "Final review",
     ],
 
     certificates: [
@@ -1389,106 +2078,22 @@ export const courses = [
         certificateImage: "/uploads/certificates/datascience_certificate.jpg",
       },
     ],
-
     projects: [
       {
         title: "Customer Churn Prediction",
-        desc: "Analyze customer data to predict churn using machine learning models. Implement data preprocessing, feature selection, and model evaluation.",
+        desc: "Build a machine learning model to predict customer churn using Python and scikit-learn.",
         image: "/uploads/projects/churn_prediction.jpg",
       },
       {
         title: "AI Chatbot Deployment",
-        desc: "Develop and deploy an NLP-based chatbot using Python and TensorFlow, capable of understanding user queries and providing intelligent responses.",
+        desc: "Develop and deploy an AI chatbot with NLP capabilities using Python and Flask.",
         image: "/uploads/projects/ai_chatbot.jpg",
       },
       {
         title: "GenAI Deployment",
-        desc: "Build and deploy a generative AI application using Python frameworks, integrating deep learning models for real-world use cases.",
-        image: "/uploads/projects/genai_deployment.jpg",
+        desc: "Deploy generative AI models for text and image tasks with cloud integration.",
+        image: "/uploads/projects/mern_dashboard.jpg",
       },
-    ],
-
-    curriculum: {
-      beginner: ["Python Basics", "Data Analysis", "Statistics"],
-      intermediate: ["Machine Learning", "Deep Learning", "SQL"],
-      advanced: ["GenAI", "Deployment", "Capstone Project"],
-    },
-
-    outcomes: [
-      "Build ML models",
-      "Work with SQL databases",
-      "Deploy GenAI apps",
-      "Create a capstone portfolio",
-    ],
-
-    faqs: [
-      {
-        q: "Is this course beginner-friendly?",
-        a: "Yes, it starts with Python basics before moving to advanced topics.",
-      },
-      {
-        q: "Do you provide placement assistance?",
-        a: "Yes, we connect students with industry partners for internships and jobs.",
-      },
-      {
-        q: "Are classes live or recorded?",
-        a: "Classes are recorded so you can learn at your own pace.",
-      },
-      {
-        q: "Do students work on real projects?",
-        a: "Yes, each course includes multiple real-world projects to apply skills.",
-      },
-      {
-        q: "Is there a certificate after completion?",
-        a: "Yes, certificates are awarded upon successful completion.",
-      },
-      {
-        q: "Can I access content offline?",
-        a: "Yes, you can download PDFs and videos for offline use.",
-      },
-      {
-        q: "What support is available?",
-        a: "We provide 24/7 chat and email support for all students.",
-      },
-      {
-        q: "How long do I have access to the course?",
-        a: "You get lifetime access to all course materials once enrolled.",
-      },
-      {
-        q: "Are there any prerequisites?",
-        a: "Basic knowledge of Python is recommended.",
-      },
-      {
-        q: "Do you update course content?",
-        a: "Yes, we regularly update lectures and notes to reflect the latest industry practices.",
-      },
-    ],
-
-    glossary: [
-      {
-        term: "Pandas",
-        definition: "A Python library for data analysis and manipulation.",
-      },
-      {
-        term: "NumPy",
-        definition: "A Python library for numerical computing.",
-      },
-      {
-        term: "Scikit-learn",
-        definition: "A machine learning library for Python.",
-      },
-      {
-        term: "TensorFlow",
-        definition: "An open-source library for deep learning and AI.",
-      },
-    ],
-
-    completionCriteria: [
-      "Complete all lectures in each module",
-      "Attempt quizzes for each module",
-      "Submit all assigned projects",
-      "Achieve at least 70% in quizzes",
-      "Participate in capstone project review",
     ],
 
     certificate: true,
@@ -1501,13 +2106,14 @@ const seedCourses = async () => {
     await connectDB();
 
     for (const course of courses) {
-      const existing = await Course.findOne({ title: course.title });
-      if (!existing) {
-        const newCourse = new Course(course);
-        await newCourse.save();
-        console.log(`Course ${course.title} created`);
+      const exists = await Course.findOne({ id: course.id });
+      if (exists) {
+        // console.log(`Course ${course.title} already exists`);
+        // console.log(course);
       } else {
-        console.log(`Course ${course.title} already exists`);
+        const created = await Course.create(course);
+        console.log(`Course ${course.title} created`);
+        console.log(created.toObject());
       }
     }
 

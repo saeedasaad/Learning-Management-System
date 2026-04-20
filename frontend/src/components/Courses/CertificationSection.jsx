@@ -25,20 +25,24 @@ export default function CertificationSection({ certificates = [] }) {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {certificates.map((cert, index) => (
-          <div
-            key={index}
-            className="bg-white md:w-[600px] w-[95%] mx-auto p-2 shadow-lg overflow-hidden duration-300"
-          >
-            {cert.certificateImage && (
+        {certificates && certificates.length > 0 ? (
+          certificates.map((cert, index) => (
+            <div
+              key={index}
+              className="bg-white md:w-[600px] w-[95%] mx-auto p-2 shadow-lg overflow-hidden duration-300"
+            >
               <img
                 src={`http://localhost:5000${cert.certificateImage}`}
                 alt={`${cert.courseTitle} Certificate`}
                 className="w-full object-cover"
               />
-            )}
-          </div>
-        ))}
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">
+            No certificates available.
+          </p>
+        )}
       </div>
     </section>
   );

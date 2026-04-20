@@ -6,7 +6,6 @@ import Stripe from "stripe";
 import keys from "../config/keys.js";
 const stripeSecretKey = keys.stripeSecretKey;
 
-
 if (!stripeSecretKey) {
   throw new Error("Stripe secret key not found in environment variables");
 }
@@ -15,11 +14,12 @@ const stripe = new Stripe(stripeSecretKey, {
   apiVersion: "2022-11-15",
 });
 
-
 // Activities
 export const getActivities = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user._id }).populate("course");
+    const enrollments = await Enrollment.find({ user: req.user._id }).populate(
+      "course",
+    );
     const activities = enrollments.map((e) => ({
       course: e.course.title,
       quizzes: e.course.quizzes,
@@ -27,7 +27,9 @@ export const getActivities = async (req, res) => {
     }));
     res.json(activities);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching activities", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching activities", details: err.message });
   }
 };
 
@@ -44,24 +46,32 @@ export const getCourseDetails = async (req, res) => {
 
     res.json({ ...course.toObject(), lectures, notes, quizzes });
   } catch (err) {
-    res.status(500).json({ error: "Error fetching course details", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching course details", details: err.message });
   }
 };
 
 // My Courses
 export const getMyCourses = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user.id }).populate("course");
+    const enrollments = await Enrollment.find({ user: req.user.id }).populate(
+      "course",
+    );
     res.json(enrollments);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching courses", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching courses", details: err.message });
   }
 };
 
 // Progress
 export const getProgress = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user.id }).populate("course");
+    const enrollments = await Enrollment.find({ user: req.user.id }).populate(
+      "course",
+    );
     const progress = enrollments.map((e) => ({
       course: e.course.title,
       progress: e.progress,
@@ -69,7 +79,9 @@ export const getProgress = async (req, res) => {
     }));
     res.json(progress);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching progress", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching progress", details: err.message });
   }
 };
 
@@ -138,7 +150,9 @@ export const stripeWebhook = async (req, res) => {
     res.json({ received: true });
   } catch (err) {
     console.error("Stripe webhook error:", err.message);
-    res.status(500).json({ error: "Webhook handling failed", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Webhook handling failed", details: err.message });
   }
 };
 
@@ -151,13 +165,14 @@ export const updateProfile = async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     if (req.body.password) {
-
       user.password = req.body.password;
     }
 
     await user.save();
     res.json({ message: "Profile updated", user });
   } catch (err) {
-    res.status(500).json({ error: "Error updating profile", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error updating profile", details: err.message });
   }
 };
