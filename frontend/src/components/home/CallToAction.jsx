@@ -15,12 +15,12 @@ export default function CallToAction() {
       <div className="absolute inset-0 bg-[#044089]/60"></div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6">
-        <h2 className="text-4xl font-extrabold mb-4">
+        <h2 className="font-extrabold text-4xl mb-4 mt-8">
           Let’s Discuss Your Learning Goals
         </h2>
         <p className="text-lg leading-relaxed text-gray-100 mb-8 font-medium">
           Empower your future with{" "}
-          <span className="text-[#feaf0f] font-semibold">EduMaster</span> —
+          <span className="text-[#feaf0f] font-semibold">SkillMaster</span> —
           where knowledge meets innovation and growth. Join a community of
           learners and instructors dedicated to helping you achieve excellence.
         </p>

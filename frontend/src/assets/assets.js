@@ -7,6 +7,10 @@ import C_img_4 from "./C_img_4.png";
 import C_img_5 from "./C_img_5.png";
 import C_img_6 from "./C_img_6.png";
 
+import user1 from "../assets/user1.png";
+import user2 from "../assets/user2.png";
+import user3 from "../assets/user3.png";
+
 import Inst_img_1 from "./Inst_image_1.png";
 import Inst_img_2 from "./Inst_image_2.png";
 import Inst_img_3 from "./Inst_image_3.png";
@@ -566,38 +570,23 @@ export const enrollments = [
 export const reviews = [
   {
     _id: "review_001",
-    courseId: "course_101",
+    name: "Aarav Sharma",
+    image: user1,
     rating: 5,
-    comment: "Excellent course!",
+    comment: "Excellent course! Learned everything step by step.",
   },
   {
     _id: "review_002",
-    courseId: "course_102",
+    name: "Priya Patel",
+    image: user2,
     rating: 4,
-    comment: "Very detailed React concepts.",
+    comment: "Very detailed React concepts. Easy to follow.",
   },
   {
     _id: "review_003",
-    courseId: "course_103",
+    name: "Rahul Verma",
+    image: user3,
     rating: 5,
-    comment: "Backend explained clearly.",
-  },
-  {
-    _id: "review_004",
-    courseId: "course_104",
-    rating: 4,
-    comment: "Great design examples.",
-  },
-  {
-    _id: "review_005",
-    courseId: "course_105",
-    rating: 5,
-    comment: "Deployment made easy!",
-  },
-  {
-    _id: "review_006",
-    courseId: "course_106",
-    rating: 5,
-    comment: "Best data science course.",
+    comment: "Backend explained clearly. Loved the examples.",
   },
 ];

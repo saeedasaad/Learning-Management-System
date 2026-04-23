@@ -25,7 +25,7 @@ export default function PopularCourses() {
 
   return (
     <section className="py-16 bg-white text-center">
-      <h2 className="text-3xl font-bold mb-10">Popular Courses</h2>
+      <h2 className="text-4xl font-semibold text-[#02448d] mb-16 mt-8">Popular Courses</h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {courses && courses.length > 0 ? (

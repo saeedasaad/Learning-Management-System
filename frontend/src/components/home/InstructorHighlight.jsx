@@ -27,7 +27,7 @@ export default function InstructorHighlight() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+        <h2 className="text-4xl font-semibold text-[#02448d] mb-4 mt-8">
           Meet Our Instructors
         </h2>
         <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -51,10 +51,10 @@ export default function InstructorHighlight() {
                 </div>
 
                 <div className="p-4">
-                  <h3 className="text-xl font-semibold text-gray-800">
+              <h3 className="text-lg font-semibold text-gray-800">
                     {inst.name}
                   </h3>
-                  <p className="font-normal text-sm">
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
                     {inst.expertise}
                   </p>
                 </div>
