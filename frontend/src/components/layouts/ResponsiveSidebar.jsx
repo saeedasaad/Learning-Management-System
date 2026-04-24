@@ -45,11 +45,6 @@ export default function ResponsiveSidebar({ role }) {
       },
       { path: "/student/chat", label: "Chat", icon: <RiChat3Line /> },
       { path: "/student/profile", label: "Profile", icon: <RiUser3Line /> },
-      {
-        path: "/student/settings",
-        label: "Settings",
-        icon: <RiSettings3Line />,
-      },
     ],
 
     instructor: [
@@ -97,17 +92,11 @@ export default function ResponsiveSidebar({ role }) {
         label: "Analytics",
         icon: <RiSettings3Line />,
       },
-      {
-        path: "/admin/revenue-analytics",
-        label: "Revenue",
-        icon: <RiSettings3Line />,
-      },
     ],
   };
 
   return (
     <aside className="fixed top-0 left-0 h-screen bg-gray-100 border-r border-gray-300 flex flex-col justify-between py-4 w-16 md:w-56 transition-all duration-300 md:px-3 ">
-      {/* Top Section: Logo + Navigation */}
       <div>
         {/* Logo */}
         <Link to="/" className="mb-6 flex items-center space-x-2">

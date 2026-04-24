@@ -5,8 +5,6 @@ import User from "../models/User.js";
 import Stripe from "stripe";
 import keys from "../config/keys.js";
 
-
-// controllers/studentController.js
 const stripeSecretKey = keys.stripeSecretKey;
 
 if (!stripeSecretKey) {
@@ -20,15 +18,19 @@ const stripe = new Stripe(stripeSecretKey, {
 // Activities
 export const getActivities = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user._id }).populate("course");
+    const enrollments = await Enrollment.find({ user: req.user._id }).populate(
+      "course",
+    );
     const activities = enrollments.map((e) => ({
       courseTitle: e.course.title,
-      quizzes: e.course.modules.map(m => m.quiz),
-      exercises: e.course.exercises || []
+      quizzes: e.course.modules.map((m) => m.quiz),
+      exercises: e.course.exercises || [],
     }));
     res.json(activities);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching activities", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching activities", details: err.message });
   }
 };
 
@@ -155,33 +157,77 @@ export const stripeWebhook = async (req, res) => {
   }
 };
 
-// Update Profile
-export const updateProfile = async (req, res) => {
+// Get student profile
+export const getProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).select("-password");
     if (!user) return res.status(404).json({ error: "User not found" });
 
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    if (req.body.password) {
-      user.password = req.body.password;
+    const enrolledCount = await Enrollment.countDocuments({
+      user: req.user._id,
+    });
+
+    res.json({
+      name: user.name,
+      email: user.email,
+      education: user.education || "",
+      enrolledCount,
+      firstName: user.firstName || "",
+      lastName: user.lastName || "",
+      gender: user.gender || "",
+      dob: user.dob || "",
+      address: user.address || "",
+      city: user.city || "",
+      country: user.country || "",
+      qualification: user.qualification || "",
+      specialization: user.specialization || "",
+      freelancing: user.freelancing || false,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Error fetching profile", details: err.message });
+  }
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    console.log("req.body:", req.body);
+    console.log("req.file:", req.file);
+
+    const updateData = { ...req.body };
+
+    if (req.body.name) {
+      updateData.name = req.body.name;
     }
 
-    await user.save();
-    res.json({ message: "Profile updated", user });
+    if (req.file) {
+      updateData.avatarUrl = `/uploads/avatars/${req.file.filename}`;
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      { $set: updateData },
+      { new: true, runValidators: true },
+    );
+
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    res.json({ message: "Profile updated successfully", user });
   } catch (err) {
+    console.error("Error updating profile:", err);
     res
       .status(500)
       .json({ error: "Error updating profile", details: err.message });
   }
 };
 
-
-// Get all exercises for the logged-in student
+// Get exercises
 export const getExercises = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user._id }).populate("course");
-
+    const enrollments = await Enrollment.find({ user: req.user._id }).populate(
+      "course",
+    );
 
     const exercises = enrollments.flatMap((enrollment) =>
       (enrollment.course.exercises || []).map((ex) => ({
@@ -192,12 +238,14 @@ export const getExercises = async (req, res) => {
         dueDate: ex.dueDate,
         marks: ex.marks,
         submitted: ex.submitted || false,
-      }))
+      })),
     );
 
     res.json(exercises);
   } catch (err) {
-    res.status(500).json({ error: "Error fetching exercises", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error fetching exercises", details: err.message });
   }
 };
 
@@ -207,7 +255,9 @@ export const submitExercise = async (req, res) => {
     const { exerciseId } = req.params;
     const filePath = `/uploads/exercises/${req.file.filename}`;
 
-    const enrollment = await Enrollment.findOne({ user: req.user._id }).populate("course");
+    const enrollment = await Enrollment.findOne({
+      user: req.user._id,
+    }).populate("course");
     const exercise = enrollment.course.exercises.id(exerciseId);
 
     if (!exercise) return res.status(404).json({ error: "Exercise not found" });
@@ -218,7 +268,8 @@ export const submitExercise = async (req, res) => {
     await enrollment.save();
     res.json({ message: "Exercise submitted successfully", exercise });
   } catch (err) {
-    res.status(500).json({ error: "Error submitting exercise", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Error submitting exercise", details: err.message });
   }
 };
-

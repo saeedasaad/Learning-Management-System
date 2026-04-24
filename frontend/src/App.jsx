@@ -18,7 +18,6 @@ import CourseLearning from "./pages/student/CourseLearning";
 import VideoPlayer from "./pages/student/VideoPlayer";
 import StudentChat from "./pages/student/StudentChat";
 import StudentProfile from "./pages/student/StudentProfile";
-import StudentSettings from "./pages/student/StudentSettings";
 import MyActivities from "./pages/student/MyActivities";
 import TraineeServices from "./pages/student/TraineeServices";
 
@@ -72,9 +71,9 @@ function App() {
           <Route path="exercises" element={<ExercisesPage />} />
         </Route>
 
+        <Route path="/student/chat" element={<StudentChat />} />
         <Route path="/student/services" element={<TraineeServices />} />
         <Route path="/student/profile" element={<StudentProfile />} />
-        <Route path="/student/settings" element={<StudentSettings />} />
       </Route>
 
       {/* Instructor Dashboard */}
