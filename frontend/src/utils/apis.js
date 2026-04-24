@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", 
+  baseURL: "http://localhost:5000/api",
 });
 
 // Attach token automatically
@@ -58,6 +58,22 @@ export const getProgress = async () => {
 
 export const getActivities = async () => {
   const { data } = await api.get("/student/activities");
+  return data;
+};
+
+export const getExercises = async () => {
+  const { data } = await api.get("/student/exercises");
+  return data;
+};
+
+export const submitExercise = async (exerciseId, formData) => {
+  const { data } = await api.post(
+    `/student/exercises/${exerciseId}/submit`,
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    },
+  );
   return data;
 };
 

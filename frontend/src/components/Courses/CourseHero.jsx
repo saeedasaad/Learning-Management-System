@@ -30,7 +30,7 @@ export default function CourseHero({ course, instructor, onEnroll }) {
         </div>
       </div>
 
-      <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 w-[95%] sm:w-[90%] max-w-3xl">
+      <div className="absolute left-1/2 bottom-0 transform -translate-x-1/4 translate-y-1/2 w-[95%] sm:w-[90%] max-w-3xl">
         <div className="flex items-center justify-between bg-white text-[#02448d] px-4 sm:px-6 py-4 rounded-xl shadow-lg">
           <div className="text-xl sm:text-2xl font-bold">
             $ {course.price}

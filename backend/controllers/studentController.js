@@ -4,6 +4,9 @@ import Payment from "../models/Payment.js";
 import User from "../models/User.js";
 import Stripe from "stripe";
 import keys from "../config/keys.js";
+
+
+// controllers/studentController.js
 const stripeSecretKey = keys.stripeSecretKey;
 
 if (!stripeSecretKey) {
@@ -17,19 +20,15 @@ const stripe = new Stripe(stripeSecretKey, {
 // Activities
 export const getActivities = async (req, res) => {
   try {
-    const enrollments = await Enrollment.find({ user: req.user._id }).populate(
-      "course",
-    );
+    const enrollments = await Enrollment.find({ user: req.user._id }).populate("course");
     const activities = enrollments.map((e) => ({
-      course: e.course.title,
-      quizzes: e.course.quizzes,
-      notes: e.course.notes,
+      courseTitle: e.course.title,
+      quizzes: e.course.modules.map(m => m.quiz),
+      exercises: e.course.exercises || []
     }));
     res.json(activities);
   } catch (err) {
-    res
-      .status(500)
-      .json({ error: "Error fetching activities", details: err.message });
+    res.status(500).json({ error: "Error fetching activities", details: err.message });
   }
 };
 
@@ -176,3 +175,50 @@ export const updateProfile = async (req, res) => {
       .json({ error: "Error updating profile", details: err.message });
   }
 };
+
+
+// Get all exercises for the logged-in student
+export const getExercises = async (req, res) => {
+  try {
+    const enrollments = await Enrollment.find({ user: req.user._id }).populate("course");
+
+
+    const exercises = enrollments.flatMap((enrollment) =>
+      (enrollment.course.exercises || []).map((ex) => ({
+        _id: ex._id,
+        title: ex.title,
+        description: ex.description,
+        fileUrl: ex.fileUrl,
+        dueDate: ex.dueDate,
+        marks: ex.marks,
+        submitted: ex.submitted || false,
+      }))
+    );
+
+    res.json(exercises);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching exercises", details: err.message });
+  }
+};
+
+// Submit exercise PDF
+export const submitExercise = async (req, res) => {
+  try {
+    const { exerciseId } = req.params;
+    const filePath = `/uploads/exercises/${req.file.filename}`;
+
+    const enrollment = await Enrollment.findOne({ user: req.user._id }).populate("course");
+    const exercise = enrollment.course.exercises.id(exerciseId);
+
+    if (!exercise) return res.status(404).json({ error: "Exercise not found" });
+
+    exercise.submitted = true;
+    exercise.pdfUrl = filePath;
+
+    await enrollment.save();
+    res.json({ message: "Exercise submitted successfully", exercise });
+  } catch (err) {
+    res.status(500).json({ error: "Error submitting exercise", details: err.message });
+  }
+};
+

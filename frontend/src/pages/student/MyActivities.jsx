@@ -1,33 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { getActivities } from "../../utils/apis";
+import React, { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export default function MyActivities() {
-  const [activities, setActivities] = useState([]);
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("quizzes");
 
-  useEffect(() => {
-    const fetchActivities = async () => {
-      try {
-        const data = await getActivities();
-        setActivities(data);
-      } catch (err) {
-        console.error("Error fetching activities:", err);
-      }
-    };
-    fetchActivities();
-  }, []);
+  const handleClick = (tab) => {
+    setActiveTab(tab);
+    navigate(tab);
+  };
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">My Activities</h2>
-      {activities.length === 0 ? (
-        <p>No activities yet.</p>
-      ) : (
-        <ul className="list-disc pl-6">
-          {activities.map((act, i) => (
-            <li key={i}>{act.title} — {act.status}</li>
-          ))}
-        </ul>
-      )}
+      <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-yellow-400 pb-4">
+        My Activities
+      </h1>
+
+      {/* Toggle Buttons */}
+      <div className="flex gap-6 mb-6">
+        <button
+          onClick={() => handleClick("quizzes")}
+          className={`px-4 py-2 rounded font-semibold transition ${
+            activeTab === "quizzes"
+              ? "text-yellow-500 border-b-2 border-yellow-500"
+              : "text-gray-600 hover:text-yellow-500"
+          }`}
+        >
+          Quizzes
+        </button>
+        <button
+          onClick={() => handleClick("exercises")}
+          className={`px-4 py-2 rounded font-semibold transition ${
+            activeTab === "exercises"
+              ? "text-yellow-500 border-b-2 border-yellow-500"
+              : "text-gray-600 hover:text-yellow-500"
+          }`}
+        >
+          Exercises
+        </button>
+      </div>
+
+      <Outlet />
     </div>
   );
 }

@@ -39,6 +39,8 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
+import QuizzesPage from "./pages/student/QuizzesPage";
+import ExercisesPage from "./pages/student/ExercisesPage";
 
 function App() {
   return (
@@ -56,15 +58,20 @@ function App() {
 
       {/* Student Dashboard */}
       <Route element={<DashboardLayout role="student" />}>
+        <Route path="/student" element={<DashboardOverview />} />
+
         <Route path="/student/dashboard" element={<DashboardOverview />} />
         <Route path="/student/my-courses" element={<MyCourses />}>
           <Route path=":id" element={<CourseLearning />} />
           <Route path=":id/video/:videoId" element={<VideoPlayer />} />
         </Route>
 
-        {/* Other student features */}
-        <Route path="/student/chat" element={<StudentChat />} />
-        <Route path="/student/activities" element={<MyActivities />} />
+        {/* Activities */}
+        <Route path="/student/activities" element={<MyActivities />}>
+          <Route path="quizzes" element={<QuizzesPage />} />
+          <Route path="exercises" element={<ExercisesPage />} />
+        </Route>
+
         <Route path="/student/services" element={<TraineeServices />} />
         <Route path="/student/profile" element={<StudentProfile />} />
         <Route path="/student/settings" element={<StudentSettings />} />
