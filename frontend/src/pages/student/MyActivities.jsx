@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 export default function MyActivities() {
   const navigate = useNavigate();
@@ -11,16 +12,12 @@ export default function MyActivities() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-yellow-400 pb-4">
-        My Activities
-      </h1>
-
+    <DashboardCard title="My Activities">
       {/* Toggle Buttons */}
       <div className="flex gap-6 mb-6">
         <button
           onClick={() => handleClick("quizzes")}
-          className={`px-4 py-2 rounded font-semibold transition ${
+          className={`pb-2 font-semibold transition ${
             activeTab === "quizzes"
               ? "text-yellow-500 border-b-2 border-yellow-500"
               : "text-gray-600 hover:text-yellow-500"
@@ -30,7 +27,7 @@ export default function MyActivities() {
         </button>
         <button
           onClick={() => handleClick("exercises")}
-          className={`px-4 py-2 rounded font-semibold transition ${
+          className={`pb-2 font-semibold transition ${
             activeTab === "exercises"
               ? "text-yellow-500 border-b-2 border-yellow-500"
               : "text-gray-600 hover:text-yellow-500"
@@ -40,7 +37,10 @@ export default function MyActivities() {
         </button>
       </div>
 
-      <Outlet />
-    </div>
+      {/* Nested Routes Render Here */}
+      <div className="mt-4">
+        <Outlet />
+      </div>
+    </DashboardCard>
   );
 }

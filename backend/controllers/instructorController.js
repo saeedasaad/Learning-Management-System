@@ -1,4 +1,5 @@
 import Course from "../models/Course.js";
+import User from "../models/User.js";
 
 export const createCourse = async (req, res) => {
   try {
@@ -11,8 +12,13 @@ export const createCourse = async (req, res) => {
 };
 
 export const getInstructorCourses = async (req, res) => {
-  const courses = await Course.find({ instructorId: req.user._id });
-  res.json(courses);
+  try {
+     console.log("Logged in user:", req.user); 
+    const courses = await Course.find({ instructorId: req.user._id });
+    res.json(courses);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching courses", details: err.message });
+  }
 };
 
 export const updateCourse = async (req, res) => {
@@ -26,4 +32,32 @@ export const updateCourse = async (req, res) => {
   Object.assign(course, req.body);
   await course.save();
   res.json(course);
+};
+
+
+export const getInstructorProfile = async (req, res) => {
+  try {
+    const instructor = await User.findById(req.user._id).select("-password");
+    if (!instructor) return res.status(404).json({ error: "Instructor not found" });
+    res.json(instructor);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching profile", details: err.message });
+  }
+};
+
+export const updateInstructorProfile = async (req, res) => {
+  try {
+    const instructor = await User.findById(req.user._id);
+    if (!instructor) return res.status(404).json({ error: "Instructor not found" });
+
+    const fields = ["firstName", "lastName", "bio", "qualification", "specialization"];
+    fields.forEach((field) => {
+      if (req.body[field] !== undefined) instructor[field] = req.body[field];
+    });
+
+    await instructor.save();
+    res.json({ message: "Profile updated successfully", instructor });
+  } catch (err) {
+    res.status(500).json({ error: "Error updating profile", details: err.message });
+  }
 };

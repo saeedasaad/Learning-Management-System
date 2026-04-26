@@ -16,20 +16,24 @@ import DashboardOverview from "./pages/student/DashboardOverview";
 import MyCourses from "./pages/student/MyCourses";
 import CourseLearning from "./pages/student/CourseLearning";
 import VideoPlayer from "./pages/student/VideoPlayer";
-import StudentChat from "./pages/student/StudentChat";
+import StudentDiscussions from "./pages/student/StudentDiscussions";
 import StudentProfile from "./pages/student/StudentProfile";
 import MyActivities from "./pages/student/MyActivities";
 import TraineeServices from "./pages/student/TraineeServices";
+import QuizzesPage from "./pages/student/QuizzesPage";
+import QuizPage from "./pages/student/QuizPage";
+import ExercisesPage from "./pages/student/ExercisesPage";
 
 // Instructor Pages
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
-import CreateCourse from "./pages/instructor/CreateCourse";
 import ManageCourses from "./pages/instructor/ManageCourses";
 import UploadLectures from "./pages/instructor/UploadLectures";
 import ManageStudents from "./pages/instructor/ManageStudents";
 import Revenue from "./pages/instructor/Revenue";
-import InstructorChat from "./pages/instructor/Chat";
-import InstructorProfile from "./pages/instructor/Profile";
+import Chat from "./pages/instructor/Chat";
+import Profile from "./pages/instructor/Profile";
+import UploadQuizzes from "./pages/instructor/UploadQuizzes";
+import UploadExercises from "./pages/instructor/UploadExercises";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -38,8 +42,8 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
-import QuizzesPage from "./pages/student/QuizzesPage";
-import ExercisesPage from "./pages/student/ExercisesPage";
+
+
 
 function App() {
   return (
@@ -71,27 +75,28 @@ function App() {
           <Route path="exercises" element={<ExercisesPage />} />
         </Route>
 
-        <Route path="/student/chat" element={<StudentChat />} />
+        <Route path="/student/quiz/:id" element={<QuizPage />} />
+
+        <Route path="/student/discussions" element={<StudentDiscussions />} />
         <Route path="/student/services" element={<TraineeServices />} />
         <Route path="/student/profile" element={<StudentProfile />} />
       </Route>
 
       {/* Instructor Dashboard */}
       <Route element={<DashboardLayout role="instructor" />}>
-        <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
-        <Route path="/instructor/create-course" element={<CreateCourse />} />
+        <Route path="/instructor/dashboard" element={<InstructorDashboard/>} />
+
+        {/* Core Pages */}
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
-        <Route
-          path="/instructor/upload-lectures"
-          element={<UploadLectures />}
-        />
-        <Route
-          path="/instructor/manage-students"
-          element={<ManageStudents />}
-        />
+        <Route path="/instructor/manage-students" element={<ManageStudents />}/>
+        <Route path="/instructor/upload-lectures" element={<UploadLectures />}/>
         <Route path="/instructor/revenue" element={<Revenue />} />
-        <Route path="/instructor/chat" element={<InstructorChat />} />
-        <Route path="/instructor/profile" element={<InstructorProfile />} />
+        <Route path="/instructor/profile" element={<Profile />} />
+        <Route path="/instructor/chat" element={<Chat />} />
+
+        {/* Activities (Quizzes & Exercises) */}
+        <Route path="/instructor/activities/quizzes" element={<UploadQuizzes />} />
+        <Route path="/instructor/activities/exercises" element={<UploadExercises />} />
       </Route>
 
       {/* Admin Dashboard */}

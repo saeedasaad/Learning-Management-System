@@ -19,8 +19,6 @@ export default function QuizzesPage() {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">Quizzes</h2>
-
       <table className="w-full border">
         <thead className="bg-gray-100">
           <tr>
@@ -75,7 +73,7 @@ export default function QuizzesPage() {
               <button
                 onClick={() => {
                   setShowModal(false);
-                  navigate("/student/quiz/:id");
+                  navigate(`/student/quiz/${quiz.id}`);
                 }}
                 className="px-4 py-2 bg-yellow-500 text-white rounded"
               >

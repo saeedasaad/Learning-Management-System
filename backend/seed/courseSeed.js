@@ -2,17 +2,32 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDB from "../config/db.js";
 import Course from "../models/Course.js";
+import User from "../models/User.js";
 
 dotenv.config();
 
-export const courses = [
+const seedCourses = async () => {
+  try {
+    await connectDB();
+
+    // Clear old courses
+    await Course.deleteMany();
+
+    // Find instructor(s) first
+    const instructor = await User.findOne({ email: "ryan@gmail.com" });
+    if (!instructor) {
+      console.error("Instructor not found. Run instructorSeed.js first!");
+      process.exit(1);
+    }
+
+ const courses = [
   {
     id: "course_101",
     title: "MERN Stack Development",
     category: "Web Development",
     price: 2999,
     originalPrice: 3999,
-    instructorId: "inst_001",
+    instructorId: instructor._id, 
     studentsEnrolled: 520,
     rating: 4.8,
     thumbnail: "/uploads/courses/C_img_1.png",
@@ -390,7 +405,7 @@ export const courses = [
     category: "Frontend",
     price: 2499,
     originalPrice: 3499,
-    instructorId: "inst_002",
+    instructorId: instructor._id, 
     studentsEnrolled: 410,
     rating: 4.7,
     thumbnail: "/uploads/courses/C_img_2.png",
@@ -735,7 +750,7 @@ export const courses = [
     category: "Backend Development",
     price: 2799,
     originalPrice: 3799,
-    instructorId: "inst_003",
+    instructorId: instructor._id, 
     studentsEnrolled: 360,
     rating: 4.8,
     thumbnail: "/uploads/courses/C_img_3.png",
@@ -1081,7 +1096,7 @@ export const courses = [
     category: "Design",
     price: 1799,
     originalPrice: 2499,
-    instructorId: "inst_004",
+    instructorId: instructor._id, 
     studentsEnrolled: 300,
     rating: 4.5,
     thumbnail: "/uploads/courses/C_img_4.png",
@@ -1423,7 +1438,7 @@ export const courses = [
     category: "DevOps",
     price: 3499,
     originalPrice: 4499,
-    instructorId: "inst_005",
+    instructorId: instructor._id, 
     studentsEnrolled: 290,
     rating: 4.7,
     thumbnail: "/uploads/courses/C_img_5.png",
@@ -1765,7 +1780,7 @@ export const courses = [
     category: "Data Science",
     price: 3999,
     originalPrice: 4999,
-    instructorId: "inst_006",
+    instructorId: instructor._id, 
     studentsEnrolled: 340,
     rating: 4.9,
     thumbnail: "/uploads/courses/C_img_6.png",
@@ -2101,25 +2116,12 @@ export const courses = [
   },
 ];
 
-const seedCourses = async () => {
-  try {
-    await connectDB();
+    await Course.insertMany(courses);
 
-    for (const course of courses) {
-      const exists = await Course.findOne({ id: course.id });
-      if (exists) {
-        // console.log(`Course ${course.title} already exists`);
-        // console.log(course);
-      } else {
-        const created = await Course.create(course);
-        console.log(`Course ${course.title} created`);
-        console.log(created.toObject());
-      }
-    }
-
+    console.log("Courses seeded successfully!");
     process.exit();
   } catch (err) {
-    console.error("Error seeding courses:", err.message);
+    console.error("Error seeding courses:", err);
     process.exit(1);
   }
 };

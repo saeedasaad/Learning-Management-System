@@ -9,6 +9,11 @@ import {
   RiLogoutBoxLine,
   RiBookOpenLine,
   RiVideoLine,
+  RiTeamLine,
+  RiUpload2Line,
+  RiQuestionLine,
+  RiPencilLine,
+  RiMoneyDollarCircleLine,
 } from "react-icons/ri";
 import logoIcon from "../../assets/Logo-icon.png";
 import logoText from "../../assets/Logo.png";
@@ -43,7 +48,11 @@ export default function ResponsiveSidebar({ role }) {
         label: "Trainee Services",
         icon: <RiVideoLine />,
       },
-      { path: "/student/chat", label: "Chat", icon: <RiChat3Line /> },
+      {
+        path: "/student/discussions",
+        label: "Discussions",
+        icon: <RiChat3Line />,
+      },
       { path: "/student/profile", label: "Profile", icon: <RiUser3Line /> },
     ],
 
@@ -54,22 +63,47 @@ export default function ResponsiveSidebar({ role }) {
         icon: <RiHome2Line />,
       },
       {
-        path: "/instructor/create-course",
-        label: "Create Course",
+        path: "/instructor/manage-courses",
+        label: "Manage Courses",
         icon: <RiBook2Line />,
       },
       {
-        path: "/instructor/manage-courses",
-        label: "Manage Courses",
+        path: "/instructor/manage-students",
+        label: "Manage Students",
+        icon: <RiTeamLine />,
+      },
+      {
+        path: "/instructor/upload-lectures",
+        label: "Upload Lectures",
+        icon: <RiUpload2Line />,
+      },
+      {
+        path: "/instructor/activities/quizzes",
+        label: "Upload Quizzes",
+        icon: <RiQuestionLine />,
+      },
+      {
+        path: "/instructor/activities/exercises",
+        label: "Upload Exercises",
+        icon: <RiPencilLine />,
+      },
+      {
+        path: "/instructor/chat",
+        label: "Chat",
         icon: <RiChat3Line />,
       },
-      { path: "/instructor/revenue", label: "Revenue", icon: <RiUser3Line /> },
+      {
+        path: "/instructor/revenue",
+        label: "Revenue",
+        icon: <RiMoneyDollarCircleLine />,
+      },
       {
         path: "/instructor/profile",
         label: "Profile",
         icon: <RiSettings3Line />,
       },
     ],
+
     admin: [
       { path: "/admin/dashboard", label: "Dashboard", icon: <RiHome2Line /> },
       {

@@ -1,5 +1,6 @@
 import React from "react";
 import avatar from "../../assets/user-avatar.png";
+import NotificationDropdown from "../layouts/NotificationDropdown"; 
 
 export default function DashboardNavbar({ role }) {
   return (
@@ -9,12 +10,10 @@ export default function DashboardNavbar({ role }) {
         {role} Dashboard
       </h2>
 
-      {/* User Avatar */}
-      <img
-        src={avatar}
-        alt="User Avatar"
-        className="h-8 w-8 md:h-10 md:w-10 rounded-full border-2 border-blue-500"
-      />
+      {/* Right Section: Notification + Avatar */}
+      <div className="flex items-center gap-4">
+        <NotificationDropdown />
+      </div>
     </div>
   );
 }

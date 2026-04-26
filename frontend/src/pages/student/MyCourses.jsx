@@ -4,6 +4,7 @@ import CourseTopics from "../../components/student/CourseTopics";
 import FAQs from "../../components/student/FAQs";
 import Glossary from "../../components/student/Glossary";
 import CompletionCriteria from "../../components/student/CompletionCriteria";
+import DashboardCard from "../../components/layouts/DashboardCard";
 
 export default function MyCourses() {
   const [enrollments, setEnrollments] = useState([]);
@@ -26,18 +27,16 @@ export default function MyCourses() {
 
   if (!activeCourse) {
     return (
-      <p className="text-center text-gray-500">No enrolled courses yet.</p>
+      <DashboardCard title="My Courses">
+        <p className="text-center text-gray-500">No enrolled courses yet.</p>
+      </DashboardCard>
     );
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b-4 border-yellow-400 pb-4">
-        My Courses
-      </h1>
-
+    <DashboardCard title="My Courses">
       {/* Course Selector */}
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mb-8">
         {enrollments.map((enrollment) => (
           <button
             key={enrollment.course._id}
@@ -54,7 +53,7 @@ export default function MyCourses() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-6 mb-6 border-b">
+      <div className="flex gap-6 mb-10">
         {["topics", "faqs", "glossary", "completion"].map((tab) => (
           <button
             key={tab}
@@ -87,6 +86,6 @@ export default function MyCourses() {
       {activeTab === "completion" && (
         <CompletionCriteria criteria={activeCourse.completionCriteria} />
       )}
-    </div>
+    </DashboardCard>
   );
 }

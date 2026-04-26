@@ -77,4 +77,21 @@ export const submitExercise = async (exerciseId, formData) => {
   return data;
 };
 
+// Instructor endpoints
+export const getInstructorProfile = async () => {
+  const { data } = await api.get("/instructor/profile");
+  return data;
+};
+
+export const updateInstructorProfile = async (formData) => {
+  const { data } = await api.patch("/instructor/profile", formData);
+  return data;
+};
+
+export const getInstructorCourses = async () => {
+  const { data } = await api.get("/instructor/courses"); 
+  return data;
+};
+
+
 export default api;
