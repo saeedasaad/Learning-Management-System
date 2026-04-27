@@ -27,13 +27,12 @@ import ExercisesPage from "./pages/student/ExercisesPage";
 // Instructor Pages
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
 import ManageCourses from "./pages/instructor/ManageCourses";
-import UploadLectures from "./pages/instructor/UploadLectures";
+import ManageContent from "./pages/instructor/ManageContent";
 import ManageStudents from "./pages/instructor/ManageStudents";
 import Revenue from "./pages/instructor/Revenue";
 import Chat from "./pages/instructor/Chat";
 import Profile from "./pages/instructor/Profile";
-import UploadQuizzes from "./pages/instructor/UploadQuizzes";
-import UploadExercises from "./pages/instructor/UploadExercises";
+
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -62,7 +61,6 @@ function App() {
       {/* Student Dashboard */}
       <Route element={<DashboardLayout role="student" />}>
         <Route path="/student" element={<DashboardOverview />} />
-
         <Route path="/student/dashboard" element={<DashboardOverview />} />
         <Route path="/student/my-courses" element={<MyCourses />}>
           <Route path=":id" element={<CourseLearning />} />
@@ -89,14 +87,10 @@ function App() {
         {/* Core Pages */}
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
         <Route path="/instructor/manage-students" element={<ManageStudents />}/>
-        <Route path="/instructor/upload-lectures" element={<UploadLectures />}/>
+        <Route path="/instructor/manage-content" element={<ManageContent />}/>
         <Route path="/instructor/revenue" element={<Revenue />} />
         <Route path="/instructor/profile" element={<Profile />} />
         <Route path="/instructor/chat" element={<Chat />} />
-
-        {/* Activities (Quizzes & Exercises) */}
-        <Route path="/instructor/activities/quizzes" element={<UploadQuizzes />} />
-        <Route path="/instructor/activities/exercises" element={<UploadExercises />} />
       </Route>
 
       {/* Admin Dashboard */}

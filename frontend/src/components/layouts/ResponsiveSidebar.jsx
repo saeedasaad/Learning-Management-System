@@ -11,8 +11,6 @@ import {
   RiVideoLine,
   RiTeamLine,
   RiUpload2Line,
-  RiQuestionLine,
-  RiPencilLine,
   RiMoneyDollarCircleLine,
 } from "react-icons/ri";
 import logoIcon from "../../assets/Logo-icon.png";
@@ -73,19 +71,9 @@ export default function ResponsiveSidebar({ role }) {
         icon: <RiTeamLine />,
       },
       {
-        path: "/instructor/upload-lectures",
-        label: "Upload Lectures",
+        path: "/instructor/manage-content",
+        label: "Manage Content",
         icon: <RiUpload2Line />,
-      },
-      {
-        path: "/instructor/activities/quizzes",
-        label: "Upload Quizzes",
-        icon: <RiQuestionLine />,
-      },
-      {
-        path: "/instructor/activities/exercises",
-        label: "Upload Exercises",
-        icon: <RiPencilLine />,
       },
       {
         path: "/instructor/chat",
