@@ -18,7 +18,7 @@ function Navbar() {
       <div className="flex justify-between items-center max-w-[90%] mx-auto w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="LMS Logo" className="h-30 w-auto" />
+          <img src={logo} alt="LMS Logo" className="h-12 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}

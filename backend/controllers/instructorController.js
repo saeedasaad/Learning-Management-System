@@ -61,3 +61,26 @@ export const updateInstructorProfile = async (req, res) => {
     res.status(500).json({ error: "Error updating profile", details: err.message });
   }
 };
+
+
+export const getInstructorStudents = async (req, res) => {
+  try {
+    const courses = await Course.find({ instructorId: req.user._id }).populate("studentsEnrolled");
+
+   
+    let students = [];
+    for (const course of courses) {
+
+      const enrolled = await User.find({ _id: { $in: course.studentsEnrolled } }).select("name email");
+      students.push(...enrolled.map(s => ({
+        ...s.toObject(),
+        courseTitle: course.title,
+        progress: 0 
+      })));
+    }
+
+    res.json(students);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching students", details: err.message });
+  }
+};

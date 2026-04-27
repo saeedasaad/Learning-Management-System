@@ -6,6 +6,8 @@ import {
   updateCourse,
   getInstructorProfile,
   updateInstructorProfile,
+  getInstructorStudents,
+
 } from "../controllers/instructorController.js";
 
 const router = express.Router();
@@ -14,6 +16,8 @@ const router = express.Router();
 router.get("/courses", protect, instructorOnly, getInstructorCourses);
 router.get("/instructor/courses", protect, instructorOnly, getInstructorCourses);
 router.patch("/courses/:id", protect, instructorOnly, updateCourse);
+router.get("/students", protect, instructorOnly, getInstructorStudents);
+
 router.get("/profile", protect, instructorOnly, getInstructorProfile);
 router.patch("/profile", protect, instructorOnly, updateInstructorProfile);
 

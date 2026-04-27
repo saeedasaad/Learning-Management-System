@@ -42,12 +42,11 @@ const courseSchema = new mongoose.Schema({
   category: { type: String, required: true },
   price: { type: Number, required: true },
   originalPrice: { type: Number },
-  instructorId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
-  studentsEnrolled: { type: Number, default: 0 },
+
+  instructorId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+
+  studentsEnrolled: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+
   rating: { type: Number, default: 0 },
   description: { type: String, required: true },
   thumbnail: { type: String, required: true },
