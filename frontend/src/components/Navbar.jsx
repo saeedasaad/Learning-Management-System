@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Button from "./Button";
-import logo from "../assets/SkillMaster logo tra.png";
+import logo from "../assets/Logo.png";
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

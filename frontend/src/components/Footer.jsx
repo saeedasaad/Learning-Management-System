@@ -49,7 +49,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact</h3>
           <p className="text-sm">123 Learning Street, Karachi, Pakistan</p>
-          <p className="text-sm">info@skillmaster.com</p>
+          <p className="text-sm">info@edumaster.com</p>
           <p className="text-sm">Mon - Sat: 9:00 - 18:00</p>
 
           {/* Social Icons */}
@@ -72,7 +72,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="text-center text-sm text-gray-200 py-4">
-        &copy; {new Date().getFullYear()} SkillMaster. All rights reserved.
+        &copy; {new Date().getFullYear()} EduMaster. All rights reserved.
       </div>
     </footer>
   );

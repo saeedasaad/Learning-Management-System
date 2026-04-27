@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   },
 
   // Profile fields
-  avatarUrl: { type: String },
+  avatar: { type: String },   
   gender: { type: String },
   dob: { type: String },
   address: { type: String },

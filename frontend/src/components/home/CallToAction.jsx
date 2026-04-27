@@ -20,7 +20,7 @@ export default function CallToAction() {
         </h2>
         <p className="text-lg leading-relaxed text-gray-100 mb-8 font-medium">
           Empower your future with{" "}
-          <span className="text-[#feaf0f] font-semibold">SkillMaster</span> —
+          <span className="text-[#feaf0f] font-semibold">EduMaster</span> —
           where knowledge meets innovation and growth. Join a community of
           learners and instructors dedicated to helping you achieve excellence.
         </p>

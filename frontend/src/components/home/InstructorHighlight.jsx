@@ -51,10 +51,10 @@ export default function InstructorHighlight() {
                 </div>
 
                 <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-lg font-semibold text-gray-800">
                     {inst.name}
                   </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm">
                     {inst.expertise}
                   </p>
                 </div>
@@ -64,7 +64,6 @@ export default function InstructorHighlight() {
             <p>No instructors available</p>
           )}
         </div>
-
       </div>
     </section>
   );
