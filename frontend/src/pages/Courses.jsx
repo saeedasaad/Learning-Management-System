@@ -1,9 +1,9 @@
 import React from "react";
 import CallToAction from "../components/home/CallToAction.jsx";
 import CoursesBg from "../assets/courses-banner.png";
-import Banner from "../components/Banner.jsx";
+import Banner from "../components/common/Banner.jsx";
 import CourseListing from "../components/Courses/CourseListing.jsx";
-import FAQ from "../components/Courses/FAQ.jsx";
+import FAQ from "../components/courses/FAQ.jsx";
 
 export default function Courses() {
   return (

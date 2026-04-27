@@ -1,6 +1,6 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css"; 
-import EduMasterLogo from "../assets/edumaster-logo-white.png"; 
+import EduMasterLogo from "../../assets/edumaster-logo-white.png"; 
 
 export default function Footer() {
   return (

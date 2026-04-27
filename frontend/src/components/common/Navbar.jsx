@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import Button from "./Button";
-import logo from "../assets/Logo.png";
+import Button from "../common/Button";
+import logo from "../../assets/Logo.png";
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ function Navbar() {
       <div className="flex justify-between items-center max-w-[90%] mx-auto w-full">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="LMS Logo" className="h-12 w-auto" />
+          <img src={logo} alt="LMS Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}

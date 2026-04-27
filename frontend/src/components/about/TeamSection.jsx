@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button.jsx";
+import Button from "../common/Button";
 import TeamImg1 from "../../assets/team-1.jpg"; 
 import TeamImg2 from "../../assets/team-2.jpg"; 
 
@@ -7,7 +7,7 @@ export default function TeamSection() {
   return (
     <section className="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
         <img
           src={TeamImg1}
           alt="Consultant 1"

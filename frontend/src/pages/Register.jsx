@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { registerUser } from "../utils/apis";
 import { useNavigate } from "react-router-dom";
+import FormLayout from "../components/common/FormLayout";
+import InputField from "../components/common/InputField";
+import Button from "../components/common/Button";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -20,46 +23,19 @@ export default function Register() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 mt-[160px] mb-[160px]">
-      <h1 className="text-2xl font-bold mb-4 text-center">Register Page</h1>
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <div>
-          <label className="block text-gray-700">Username</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your username"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-700">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-700">Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-[#f49f35]"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-[#f49f35] text-white py-2 rounded hover:bg-[#e08c20]"
-        >
-          Register
-        </button>
-      </form>
-    </div>
+    <FormLayout title="Register Page">
+      <InputField label="Username" type="text" placeholder="Enter your username" value={name} 
+      onChange={(e) => setName(e.target.value)} icon="ri-user-3-line"/>
+
+      <InputField label="Email" type="email" placeholder="Enter your email" value={email} 
+      onChange={(e) => setEmail(e.target.value)} icon="ri-mail-line"/>
+
+      <InputField label="Password" type="password" placeholder="Enter your password" value={password} 
+      onChange={(e) => setPassword(e.target.value)} icon="ri-lock-line"/>
+
+      <Button variant="formFull" type="submit" onClick={handleSubmit}>
+        Register
+      </Button>
+    </FormLayout>
   );
 }

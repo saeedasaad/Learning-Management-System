@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button.jsx";
+import Button from "../common/Button";
 import AboutImg from "../../assets/about-1.png";
 
 export default function AboutSection() {

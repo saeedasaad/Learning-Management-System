@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "../components/Banner.jsx";
+import Banner from "../components/common/Banner.jsx";
 import CallToAction from "../components/home/CallToAction.jsx";
 import AboutBg from "../assets/about-banner.png";
 import Highlights from "../components/about/Highlights.jsx";

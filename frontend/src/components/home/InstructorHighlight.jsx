@@ -25,12 +25,12 @@ export default function InstructorHighlight() {
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="md:py-20 py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-semibold text-[#02448d] mb-4 mt-8">
+        <h2 className="md:text-4xl text-2xl font-semibold text-[#02448d] mb-3 md:mt-8 mt-1">
           Meet Our Instructors
         </h2>
-        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="md:text-md text-sm text-gray-600 mb-12 max-w-2xl mx-auto">
           Learn from industry experts who bring real-world experience and
           passion for teaching.
         </p>

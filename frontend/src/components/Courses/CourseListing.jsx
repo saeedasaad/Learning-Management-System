@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button.jsx";
+import Button from "../common/Button.jsx";
 import { getCourses } from "../../utils/apis.js";
 
 export default function CourseListing() {
@@ -29,12 +29,12 @@ export default function CourseListing() {
         {courses.map((course) => (
           <div
             key={course.id}
-            className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border border-[#02448d]/10"
+            className="bg-white p-6 shadow hover:shadow-xl transition border border-[#02448d]/10"
           >
             <img
               src={`http://localhost:5000${course.thumbnail}`}
               alt={course.title}
-              className="w-full h-40 object-cover rounded mb-4"
+              className="w-full h-46 object-cover rounded mb-4"
             />
             <h3 className="text-xl font-semibold text-[#02448d]">
               {course.title}
@@ -44,7 +44,7 @@ export default function CourseListing() {
             </p>
             <p className="text-[#02448d] font-bold mt-2">$ {course.price}</p>
             <Link to={`/courses/${course._id}`}>
-              <Button variant="primaryBlue" className="mt-4">
+              <Button variant="primaryBlue" className="mt-4 flex items-center gap-2 justify-center">
                 View Details <i className="ri-arrow-right-line"></i>
               </Button>
             </Link>

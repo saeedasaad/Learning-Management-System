@@ -15,8 +15,8 @@ export default function Banner({ title, description, bgImage }) {
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-3">{title}</h1>
-        <p className="text-lg leading-relaxed">{description}</p>
+        <h1 className="md:text-4xl text-3xl font-bold mb-3">{title}</h1>
+        <p className="md:text-lg text-sm leading-relaxed">{description}</p>
       </div>
     </section>
   );

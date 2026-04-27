@@ -37,7 +37,7 @@ export default function CourseHighlights({
 
   return (
     <section className="py-20 px-6 bg-white border-t border-gray-200">
-      <h2 className="text-3xl font-bold text-center mb-14 text-[#02448d]">
+      <h2 className="md:text-3xl text-2xl font-bold text-center mb-14 text-[#02448d] p-2 md:p-0">
         Best Reasons To Choose{" "}
         <span className="md:block inline">Our Course</span>
       </h2>

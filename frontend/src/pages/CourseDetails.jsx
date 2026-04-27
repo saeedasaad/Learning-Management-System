@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCourseById, registerUser, enrollCourse } from "../utils/apis.js";
-import CourseHero from "../components/Courses/CourseHero.jsx";
-import CourseHighlights from "../components/Courses/CourseHighlights.jsx";
-import CurriculumSection from "../components/Courses/CurriculumSection.jsx";
-import ProjectsSection from "../components/Courses/ProjectsSection.jsx";
-import CertificationSection from "../components/Courses/CertificationSection.jsx";
+import CourseHero from "../components/courses/CourseHero.jsx";
+import CourseHighlights from "../components/courses/CourseHighlights.jsx";
+import CurriculumSection from "../components/courses/CurriculumSection.jsx";
+import ProjectsSection from "../components/courses/ProjectsSection.jsx";
+import CertificationSection from "../components/courses/CertificationSection.jsx";
 import CallToAction from "../components/home/CallToAction.jsx";
-import EnrollmentModal from "../components/Courses/EnrollmentModal.jsx";
+import EnrollmentModal from "../components/courses/EnrollmentModal.jsx";
 
 export default function CourseDetails() {
   const { id } = useParams();

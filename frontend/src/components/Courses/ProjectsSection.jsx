@@ -3,10 +3,10 @@ import React from "react";
 export default function ProjectsSection({ projects }) {
   return (
     <section className="py-16 px-6 bg-gray-50">
-      <h2 className="text-3xl font-bold text-center mb-10 text-[#02448d]">
+      <h2 className="md:text-3xl text-2xl font-bold text-center md:mb-10 mb-5 text-[#02448d]">
         Real-World Projects
       </h2>
-      <p className="max-w-3xl mx-auto text-center text-gray-600 mb-12">
+      <p className="md:max-w-3xl max-w-xl mx-auto text-sm md:text-lg text-center text-gray-600 md:mb-12 mb-10">
         Work on industry-relevant projects to strengthen your portfolio and gain
         practical experience.
       </p>
