@@ -9,7 +9,7 @@ export default function QuizPage() {
   const quizData = {
     id: "quiz1",
     title: "Quiz No. 1",
-    duration: 5, // minutes
+    duration: 5, 
     totalMarks: 10,
     questions: [
       {
@@ -46,11 +46,11 @@ export default function QuizPage() {
   };
 
   const [answers, setAnswers] = useState({});
-  const [timeLeft, setTimeLeft] = useState(quizData.duration * 60); // seconds
+  const [timeLeft, setTimeLeft] = useState(quizData.duration * 60); 
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
-  // Timer countdown
+
   useEffect(() => {
     if (timeLeft <= 0 && !submitted) {
       handleSubmit();
@@ -67,7 +67,7 @@ export default function QuizPage() {
   const handleSubmit = () => {
     let marks = 0;
     quizData.questions.forEach((q) => {
-      if (answers[q.id] === q.correct) marks += 2; // 2 marks per correct
+      if (answers[q.id] === q.correct) marks += 2; 
     });
     setScore(marks);
     setSubmitted(true);

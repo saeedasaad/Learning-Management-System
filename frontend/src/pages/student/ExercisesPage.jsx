@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getExercises, submitExercise } from "../../utils/apis";
+import Table from "../../components/common/Table";
+import "remixicon/fonts/remixicon.css"; 
 
 export default function ExercisesPage() {
   const [exercises, setExercises] = useState([]);
@@ -22,7 +24,7 @@ export default function ExercisesPage() {
 
     try {
       await submitExercise(exerciseId, formData);
-      alert("Exercise submitted successfully ");
+      alert("Exercise submitted successfully");
     } catch (err) {
       console.error("Error submitting exercise:", err);
     }
@@ -40,58 +42,43 @@ export default function ExercisesPage() {
     <div className="p-6">
       <h2 className="text-xl font-bold mb-4">Exercises</h2>
 
-      <table className="w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2">Title</th>
-            <th className="p-2">Exercise</th>
-            <th className="p-2">Due Date</th>
-            <th className="p-2">Submit</th>
-            <th className="p-2">Marks</th>
-          </tr>
-        </thead>
-        <tbody>
-          {exercises.map((ex) => (
-            <tr key={ex._id} className="border-t">
-              <td className="p-2">{ex.title}</td>
-              <td className="p-2">
-                <a
-                  href={`http://localhost:5000${ex.fileUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 underline"
+      <Table
+        columns={["title", "fileUrl", "dueDate", "submitted", "marks"]}
+        data={exercises}
+        renderActions={(ex) => (
+          <div className="flex flex-wrap gap-2">
+            {ex.submitted ? (
+              <span className="text-green-600 flex items-center gap-1">
+                <i className="ri-check-double-line"></i> Submitted
+              </span>
+            ) : (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const file = e.target.pdf.files[0];
+                  if (file) handleSubmit(ex._id, file);
+                }}
+                encType="multipart/form-data"
+                className="flex flex-col gap-2"
+              >
+                <input
+                  type="file"
+                  name="pdf"
+                  accept="application/pdf"
+                  className="text-xs"
+                />
+                <button
+                  type="submit"
+                  className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+                  title="Submit Exercise"
                 >
-                  Exercise File
-                </a>
-              </td>
-              <td className="p-2 text-red-600">{ex.dueDate}</td>
-              <td className="p-2">
-                {ex.submitted ? (
-                  <span className="text-green-600">Submitted </span>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      const file = e.target.pdf.files[0];
-                      if (file) handleSubmit(ex._id, file);
-                    }}
-                    encType="multipart/form-data"
-                  >
-                    <input type="file" name="pdf" accept="application/pdf" />
-                    <button
-                      type="submit"
-                      className="bg-blue-500 text-white px-3 py-1 rounded mt-2"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                )}
-              </td>
-              <td className="p-2">Total Marks: {ex.marks}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  <i className="ri-upload-2-line text-lg"></i>
+                </button>
+              </form>
+            )}
+          </div>
+        )}
+      />
     </div>
   );
 }

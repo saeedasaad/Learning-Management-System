@@ -2,6 +2,8 @@ import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import api from "../../utils/apis";
 import DashboardCard from "../../components/layouts/DashboardCard";
+import Table from "../../components/common/Table";
+import "remixicon/fonts/remixicon.css"; // ensure Remix icons are available
 
 function ManageCourses() {
   const { data: courses, loading, error } = useFetch("/admin/courses");
@@ -46,51 +48,30 @@ function ManageCourses() {
 
   return (
     <DashboardCard title="Manage Courses">
-      <table className="table-auto w-full border">
-        <thead>
-          <tr>
-            <th className="border px-4 py-2">Title</th>
-            <th className="border px-4 py-2">Category</th>
-            <th className="border px-4 py-2">Status</th>
-            <th className="border px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {displayCourses?.map((c) => (
-            <tr key={c._id}>
-              <td className="border px-4 py-2">{c.title}</td>
-              <td className="border px-4 py-2">{c.category}</td>
-              <td className="border px-4 py-2">
-                <span
-                  className={`px-2 py-1 rounded text-white ${
-                    c.status === "approved"
-                      ? "bg-green-500"
-                      : "bg-yellow-500"
-                  }`}
-                >
-                  {c.status}
-                </span>
-              </td>
-              <td className="border px-4 py-2 flex gap-2">
-                {c.status === "pending" && (
-                  <button
-                    onClick={() => approveCourse(c._id)}
-                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-                  >
-                    Approve
-                  </button>
-                )}
-                <button
-                  onClick={() => deleteCourse(c._id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Table
+        columns={["title", "category", "status"]}
+        data={displayCourses}
+        renderActions={(c) => (
+          <div className="flex flex-wrap gap-2">
+            {c.status === "pending" && (
+              <button
+                onClick={() => approveCourse(c._id)}
+                className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+                title="Approve Course"
+              >
+                <i className="ri-checkbox-circle-line text-lg"></i>
+              </button>
+            )}
+            <button
+              onClick={() => deleteCourse(c._id)}
+              className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+              title="Delete Course"
+            >
+              <i className="ri-delete-bin-5-line text-lg"></i>
+            </button>
+          </div>
+        )}
+      />
     </DashboardCard>
   );
 }

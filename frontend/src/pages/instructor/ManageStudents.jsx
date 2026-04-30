@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
 import api from "../../utils/apis";
+import Table from "../../components/common/Table";
+import "remixicon/fonts/remixicon.css";
 
 export default function ManageStudents() {
   const [students, setStudents] = useState([]);
@@ -10,7 +12,7 @@ export default function ManageStudents() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const { data } = await api.get("/instructor/students"); 
+        const { data } = await api.get("/instructor/students");
         setStudents(data);
       } catch (err) {
         console.error("Error fetching students:", err);
@@ -57,42 +59,34 @@ export default function ManageStudents() {
   }
 
   return (
-    <DashboardCard title="Manage Students">
-      <table className="w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2">Name</th>
-            <th className="p-2">Email</th>
-            <th className="p-2">Course</th>
-            <th className="p-2">Progress</th>
-            <th className="p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {students.map((student) => (
-            <tr key={student._id} className="border-t text-center">
-              <td className="p-2">{student.name}</td>
-              <td className="p-2">{student.email}</td>
-              <td className="p-2">{student.courseTitle}</td>
-              <td className="p-2">{student.progress}%</td>
-              <td className="p-2 flex gap-2 justify-center">
-                <button
-                  onClick={() => removeStudent(student._id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                  Remove
-                </button>
-                <button
-                  onClick={() => alert(`Message sent to ${student.name}`)}
-                  className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-                >
-                  Message
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </DashboardCard>
+    <div className="md:m-10 m-5">
+      <DashboardCard title="Manage Students">
+        <Table
+          columns={["name", "email", "courseTitle", "progress"]}
+          data={students}
+          renderActions={(student) => (
+            <div className="flex flex-wrap gap-2 justify-center">
+              {/* Remove student */}
+              <button
+                onClick={() => removeStudent(student._id)}
+                className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+                title="Remove Student"
+              >
+                <i className="ri-delete-bin-5-line text-lg"></i>
+              </button>
+
+              {/* Message student */}
+              <button
+                onClick={() => alert(`Message sent to ${student.name}`)}
+                className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+                title="Message Student"
+              >
+                <i className="ri-mail-send-line text-lg"></i>
+              </button>
+            </div>
+          )}
+        />
+      </DashboardCard>
+    </div>
   );
 }

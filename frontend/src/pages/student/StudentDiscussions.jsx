@@ -51,6 +51,7 @@ export default function DiscussionsPage() {
   const filteredMessages = messages.filter((msg) => msg.tab === activeTab);
 
   return (
+        <div className="md:m-10 m-5">
     <DashboardCard title="Discussions">
       {/* Tabs */}
       <div className="flex mb-8">
@@ -167,5 +168,7 @@ export default function DiscussionsPage() {
         )}
       </div>
     </DashboardCard>
+    </div>
+
   );
 }

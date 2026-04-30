@@ -1,6 +1,8 @@
 import useFetch from "../../hooks/useFetch";
 import api from "../../utils/apis";
 import DashboardCard from "../../components/layouts/DashboardCard";
+import Table from "../../components/common/Table";
+import "remixicon/fonts/remixicon.css";
 
 function ManageUsers() {
   const { data: users, loading, error } = useFetch("/admin/users");
@@ -15,37 +17,36 @@ function ManageUsers() {
     window.location.reload();
   };
 
-  if (loading) return <DashboardCard title="Manage Users"><p>Loading...</p></DashboardCard>;
-  if (error) return <DashboardCard title="Manage Users"><p>Error: {error}</p></DashboardCard>;
+  if (loading)
+    return (
+      <DashboardCard title="Manage Users">
+        <p>Loading...</p>
+      </DashboardCard>
+    );
+  if (error)
+    return (
+      <DashboardCard title="Manage Users">
+        <p>Error: {error}</p>
+      </DashboardCard>
+    );
 
   return (
-    <DashboardCard title="Manage Users">
-      <table className="table-auto w-full border">
-        <thead>
-          <tr>
-            <th className="border px-4 py-2">Name</th>
-            <th className="border px-4 py-2">Email</th>
-            <th className="border px-4 py-2">Role</th>
-            <th className="border px-4 py-2">Status</th>
-            <th className="border px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users?.map((u) => (
-            <tr key={u._id}>
-              <td className="border px-4 py-2">{u.name}</td>
-              <td className="border px-4 py-2">{u.email}</td>
-              <td className="border px-4 py-2">{u.role}</td>
-              <td className="border px-4 py-2">{u.status}</td>
-              <td className="border px-4 py-2 flex gap-2">
-                <button onClick={() => updateRole(u._id, "instructor")} className="bg-blue-500 text-white px-2 py-1 rounded">Promote</button>
-                <button onClick={() => suspendUser(u._id)} className="bg-red-500 text-white px-2 py-1 rounded">Suspend</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </DashboardCard>
+    <div className="md:m-10 m-5">
+      <DashboardCard title="Manage Users">
+        <Table columns={["name", "email", "role", "status"]} data={users} renderActions={(u) => (
+            <div className="flex flex-wrap gap-2">
+              <button onClick={() => updateRole(u._id, "instructor")} className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130" title="Promote to Instructor" >
+                <i className="ri-edit-2-fill text-lg"></i>
+              </button>
+
+              <button onClick={() => suspendUser(u._id)} className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130" title="Suspend User" >
+                <i className="ri-delete-bin-5-line text-lg"></i>
+              </button>
+            </div>
+          )}
+        />
+      </DashboardCard>
+    </div>
   );
 }
 

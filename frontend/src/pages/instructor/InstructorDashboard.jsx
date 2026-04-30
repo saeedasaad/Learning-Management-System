@@ -9,7 +9,6 @@ export default function InstructorDashboard() {
   useEffect(() => {
     const fetchOverview = async () => {
       try {
-        // Replace with real API later
         const mockData = {
           name: "Alexander",
           email: "alexander@example.com",
@@ -49,7 +48,7 @@ export default function InstructorDashboard() {
   if (!overview) return <p>Loading...</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:m-10 m-5">
       {/* Instructor Stats */}
       <DashboardCard title="Instructor Stats">
         <ul className="text-gray-700 space-y-2">

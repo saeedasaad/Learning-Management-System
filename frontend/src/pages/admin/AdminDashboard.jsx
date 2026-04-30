@@ -1,9 +1,9 @@
 import DashboardCard from "../../components/layouts/DashboardCard";
-import Analytics from "./Analytics";
-import ManageUsers from "./ManageUsers";
-import ManageCourses from "./ManageCourses";
-import ApproveCourses from "./ApproveCourses";
-import RevenueAnalytics from "./RevenueAnalytics";
+// import Analytics from "./Analytics";
+// import ManageUsers from "./ManageUsers";
+// import ManageCourses from "./ManageCourses";
+// import ApproveCourses from "./ApproveCourses";
+// import RevenueAnalytics from "./RevenueAnalytics";
 
 function AdminDashboard() {
   return (
@@ -14,11 +14,11 @@ function AdminDashboard() {
         </p>
       </DashboardCard>
 
-      <Analytics />
+      {/* <Analytics />
       <RevenueAnalytics />
       <ManageUsers />
       <ManageCourses />
-      <ApproveCourses />
+      <ApproveCourses /> */}
     </div>
   );
 }

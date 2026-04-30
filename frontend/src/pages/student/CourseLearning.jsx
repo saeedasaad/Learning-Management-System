@@ -10,7 +10,7 @@ export default function CourseLearning() {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const data = await getCourseDetails(id); 
+        const data = await getCourseDetails(id);
         setCourse(data);
       } catch (err) {
         console.error("Error fetching course details:", err);
@@ -22,13 +22,15 @@ export default function CourseLearning() {
   if (!course) return <p>Loading...</p>;
 
   return (
-    <DashboardCard title={course.title}>
-      <p className="text-gray-600">{course.description}</p>
-      <ul className="mt-4 space-y-2 text-gray-600">
-        {course.lectures?.map((lecture, index) => (
-          <li key={index}>{lecture.title}</li>
-        ))}
-      </ul>
-    </DashboardCard>
+    <div className="md:m-10 m-5">
+      <DashboardCard title={course.title}>
+        <p className="text-gray-600">{course.description}</p>
+        <ul className="mt-4 space-y-2 text-gray-600">
+          {course.lectures?.map((lecture, index) => (
+            <li key={index}>{lecture.title}</li>
+          ))}
+        </ul>
+      </DashboardCard>
+    </div>
   );
 }

@@ -15,7 +15,6 @@ import {
 } from "recharts";
 
 export default function TraineeServices() {
-  // Example data (replace with API later)
   const progressData = [
     { week: "Week 1", topics: 10, completed: 8 },
     { week: "Week 2", topics: 12, completed: 10 },
@@ -36,8 +35,8 @@ export default function TraineeServices() {
   const COLORS = ["#8b5cf6", "#ec4899", "#3b82f6", "#10b981"];
 
   return (
-    <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-1">
-      {/* Learning Activity Line Chart */}
+    <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
       <DashboardCard title="Learning Activity (Videos Watch)">
         <LineChart width={400} height={250} data={progressData}>
           <CartesianGrid strokeDasharray="3 3" />

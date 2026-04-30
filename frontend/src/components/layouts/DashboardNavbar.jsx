@@ -6,7 +6,7 @@ export default function DashboardNavbar({ role }) {
   return (
     <div className="flex items-center justify-between py-4 px-6 bg-gray-100 border-b border-gray-300">
       {/* Dashboard Title */}
-      <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide text-[#134f93]">
+      <h2 className="text-md md:text-2xl font-bold uppercase tracking-wide text-[#134f93]">
         {role} Dashboard
       </h2>
 

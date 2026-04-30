@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
 import { getInstructorCourses } from "../../utils/apis";
 import api from "../../utils/apis";
+import Table from "../../components/common/Table";
+import "remixicon/fonts/remixicon.css"; 
 
 export default function ManageCourses() {
   const [courses, setCourses] = useState([]);
@@ -25,7 +27,6 @@ export default function ManageCourses() {
     fetchCourses();
   }, []);
 
-  // Delete course
   const deleteCourse = async (id) => {
     try {
       await api.delete(`/instructor/courses/${id}`);
@@ -36,7 +37,6 @@ export default function ManageCourses() {
     }
   };
 
-  // Start editing
   const startEdit = (course) => {
     setEditingCourse(course._id);
     setFormData({
@@ -49,20 +49,18 @@ export default function ManageCourses() {
     });
   };
 
-  // Handle form changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Save updates
   const saveCourse = async () => {
     try {
       const { data } = await api.patch(
         `/instructor/courses/${editingCourse}`,
-        formData,
+        formData
       );
       setCourses(
-        courses.map((c) => (c._id === editingCourse ? { ...c, ...data } : c)),
+        courses.map((c) => (c._id === editingCourse ? { ...c, ...data } : c))
       );
       setEditingCourse(null);
       alert("Course updated successfully!");
@@ -97,59 +95,47 @@ export default function ManageCourses() {
   }
 
   return (
+    <div className="md:m-10 m-5">
     <DashboardCard title="Manage My Courses">
-      <table className="w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2">Title</th>
-            <th className="p-2">Category</th>
-            <th className="p-2">Students</th>
-            <th className="p-2">Rating</th>
-            <th className="p-2">Price</th>
-            <th className="p-2">Duration</th>
-            <th className="p-2">Status</th>
-            <th className="p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {courses.map((course) => (
-            <tr key={course._id} className="border-t text-center">
-              <td className="p-2">{course.title}</td>
-              <td className="p-2">{course.category}</td>
-              <td className="p-2">{course.studentsEnrolled}</td>
-              <td className="p-2">{course.rating}</td>
-              <td className="p-2">{course.price}</td>
-              <td className="p-2">{course.duration}</td>
-              <td className="p-2">{course.status}</td>
-              <td className="p-2 flex gap-2 justify-center">
-                <button
-                  onClick={() => startEdit(course)}
-                  className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => deleteCourse(course._id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Table
+        columns={[
+          "title",
+          "category",
+          "studentsEnrolled",
+          "rating",
+          "price",
+          "duration",
+          "status",
+        ]}
+        data={courses}
+        renderActions={(course) => (
+          <div className="flex flex-wrap gap-2 justify-center">
+            <button
+              onClick={() => startEdit(course)}
+              className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+              title="Edit Course"
+            >
+              <i className="ri-edit-2-fill text-lg"></i>
+            </button>
+            <button
+              onClick={() => deleteCourse(course._id)}
+              className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
+              title="Delete Course"
+            >
+              <i className="ri-delete-bin-5-line text-lg"></i>
+            </button>
+          </div>
+        )}
+      />
 
       {/* Edit Form Modal */}
       {editingCourse && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          {/* Background overlay with blur */}
           <div
-            className="absolute fixed inset-0 bg-black/50 flex items-center justify-center"
-            onClick={() => setEditingCourse(null)} // close when clicking outside
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setEditingCourse(null)}
           ></div>
 
-          {/* Modal content */}
           <div className="relative bg-white p-6 rounded-lg shadow-xl w-96 z-50">
             <h2 className="text-xl font-bold mb-4 text-center">Edit Course</h2>
 
@@ -220,5 +206,6 @@ export default function ManageCourses() {
         </div>
       )}
     </DashboardCard>
+    </div>
   );
 }

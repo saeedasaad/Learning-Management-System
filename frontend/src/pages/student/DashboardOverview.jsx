@@ -6,7 +6,6 @@ export default function DashboardOverview() {
   const [overview, setOverview] = useState(null);
 
   useEffect(() => {
-    // Temporary mock data (replace with API later)
     const mockData = {
       name: "Saeeda Saad",
       email: "saeeda@example.com",
@@ -49,7 +48,7 @@ export default function DashboardOverview() {
   if (!overview) return <p>Loading...</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:m-10 m-5">
       {/* Progress Section */}
       <DashboardCard title="My Progress">
         <p className="text-gray-600">

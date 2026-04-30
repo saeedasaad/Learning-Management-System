@@ -34,58 +34,60 @@ export default function MyCourses() {
   }
 
   return (
-    <DashboardCard title="My Courses">
-      {/* Course Selector */}
-      <div className="flex gap-4 mb-8">
-        {enrollments.map((enrollment) => (
-          <button
-            key={enrollment.course._id}
-            onClick={() => setActiveCourse(enrollment.course)}
-            className={`px-4 py-2 rounded ${
-              activeCourse._id === enrollment.course._id
-                ? "bg-yellow-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-yellow-100"
-            }`}
-          >
-            {enrollment.course.title}
-          </button>
-        ))}
-      </div>
+    <div className="md:m-10 m-5">
+      <DashboardCard title="My Courses">
+        {/* Course Selector */}
+        <div className="flex gap-4 mb-8">
+          {enrollments.map((enrollment) => (
+            <button
+              key={enrollment.course._id}
+              onClick={() => setActiveCourse(enrollment.course)}
+              className={`px-4 py-2 rounded ${
+                activeCourse._id === enrollment.course._id
+                  ? "bg-yellow-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-yellow-100"
+              }`}
+            >
+              {enrollment.course.title}
+            </button>
+          ))}
+        </div>
 
-      {/* Tabs */}
-      <div className="flex gap-6 mb-10">
-        {["topics", "faqs", "glossary", "completion"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`pb-2 font-semibold transition ${
-              activeTab === tab
-                ? "text-yellow-500 border-b-2 border-yellow-500"
-                : "text-gray-600 hover:text-yellow-500"
-            }`}
-          >
-            {tab === "topics" && "Course Topics"}
-            {tab === "faqs" && "FAQs"}
-            {tab === "glossary" && "Glossary"}
-            {tab === "completion" && "Completion Criteria"}
-          </button>
-        ))}
-      </div>
+        {/* Tabs */}
+        <div className="flex gap-6 mb-10">
+          {["topics", "faqs", "glossary", "completion"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`pb-2 font-semibold transition ${
+                activeTab === tab
+                  ? "text-yellow-500 border-b-2 border-yellow-500"
+                  : "text-gray-600 hover:text-yellow-500"
+              }`}
+            >
+              {tab === "topics" && "Course Topics"}
+              {tab === "faqs" && "FAQs"}
+              {tab === "glossary" && "Glossary"}
+              {tab === "completion" && "Completion Criteria"}
+            </button>
+          ))}
+        </div>
 
-      {/* Render Components */}
-      {activeTab === "topics" && (
-        <CourseTopics modules={activeCourse.modules} />
-      )}
-      {activeTab === "faqs" && <FAQs faqs={activeCourse.faqs} />}
-      {activeTab === "glossary" && (
-        <Glossary
-          glossary={activeCourse.glossary}
-          modules={activeCourse.modules}
-        />
-      )}
-      {activeTab === "completion" && (
-        <CompletionCriteria criteria={activeCourse.completionCriteria} />
-      )}
-    </DashboardCard>
+        {/* Render Components */}
+        {activeTab === "topics" && (
+          <CourseTopics modules={activeCourse.modules} />
+        )}
+        {activeTab === "faqs" && <FAQs faqs={activeCourse.faqs} />}
+        {activeTab === "glossary" && (
+          <Glossary
+            glossary={activeCourse.glossary}
+            modules={activeCourse.modules}
+          />
+        )}
+        {activeTab === "completion" && (
+          <CompletionCriteria criteria={activeCourse.completionCriteria} />
+        )}
+      </DashboardCard>
+    </div>
   );
 }
