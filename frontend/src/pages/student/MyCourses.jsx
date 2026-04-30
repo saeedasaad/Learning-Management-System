@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getMyCourses } from "../../utils/apis";
+import { getMyCourses } from "../../utils/api";
 import CourseTopics from "../../components/student/CourseTopics";
 import FAQs from "../../components/student/FAQs";
 import Glossary from "../../components/student/Glossary";

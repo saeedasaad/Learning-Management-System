@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getExercises, submitExercise } from "../../utils/apis";
+import { getExercises, submitExercise } from "../../utils/api";
 import Table from "../../components/common/Table";
 import "remixicon/fonts/remixicon.css"; 
 

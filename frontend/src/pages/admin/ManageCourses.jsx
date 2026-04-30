@@ -1,9 +1,9 @@
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 import DashboardCard from "../../components/layouts/DashboardCard";
 import Table from "../../components/common/Table";
-import "remixicon/fonts/remixicon.css"; // ensure Remix icons are available
+import "remixicon/fonts/remixicon.css"; 
 
 function ManageCourses() {
   const { data: courses, loading, error } = useFetch("/admin/courses");

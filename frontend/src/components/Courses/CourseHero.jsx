@@ -3,7 +3,7 @@ import Button from "../common/Button";
 
 export default function CourseHero({ course, instructor, onEnroll }) {
   return (
-    <div className="relative bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white pt-28 pb-8">
+    <div className="relative inset-0 bg-gradient-to-t from-[#0d488d] via-[#1a579d] to-[#3772b6] text-white pt-28 pb-8">
       <div className="mx-auto w-[85%] grid lg:grid-cols-2 gap-10 items-center">
         <div className="text-center lg:text-left">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">{course.title}</h1>

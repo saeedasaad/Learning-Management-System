@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
-import { getInstructorCourses } from "../../utils/apis";
-import api from "../../utils/apis";
+import { getInstructorCourses } from "../../utils/api.js";
 import Table from "../../components/common/Table";
 import "remixicon/fonts/remixicon.css"; 
 

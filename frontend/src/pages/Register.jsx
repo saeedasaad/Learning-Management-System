@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser } from "../utils/apis";
+import { registerUser } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import FormLayout from "../components/common/FormLayout";
 import InputField from "../components/common/InputField";

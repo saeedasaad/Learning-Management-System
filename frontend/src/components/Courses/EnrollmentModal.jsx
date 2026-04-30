@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser, enrollCourse } from "../../utils/apis.js";
+import { registerUser, enrollCourse } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import InputField from "../common/InputField";
 import Button from "../common/Button";
@@ -73,7 +73,7 @@ export default function EnrollmentModal({ course, onClose }) {
           <>
             <h2 className="text-xl font-bold mb-4">Payment</h2>
             <p className="mb-8">You will be redirected to Stripe Checkout</p>
-            <Button variant="formFull" className="hover:bg-transparent hover:text-green-600" onClick={handleEnroll} >
+            <Button variant="formFull" className="hover:bg-transparent hover:text-[#f49f35]" onClick={handleEnroll} >
               Pay & Enroll
             </Button>
           </>

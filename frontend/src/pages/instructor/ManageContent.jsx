@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 import LectureUploadForm from "../../components/instructor/LectureUploadForm";
 import NotesUploadForm from "../../components/instructor/NotesUploadForm";
 import QuizUploadForm from "../../components/instructor/QuizUploadForm";

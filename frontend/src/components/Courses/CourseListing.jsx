@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../common/Button.jsx";
-import { getCourses } from "../../utils/apis.js";
+import { getCourses } from "../../utils/api.js";
 
 export default function CourseListing() {
   const [courses, setCourses] = useState([]);
@@ -32,10 +32,11 @@ export default function CourseListing() {
             className="bg-white p-6 shadow hover:shadow-xl transition border border-[#02448d]/10"
           >
             <img
-              src={`http://localhost:5000${course.thumbnail}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}${course.thumbnail}`}
               alt={course.title}
               className="w-full h-46 object-cover rounded mb-4"
             />
+
             <h3 className="text-xl font-semibold text-[#02448d]">
               {course.title}
             </h3>
@@ -44,7 +45,10 @@ export default function CourseListing() {
             </p>
             <p className="text-[#02448d] font-bold mt-2">$ {course.price}</p>
             <Link to={`/courses/${course._id}`}>
-              <Button variant="primaryBlue" className="mt-4 flex items-center gap-2 justify-center">
+              <Button
+                variant="primaryBlue"
+                className="mt-4 flex items-center gap-2 justify-center"
+              >
                 View Details <i className="ri-arrow-right-line"></i>
               </Button>
             </Link>

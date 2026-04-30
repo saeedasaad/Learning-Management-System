@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 
 export default function InstructorHighlight() {
   const [instructors, setInstructors] = useState([]);
@@ -44,7 +44,7 @@ export default function InstructorHighlight() {
               >
                 <div className="overflow-hidden transition">
                   <img
-                    src={`http://localhost:5000${inst.avatar}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}${inst.avatar}`}
                     alt={inst.name}
                     className="w-full h-full object-cover"
                   />

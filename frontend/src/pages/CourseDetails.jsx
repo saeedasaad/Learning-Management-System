@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCourseById, registerUser, enrollCourse } from "../utils/apis.js";
+import { getCourseById, registerUser, enrollCourse } from "../utils/api.js";
 import CourseHero from "../components/courses/CourseHero.jsx";
 import CourseHighlights from "../components/courses/CourseHighlights.jsx";
 import CurriculumSection from "../components/courses/CurriculumSection.jsx";

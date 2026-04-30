@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DashboardCard from "../../components/layouts/DashboardCard";
-import { getCourseDetails } from "../../utils/apis";
+import { getCourseDetails } from "../../utils/api";
 
 export default function CourseLearning() {
   const { id } = useParams();

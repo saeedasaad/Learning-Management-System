@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
 import "remixicon/fonts/remixicon.css";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 
 export default function InstructorDashboard() {
   const [overview, setOverview] = useState(null);

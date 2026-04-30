@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 
 export default function ExerciseUploadForm({ courseId, moduleIndex, onExerciseAdded }) {
   const [title, setTitle] = useState("");

@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// Use Vite environment variable
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: `${import.meta.env.VITE_BACKEND_URL}/api`, 
 });
 
 // Attach token automatically
@@ -14,7 +15,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Auth endpoints
+// -------------------- Auth endpoints --------------------
 export const registerUser = async (userData) => {
   const { data } = await api.post("/auth/register", userData);
   return data;
@@ -25,7 +26,7 @@ export const loginUser = async (credentials) => {
   return data;
 };
 
-// Student endpoints
+// -------------------- Student endpoints --------------------
 export const enrollCourse = async (courseId) => {
   const { data } = await api.post(`/student/enroll/${courseId}`);
   return data;
@@ -53,6 +54,43 @@ export const getMyCourses = async () => {
 
 export const getProgress = async () => {
   const { data } = await api.get("/student/progress");
+  return data;
+};
+
+export const getActivities = async () => {
+  const { data } = await api.get("/student/activities");
+  return data;
+};
+
+export const getExercises = async () => {
+  const { data } = await api.get("/student/exercises");
+  return data;
+};
+
+export const submitExercise = async (exerciseId, formData) => {
+  const { data } = await api.post(
+    `/student/exercises/${exerciseId}/submit`,
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    }
+  );
+  return data;
+};
+
+// -------------------- Instructor endpoints --------------------
+export const getInstructorProfile = async () => {
+  const { data } = await api.get("/instructor/profile");
+  return data;
+};
+
+export const updateInstructorProfile = async (formData) => {
+  const { data } = await api.patch("/instructor/profile", formData);
+  return data;
+};
+
+export const getInstructorCourses = async () => {
+  const { data } = await api.get("/instructor/courses");
   return data;
 };
 

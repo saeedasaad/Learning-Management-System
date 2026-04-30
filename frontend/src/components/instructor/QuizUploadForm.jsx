@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../utils/apis";
+import api from "../../utils/api";
 
 export default function QuizUploadForm({ courseId, moduleIndex, onQuizAdded }) {
   const [question, setQuestion] = useState("");

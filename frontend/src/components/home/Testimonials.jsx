@@ -19,17 +19,15 @@ export default function Testimonials() {
 
   return (
     <section className="md:py-20 py-10 bg-gray-100 text-center">
-      {/* Heading */}
+
       <h2 className="md:text-4xl text-2xl px-8 md:px-0 font-semibold text-[#02448d] mb-4 mt-8">
         What our students say about us
       </h2>
 
-      {/* Paragraph */}
       <p className="md:text-md text-sm text-gray-600 mb-12 max-w-2xl mx-auto px-8 md:px-0">
         Hear directly from our students about their learning experience and how
         our platform helped them grow their skills and confidence.
       </p>
-
 
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {reviews && reviews.length > 0 ? (

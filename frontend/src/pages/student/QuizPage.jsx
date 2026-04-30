@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function QuizPage() {
-  const { id } = useParams(); // quizId from route
+  const { id } = useParams(); 
   const navigate = useNavigate();
 
-  // Example quiz data (replace with API later)
   const quizData = {
     id: "quiz1",
     title: "Quiz No. 1",

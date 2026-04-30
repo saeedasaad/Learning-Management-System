@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/authSlice";
-import { loginUser } from "../utils/apis";
+import { loginUser } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import FormLayout from "../components/common/FormLayout";
 import InputField from "../components/common/InputField";
