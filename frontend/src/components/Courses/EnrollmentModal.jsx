@@ -22,15 +22,23 @@ export default function EnrollmentModal({ course, onClose }) {
   };
 
   // Enrollment
+  // Enrollment
   const handleEnroll = async () => {
     try {
+      console.log(" Enrolling course with ID:", course.id);
+
       const res = await enrollCourse(course.id);
+
+      console.log(" Response from backend:", res);
+
       if (res.url) {
-        window.location.href = res.url;
+        console.log(" Redirecting to Stripe Checkout:", res.url);
+        window.location.href = res.url; 
       } else {
         alert("No payment URL received");
       }
     } catch (err) {
+      console.error(" Enrollment error:", err);
       alert(err.response?.data?.error || "Enrollment failed");
     }
   };
@@ -38,23 +46,49 @@ export default function EnrollmentModal({ course, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center md:px-4">
       <div className="bg-white rounded-lg shadow-lg p-6 md:w-full w-[80%] mx-auto md:max-w-lg relative">
-        
         {/* Close Icon */}
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-[#feaf0c] transition">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-[#feaf0c] transition"
+        >
           <i className="ri-close-line text-2xl"></i>
         </button>
 
         {step === 1 && (
           <>
             <h2 className="text-xl font-bold mb-4">Register</h2>
-            <InputField label="Name" placeholder="Enter your name" value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })} icon="ri-user-3-line"/>
-            <InputField label="Email" type="email" placeholder="Enter your email" value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })} icon="ri-mail-line"/>
-            <InputField label="Password" type="password" placeholder="Enter your password" value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })} icon="ri-lock-line"/>
-            <Button variant="formFull" className="mt-4" onClick={handleRegister}> Continue</Button>
-            </>
+            <InputField
+              label="Name"
+              placeholder="Enter your name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              icon="ri-user-3-line"
+            />
+            <InputField
+              label="Email"
+              type="email"
+              placeholder="Enter your email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              icon="ri-mail-line"
+            />
+            <InputField
+              label="Password"
+              type="password"
+              placeholder="Enter your password"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              icon="ri-lock-line"
+            />
+            <Button
+              variant="formFull"
+              className="mt-4"
+              onClick={handleRegister}
+            >
+              {" "}
+              Continue
+            </Button>
+          </>
         )}
 
         {step === 2 && (
@@ -63,7 +97,11 @@ export default function EnrollmentModal({ course, onClose }) {
             <p className="mb-2">{course.title}</p>
             <p className="mb-2">Price: ${course.price}</p>
             <p className="mb-2">Duration: {course.duration}</p>
-            <Button variant="primaryBlue" className="w-full mt-4" onClick={() => setStep(3)}>
+            <Button
+              variant="primaryBlue"
+              className="w-full mt-4"
+              onClick={() => setStep(3)}
+            >
               Proceed to Payment
             </Button>
           </>
@@ -73,7 +111,11 @@ export default function EnrollmentModal({ course, onClose }) {
           <>
             <h2 className="text-xl font-bold mb-4">Payment</h2>
             <p className="mb-8">You will be redirected to Stripe Checkout</p>
-            <Button variant="formFull" className="hover:bg-transparent hover:text-[#f49f35]" onClick={handleEnroll} >
+            <Button
+              variant="formFull"
+              className="hover:bg-transparent hover:text-[#f49f35]"
+              onClick={handleEnroll}
+            >
               Pay & Enroll
             </Button>
           </>

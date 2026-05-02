@@ -3,13 +3,15 @@ import PublicLayout from "./layouts/PublicLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 
 // Public Pages
-import Home from "./pages/Home";
-import Courses from "./pages/Courses";
-import CourseDetails from "./pages/CourseDetails";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Home from "./pages/public/Home";
+import Courses from "./pages/public/Courses";
+import CourseDetails from "./pages/public/CourseDetails";
+import Login from "./pages/public/Login";
+import Register from "./pages/public/Register";
+import About from "./pages/public/About";
+import Contact from "./pages/public/Contact";
+import Unauthorized from "./pages/shared/Unauthorized";
+import NotFound from "./pages/shared/NotFound";
 
 // Student Pages
 import DashboardOverview from "./pages/student/DashboardOverview";
@@ -33,7 +35,6 @@ import Revenue from "./pages/instructor/Revenue";
 import Chat from "./pages/instructor/Chat";
 import Profile from "./pages/instructor/Profile";
 
-
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
@@ -41,8 +42,6 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
-
-
 
 function App() {
   return (
@@ -82,12 +81,15 @@ function App() {
 
       {/* Instructor Dashboard */}
       <Route element={<DashboardLayout role="instructor" />}>
-        <Route path="/instructor/dashboard" element={<InstructorDashboard/>} />
+        <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
 
         {/* Core Pages */}
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
-        <Route path="/instructor/manage-students" element={<ManageStudents />}/>
-        <Route path="/instructor/manage-content" element={<ManageContent />}/>
+        <Route
+          path="/instructor/manage-students"
+          element={<ManageStudents />}
+        />
+        <Route path="/instructor/manage-content" element={<ManageContent />} />
         <Route path="/instructor/revenue" element={<Revenue />} />
         <Route path="/instructor/profile" element={<Profile />} />
         <Route path="/instructor/chat" element={<Chat />} />
@@ -102,6 +104,13 @@ function App() {
         <Route path="/admin/analytics" element={<Analytics />} />
         <Route path="/admin/revenue-analytics" element={<RevenueAnalytics />} />
       </Route>
+
+      {/* Unauthorized Route */}
+      <Route path="/unauthorized" element={<Unauthorized />} />
+
+      {/* Catch-all for 404 */}
+      <Route path="*" element={<NotFound />} />
+
     </Routes>
   );
 }

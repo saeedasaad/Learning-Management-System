@@ -1,11 +1,12 @@
+import useFetch from "../../hooks/useFetch";
 import DashboardCard from "../../components/layouts/DashboardCard";
-// import Analytics from "./Analytics";
-// import ManageUsers from "./ManageUsers";
-// import ManageCourses from "./ManageCourses";
-// import ApproveCourses from "./ApproveCourses";
-// import RevenueAnalytics from "./RevenueAnalytics";
 
 function AdminDashboard() {
+  const { data: analytics, loading, error } = useFetch("/admin/analytics");
+
+  if (loading) return <DashboardCard title="Admin Dashboard"><p>Loading...</p></DashboardCard>;
+  if (error) return <DashboardCard title="Admin Dashboard"><p>Error: {error}</p></DashboardCard>;
+
   return (
     <div className="p-6 grid lg:grid-cols-2 gap-6">
       <DashboardCard title="Admin Dashboard">
@@ -14,11 +15,10 @@ function AdminDashboard() {
         </p>
       </DashboardCard>
 
-      {/* <Analytics />
-      <RevenueAnalytics />
-      <ManageUsers />
-      <ManageCourses />
-      <ApproveCourses /> */}
+      <DashboardCard title="Total Users">{analytics?.usersCount}</DashboardCard>
+      <DashboardCard title="Total Courses">{analytics?.coursesCount}</DashboardCard>
+      <DashboardCard title="Analytics">{JSON.stringify(analytics?.stats)}</DashboardCard>
+      <DashboardCard title="Total Revenue">${analytics?.revenue}</DashboardCard>
     </div>
   );
 }

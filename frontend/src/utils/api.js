@@ -15,7 +15,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// -------------------- Auth endpoints --------------------
+//  Auth endpoints 
 export const registerUser = async (userData) => {
   const { data } = await api.post("/auth/register", userData);
   return data;
@@ -26,7 +26,7 @@ export const loginUser = async (credentials) => {
   return data;
 };
 
-// -------------------- Student endpoints --------------------
+//  Student endpoints 
 export const enrollCourse = async (courseId) => {
   const { data } = await api.post(`/student/enroll/${courseId}`);
   return data;
@@ -78,7 +78,7 @@ export const submitExercise = async (exerciseId, formData) => {
   return data;
 };
 
-// -------------------- Instructor endpoints --------------------
+//  Instructor endpoints 
 export const getInstructorProfile = async () => {
   const { data } = await api.get("/instructor/profile");
   return data;

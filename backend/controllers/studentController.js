@@ -1,4 +1,5 @@
 import Course from "../models/Course.js";
+import mongoose from "mongoose";
 import Enrollment from "../models/Enrollment.js";
 import Payment from "../models/Payment.js";
 import User from "../models/User.js";
@@ -114,7 +115,11 @@ export const enrollCourse = async (req, res) => {
       success_url: `${process.env.CLIENT_URL}/student/dashboard`,
       cancel_url: `${process.env.CLIENT_URL}/courses/${course.id}`,
       client_reference_id: req.user._id.toString(),
+      metadata: { courseId: course._id.toString() },
     });
+
+    console.log("Returning session URL:", session.url);
+
 
     res.json({ url: session.url });
   } catch (err) {
@@ -123,39 +128,62 @@ export const enrollCourse = async (req, res) => {
   }
 };
 
+
 // Stripe Webhook
 export const stripeWebhook = async (req, res) => {
-  try {
-    const event = req.body;
+  const sig = req.headers["stripe-signature"];
+  let event;
 
-    if (event.type === "checkout.session.completed") {
-      const session = event.data.object;
-      const enrollment = await Enrollment.findOne({
-        user: session.client_reference_id,
+  try {
+    console.log("Raw body type:", typeof req.body);
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+    console.log("Webhook event received:", event.type);
+    console.log("Session object:", event.data.object);
+
+  } catch (err) {
+    console.error(" Webhook signature verification failed:", err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  console.log(" Webhook event received:", event.type);
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object;
+
+
+    console.log("Webhook session object:", session);
+    console.log("Looking for enrollment with user:", session.client_reference_id, "course:", session.metadata.courseId);
+
+    const enrollment = await Enrollment.findOne({
+      user: new mongoose.Types.ObjectId(session.client_reference_id),
+      course: new mongoose.Types.ObjectId(session.metadata.courseId),
+    });
+
+    if (enrollment) {
+      enrollment.status = "active";
+      await enrollment.save();
+
+      await Payment.create({
+        user: enrollment.user,
+        course: enrollment.course,
+        amount: session.amount_total / 100,
+        status: "success",
+        stripeId: session.id,
       });
 
-      if (enrollment) {
-        enrollment.status = "active";
-        await enrollment.save();
-
-        await Payment.create({
-          user: enrollment.user,
-          course: enrollment.course,
-          amount: session.amount_total / 100,
-          status: "success",
-          stripeId: session.id,
-        });
-      }
+      console.log(" Payment successful for session:", session.id);
+    } else {
+      console.error("Enrollment not found for session:", session.id);
     }
-
-    res.json({ received: true });
-  } catch (err) {
-    console.error("Stripe webhook error:", err.message);
-    res
-      .status(500)
-      .json({ error: "Webhook handling failed", details: err.message });
   }
+
+  res.json({ received: true });
 };
+
 
 // Get student profile
 export const getProfile = async (req, res) => {
