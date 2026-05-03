@@ -1,8 +1,11 @@
 import React from "react";
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL; // backend server URL
+
 export default function Glossary({ glossary = [], modules = [] }) {
   return (
     <div className="space-y-6">
+      {/* Glossary Terms */}
       <div>
         <h3 className="font-bold mb-2">Glossary Terms</h3>
         {glossary.length > 0 ? (
@@ -18,6 +21,7 @@ export default function Glossary({ glossary = [], modules = [] }) {
         )}
       </div>
 
+      {/* Downloads */}
       <div>
         <h3 className="font-bold mb-2">Downloads</h3>
         {modules.length > 0 ? (
@@ -25,7 +29,7 @@ export default function Glossary({ glossary = [], modules = [] }) {
             {modules.map((m, i) => (
               <li key={m.title || i}>
                 <a
-                  href={m.pdfUrl}
+                  href={`${BASE_URL}${m.pdfUrl}`}   // ✅ prepend backend URL
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 underline"
