@@ -33,7 +33,7 @@ const seedCourses = async () => {
         price: 2999,
         originalPrice: 3999,
         instructorId: alexander._id,
-        studentsEnrolled: 520,
+        studentsEnrolled: [], 
         rating: 4.8,
         thumbnail: "/uploads/courses/C_img_1.png",
         description:
@@ -44,7 +44,7 @@ const seedCourses = async () => {
         modules: [
           {
             title: "Module 1 - Introduction",
-            pdfUrl: "/uploads/notes/module1.pdf",
+            pdfUrl: "/uploads/notes/mern_m1.pdf",
             lectures: [
               {
                 title: "Intro to MERN",
@@ -110,7 +110,7 @@ const seedCourses = async () => {
           },
           {
             title: "Module 2 - MongoDB",
-            pdfUrl: "/uploads/notes/module2.pdf",
+            pdfUrl: "/uploads/notes/mern_m2.pdf",
             lectures: [
               {
                 title: "MongoDB CRUD",
@@ -176,7 +176,7 @@ const seedCourses = async () => {
           },
           {
             title: "Module 3 - Express",
-            pdfUrl: "/uploads/notes/module3.pdf",
+            pdfUrl: "/uploads/notes/mern_m3.pdf",
             lectures: [
               {
                 title: "Express Routing",
@@ -242,7 +242,7 @@ const seedCourses = async () => {
           },
           {
             title: "Module 4 - Deployment",
-            pdfUrl: "/uploads/notes/module4.pdf",
+            pdfUrl: "/uploads/notes/mern_m4.pdf",
             lectures: [
               {
                 title: "Deployment Basics",
@@ -412,7 +412,7 @@ const seedCourses = async () => {
         price: 2499,
         originalPrice: 3499,
         instructorId: sophia._id,
-        studentsEnrolled: 410,
+        studentsEnrolled: [], 
         rating: 4.7,
         thumbnail: "/uploads/courses/C_img_2.png",
         description:
@@ -423,7 +423,7 @@ const seedCourses = async () => {
         modules: [
           {
             title: "Module 1 - React Fundamentals",
-            pdfUrl: "/uploads/notes/react_module1.pdf",
+            pdfUrl: "/uploads/notes/react_m1.pdf",
             lectures: [
               {
                 title: "React Basics Refresher",
@@ -490,7 +490,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 2 - Hooks & Context",
-            pdfUrl: "/uploads/notes/react_module2.pdf",
+            pdfUrl: "/uploads/notes/react_m2.pdf",
             lectures: [
               {
                 title: "useState & useEffect",
@@ -557,7 +557,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 3 - Performance Optimization",
-            pdfUrl: "/uploads/notes/react_module3.pdf",
+            pdfUrl: "/uploads/notes/react_m3.pdf",
             lectures: [
               {
                 title: "Memoization",
@@ -624,7 +624,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 4 - Scalable Architecture",
-            pdfUrl: "/uploads/notes/react_module4.pdf",
+            pdfUrl: "/uploads/notes/react_m4.pdf",
             lectures: [
               {
                 title: "Folder Structure",
@@ -757,7 +757,7 @@ const seedCourses = async () => {
         price: 2799,
         originalPrice: 3799,
         instructorId: lucas._id,
-        studentsEnrolled: 360,
+        studentsEnrolled: [], 
         rating: 4.8,
         thumbnail: "/uploads/courses/C_img_3.png",
         description:
@@ -1106,7 +1106,7 @@ const seedCourses = async () => {
         price: 1799,
         originalPrice: 2499,
         instructorId: isabella._id,
-        studentsEnrolled: 300,
+        studentsEnrolled: [], 
         rating: 4.5,
         thumbnail: "/uploads/courses/C_img_4.png",
         description:
@@ -1448,7 +1448,7 @@ const seedCourses = async () => {
         price: 3499,
         originalPrice: 4499,
         instructorId: liam._id,
-        studentsEnrolled: 290,
+        studentsEnrolled: [], 
         rating: 4.7,
         thumbnail: "/uploads/courses/C_img_5.png",
         description:
@@ -1459,7 +1459,7 @@ const seedCourses = async () => {
         modules: [
           {
             title: "Module 1 - Linux & Git",
-            pdfUrl: "/uploads/notes/devops1.pdf",
+            pdfUrl: "/uploads/notes/devops_m1.pdf",
             lectures: [
               {
                 title: "Linux Basics",
@@ -1526,7 +1526,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 2 - CI/CD",
-            pdfUrl: "/uploads/notes/devops2.pdf",
+            pdfUrl: "/uploads/notes/devops_m2.pdf",
             lectures: [
               {
                 title: "CI/CD Intro",
@@ -1593,7 +1593,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 3 - Docker",
-            pdfUrl: "/uploads/notes/devops3.pdf",
+            pdfUrl: "/uploads/notes/devops_m3.pdf",
             lectures: [
               {
                 title: "Docker Intro",
@@ -1660,7 +1660,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 4 - Kubernetes & Cloud",
-            pdfUrl: "/uploads/notes/devops4.pdf",
+            pdfUrl: "/uploads/notes/devops_m4.pdf",
             lectures: [
               {
                 title: "Kubernetes",
@@ -1790,7 +1790,7 @@ const seedCourses = async () => {
         price: 3999,
         originalPrice: 4999,
         instructorId: emily._id,
-        studentsEnrolled: 340,
+        studentsEnrolled: [], 
         rating: 4.9,
         thumbnail: "/uploads/courses/C_img_6.png",
         description:
@@ -1801,7 +1801,7 @@ const seedCourses = async () => {
         modules: [
           {
             title: "Module 1 - Python Basics",
-            pdfUrl: "/uploads/notes/ds1.pdf",
+            pdfUrl: "/uploads/notes/ds_m1.pdf",
             lectures: [
               {
                 title: "Python Intro",
@@ -1868,7 +1868,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 2 - Data Analysis",
-            pdfUrl: "/uploads/notes/ds2.pdf",
+            pdfUrl: "/uploads/notes/ds_m2.pdf",
             lectures: [
               {
                 title: "NumPy Basics",
@@ -1939,7 +1939,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 3 - Machine Learning",
-            pdfUrl: "/uploads/notes/ds3.pdf",
+            pdfUrl: "/uploads/notes/ds_m3.pdf",
             lectures: [
               {
                 title: "ML Intro",
@@ -2006,7 +2006,7 @@ const seedCourses = async () => {
 
           {
             title: "Module 4 - AI & Deployment",
-            pdfUrl: "/uploads/notes/ds4.pdf",
+            pdfUrl: "/uploads/notes/ds_m4.pdf",
             lectures: [
               {
                 title: "Deep Learning",
