@@ -34,8 +34,6 @@ app.post("/api/payment/webhook", express.raw({ type: "application/json" }), (req
   stripeWebhook(req, res, next);
 });
 
-
-
 // JSON parser for all other routes
 app.use(express.json());
 

@@ -1,6 +1,7 @@
 import Course from "../models/Course.js";
 import User from "../models/User.js";
 import Enrollment from "../models/Enrollment.js";
+import Submission from "../models/Submission.js";
 
 export const createCourse = async (req, res) => {
   try {
@@ -104,3 +105,38 @@ export const getInstructorStudents = async (req, res) => {
       .json({ error: "Error fetching students", details: err.message });
   }
 };
+
+// Get Submissions
+export const getSubmissions = async (req, res) => {
+  try {
+    const { exerciseId } = req.params;
+
+    const submissions = await Submission.find({ exerciseId })
+      .populate("studentId", "name email") 
+      .populate("exerciseId", "title dueDate"); 
+
+    res.json(submissions);
+  } catch (err) {
+    res.status(500).json({ error: "Error fetching submissions", details: err.message });
+  }
+};
+
+// Grade Submission
+export const gradeSubmission = async (req, res) => {
+  try {
+    const { submissionId } = req.params;
+    const { marks, status } = req.body;
+
+    const submission = await Submission.findById(submissionId);
+    if (!submission) return res.status(404).json({ error: "Submission not found" });
+
+    submission.marks = marks;
+    submission.status = status || "graded";
+    await submission.save();
+
+    res.json({ message: "Submission graded successfully", submission });
+  } catch (err) {
+    res.status(500).json({ error: "Error grading submission", details: err.message });
+  }
+};
+

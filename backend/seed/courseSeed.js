@@ -33,7 +33,7 @@ const seedCourses = async () => {
         price: 2999,
         originalPrice: 3999,
         instructorId: alexander._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.8,
         thumbnail: "/uploads/courses/C_img_1.png",
         description:
@@ -107,6 +107,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Setup MERN project",
+              fileUrl: "/uploads/exercises/mern_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10,
+            },
           },
           {
             title: "Module 2 - MongoDB",
@@ -173,6 +180,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "MongoDB CRUD operations",
+              fileUrl: "/uploads/exercises/mern_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
           {
             title: "Module 3 - Express",
@@ -239,6 +253,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Express routing and middleware",
+              fileUrl: "/uploads/exercises/mern_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
           {
             title: "Module 4 - Deployment",
@@ -309,6 +330,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Deployment pipeline setup",
+              fileUrl: "/uploads/exercises/mern_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
         ],
         faqs: [
@@ -412,7 +440,7 @@ const seedCourses = async () => {
         price: 2499,
         originalPrice: 3499,
         instructorId: sophia._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.7,
         thumbnail: "/uploads/courses/C_img_2.png",
         description:
@@ -486,6 +514,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Build a simple Todo app using React fundamentals",
+              fileUrl: "/uploads/exercises/react_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10
+            }
           },
 
           {
@@ -553,6 +588,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "Implement global state management with Context API",
+              fileUrl: "/uploads/exercises/react_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
 
           {
@@ -620,6 +662,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Optimize a React app using memoization and lazy loading",
+              fileUrl: "/uploads/exercises/react_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
 
           {
@@ -687,6 +736,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Design a scalable folder structure with Redux integration",
+              fileUrl: "/uploads/exercises/react_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
         ],
 
@@ -757,7 +813,7 @@ const seedCourses = async () => {
         price: 2799,
         originalPrice: 3799,
         instructorId: lucas._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.8,
         thumbnail: "/uploads/courses/C_img_3.png",
         description:
@@ -831,6 +887,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Build a simple Node.js CLI app",
+              fileUrl: "/uploads/exercises/node_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10
+            }
           },
 
           {
@@ -898,6 +961,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "Create REST APIs with Express",
+              fileUrl: "/uploads/exercises/node_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
 
           {
@@ -969,6 +1039,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Implement JWT authentication in Express",
+              fileUrl: "/uploads/exercises/node_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
 
           {
@@ -1036,6 +1113,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Deploy an Express API to Heroku",
+              fileUrl: "/uploads/exercises/node_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
         ],
 
@@ -1106,7 +1190,7 @@ const seedCourses = async () => {
         price: 1799,
         originalPrice: 2499,
         instructorId: isabella._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.5,
         thumbnail: "/uploads/courses/C_img_4.png",
         description:
@@ -1180,6 +1264,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Create a wireframe for a mobile app",
+              fileUrl: "/uploads/exercises/uiux_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10
+            }
           },
 
           {
@@ -1247,6 +1338,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "Conduct a user persona analysis",
+              fileUrl: "/uploads/exercises/uiux_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
 
           {
@@ -1314,6 +1412,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Build an interactive prototype in Figma",
+              fileUrl: "/uploads/exercises/uiux_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
 
           {
@@ -1381,6 +1486,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Run a usability test and report findings",
+              fileUrl: "/uploads/exercises/uiux_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
         ],
 
@@ -1448,7 +1560,7 @@ const seedCourses = async () => {
         price: 3499,
         originalPrice: 4499,
         instructorId: liam._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.7,
         thumbnail: "/uploads/courses/C_img_5.png",
         description:
@@ -1522,6 +1634,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Set up a CI/CD pipeline with GitHub Actions",
+              fileUrl: "/uploads/exercises/devops_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10
+            }
           },
 
           {
@@ -1589,6 +1708,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "Dockerize a Node.js application",
+              fileUrl: "/uploads/exercises/devops_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
 
           {
@@ -1656,6 +1782,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Deploy an app to AWS using Elastic Beanstalk",
+              fileUrl: "/uploads/exercises/devops_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
 
           {
@@ -1723,6 +1856,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Implement monitoring with Prometheus and Grafana",
+              fileUrl: "/uploads/exercises/devops_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
         ],
 
@@ -1790,7 +1930,7 @@ const seedCourses = async () => {
         price: 3999,
         originalPrice: 4999,
         instructorId: emily._id,
-        studentsEnrolled: [], 
+        studentsEnrolled: [],
         rating: 4.9,
         thumbnail: "/uploads/courses/C_img_6.png",
         description:
@@ -1864,6 +2004,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 1 Exercise",
+              description: "Write Python scripts for basic data analysis",
+              fileUrl: "/uploads/exercises/ds_m1_ex.pdf",
+              dueDate: new Date("2026-05-10"),
+              marks: 10
+            }
           },
 
           {
@@ -1935,6 +2082,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 2 Exercise",
+              description: "Clean and preprocess datasets using Pandas",
+              fileUrl: "/uploads/exercises/ds_m2_ex.pdf",
+              dueDate: new Date("2026-05-15"),
+              marks: 10
+            }
           },
 
           {
@@ -2002,6 +2156,13 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 3 Exercise",
+              description: "Train a linear regression model",
+              fileUrl: "/uploads/exercises/ds_m3_ex.pdf",
+              dueDate: new Date("2026-05-20"),
+              marks: 10
+            }
           },
 
           {
@@ -2069,7 +2230,15 @@ const seedCourses = async () => {
                 },
               ],
             },
+            exercise: {
+              title: "Module 4 Exercise",
+              description: "Build a spam classifier using scikit-learn",
+              fileUrl: "/uploads/exercises/ds_m4_ex.pdf",
+              dueDate: new Date("2026-05-25"),
+              marks: 10
+            }
           },
+
         ],
 
         faqs: [

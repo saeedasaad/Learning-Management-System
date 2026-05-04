@@ -18,12 +18,25 @@ const quizSchema = new mongoose.Schema({
   ],
 });
 
+const exerciseSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String },
+  fileUrl: { type: String, required: true },   
+  dueDate: { type: Date, required: true },
+  marks: { type: Number, default: 0 },
+  submitted: { type: Boolean, default: false }, 
+  submissionFile: { type: String },             
+});
+
+
 const moduleSchema = new mongoose.Schema({
   title: { type: String, required: true },
   pdfUrl: { type: String },
   lectures: [lectureSchema],
   quiz: quizSchema,
+  exercise: exerciseSchema,   
 });
+
 
 const certificateSchema = new mongoose.Schema({
   courseTitle: { type: String },
@@ -54,15 +67,13 @@ const courseSchema = new mongoose.Schema({
 
   modules: [moduleSchema],
 
+  exercises: [exerciseSchema],
+
   questions: { type: String },
   certificates: [certificateSchema],
   projects: [projectSchema],
 
-  curriculum: {
-    beginner: [String],
-    intermediate: [String],
-    advanced: [String],
-  },
+  curriculum: { beginner: [String], intermediate: [String], advanced: [String], },
   outcomes: [String],
 
   faqs: [

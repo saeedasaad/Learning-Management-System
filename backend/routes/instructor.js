@@ -7,6 +7,8 @@ import {
   getInstructorProfile,
   updateInstructorProfile,
   getInstructorStudents,
+  getSubmissions, 
+  gradeSubmission
 
 } from "../controllers/instructorController.js";
 
@@ -17,6 +19,9 @@ router.get("/courses", protect, instructorOnly, getInstructorCourses);
 router.get("/instructor/courses", protect, instructorOnly, getInstructorCourses);
 router.patch("/courses/:id", protect, instructorOnly, updateCourse);
 router.get("/students", protect, instructorOnly, getInstructorStudents);
+
+router.get("/exercise/:exerciseId/submissions", protect, getSubmissions);
+router.patch("/submission/:submissionId", protect, gradeSubmission);
 
 router.get("/profile", protect, instructorOnly, getInstructorProfile);
 router.patch("/profile", protect, instructorOnly, updateInstructorProfile);

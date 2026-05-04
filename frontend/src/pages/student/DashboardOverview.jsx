@@ -69,7 +69,12 @@ export default function DashboardOverview() {
               key={i}
               className="flex flex-col justify-between items-start py-2"
             >
-              <span className="text-gray-700">{enrollment.course.title}</span>
+              <span className="text-gray-700">
+                {enrollment.course
+                  ? enrollment.course.title
+                  : "Course not available"}
+              </span>
+
               {/* <span className="text-sm text-gray-500">
                 Progress: {enrollment.course.week || 0}/
                 {enrollment.course.totalWeeks || 0}
