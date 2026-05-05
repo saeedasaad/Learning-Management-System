@@ -187,6 +187,7 @@ export const stripeWebhook = async (req, res) => {
 
 
 // Get student profile
+// Get student profile
 export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("-password");
@@ -211,6 +212,7 @@ export const getProfile = async (req, res) => {
       qualification: user.qualification || "",
       specialization: user.specialization || "",
       freelancing: user.freelancing || false,
+      avatarUrl: user.avatarUrl ? user.avatarUrl : null,
     });
   } catch (err) {
     res

@@ -1,0 +1,82 @@
+import React, { useEffect, useState } from "react";
+import DashboardCard from "../../components/layouts/DashboardCard";
+import api from "../../utils/api";
+import ProfileForm from "../../components/layouts/ProfileForm"; 
+import ProfileCard from "../../components/layouts/ProfileCard";
+import "remixicon/fonts/remixicon.css";
+
+export default function InstructorProfile() {
+  const [profile, setProfile] = useState(null);
+  const [formData, setFormData] = useState({});
+  const [avatar, setAvatar] = useState(null);
+
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const { data } = await api.get("/instructor/profile");
+        setProfile(data);
+        setFormData(data);
+      } catch (err) {
+        console.error("Error fetching instructor profile:", err);
+      }
+    };
+    fetchProfile();
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleAvatarChange = (e) => {
+    setAvatar(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const form = new FormData();
+      Object.keys(formData).forEach((key) => {
+        form.append(key, formData[key]);
+      });
+      if (avatar) form.append("avatar", avatar);
+
+      await api.patch("/instructor/profile", form, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      const { data } = await api.get("/instructor/profile");
+      setProfile(data);
+      setFormData(data);
+
+      alert("Profile updated successfully");
+    } catch (err) {
+      console.error("Error updating instructor profile:", err);
+    }
+  };
+
+  if (!profile) return <p>Loading...</p>;
+
+  return (
+    <div className="md:m-10 m-5">
+      <DashboardCard title="Instructor Profile">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {/* Left Profile Card (Reusable) */}
+          <ProfileCard profile={profile} BASE_URL={BASE_URL} />
+
+          {/* Right Form Section (Reusable) */}
+          <ProfileForm
+            formData={formData}
+            handleChange={handleChange}
+            handleAvatarChange={handleAvatarChange}
+            onSubmit={handleSubmit}
+          />
+        </form>
+      </DashboardCard>
+    </div>
+  );
+}

@@ -32,7 +32,7 @@ import ManageContent from "./pages/instructor/ManageContent";
 import ManageStudents from "./pages/instructor/ManageStudents";
 import Revenue from "./pages/instructor/Revenue";
 import Chat from "./pages/instructor/Chat";
-import Profile from "./pages/instructor/Profile";
+import InstructorProfile from "./pages/instructor/InstructorProfile";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -89,7 +89,7 @@ function App() {
         />
         <Route path="/instructor/manage-content" element={<ManageContent />} />
         <Route path="/instructor/revenue" element={<Revenue />} />
-        <Route path="/instructor/profile" element={<Profile />} />
+        <Route path="/instructor/profile" element={<InstructorProfile />} />
         <Route path="/instructor/chat" element={<Chat />} />
       </Route>
 
