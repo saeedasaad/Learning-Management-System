@@ -67,7 +67,7 @@ const courseSchema = new mongoose.Schema({
 
   modules: [moduleSchema],
 
-  exercises: [exerciseSchema],
+  // exercises: [exerciseSchema],
 
   questions: { type: String },
   certificates: [certificateSchema],

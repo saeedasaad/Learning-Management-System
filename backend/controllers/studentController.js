@@ -219,6 +219,7 @@ export const getProfile = async (req, res) => {
   }
 };
 
+// Updateprofile
 export const updateProfile = async (req, res) => {
   try {
     console.log("req.body:", req.body);
@@ -251,17 +252,15 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-
+// Get Exercises
 export const getExercises = async (req, res) => {
   try {
-    // Find all courses the student is enrolled in
-    const enrollments = await Enrollment.find({ studentId: req.user._id })
+    const enrollments = await Enrollment.find({ user: req.user._id })
       .populate("course");
 
-    // Collect exercises from each module of each course
     const exercises = enrollments.flatMap(enrollment =>
       enrollment.course.modules.flatMap(module => {
-        if (!module.exercise) return []; // skip if no exercise
+        if (!module.exercise) return [];
         return {
           _id: module.exercise._id,
           title: module.exercise.title,
@@ -271,18 +270,16 @@ export const getExercises = async (req, res) => {
           marks: module.exercise.marks,
           courseTitle: enrollment.course.title,
           moduleTitle: module.title,
-          submitted: false // you can later check submissions
+          submitted: module.exercise.submitted || false
         };
       })
     );
 
     res.json(exercises);
   } catch (err) {
-    console.error("Error fetching exercises:", err);
     res.status(500).json({ error: "Error fetching exercises", details: err.message });
   }
 };
-
 
 // Submit exercise PDF
 export const submitExercise = async (req, res) => {
@@ -291,8 +288,16 @@ export const submitExercise = async (req, res) => {
     const filePath = `/uploads/exercises/${req.file.filename}`;
 
     const enrollment = await Enrollment.findOne({ user: req.user._id }).populate("course");
-    const exercise = enrollment.course.exercises.id(exerciseId);
+
+    const exercise = enrollment.course.modules
+      .map(m => m.exercise)
+      .find(ex => ex && ex._id.toString() === exerciseId);
+
     if (!exercise) return res.status(404).json({ error: "Exercise not found" });
+
+    exercise.submitted = true;
+    exercise.submissionFile = filePath;
+    await enrollment.course.save();
 
     const submission = await Submission.create({
       exerciseId,
@@ -305,4 +310,32 @@ export const submitExercise = async (req, res) => {
     res.status(500).json({ error: "Error submitting exercise", details: err.message });
   }
 };
+
+// Get Quizzes
+export const getQuizzes = async (req, res) => {
+  try {
+    const enrollments = await Enrollment.find({ user: req.user._id })
+      .populate("course");
+
+    const quizzes = enrollments.flatMap(enrollment =>
+      enrollment.course.modules.flatMap(module => {
+        if (!module.quiz) return [];
+        return {
+          _id: module.quiz._id,
+          title: `${module.title} Quiz`,
+          releaseDate: module.quiz.releaseDate,
+          courseTitle: enrollment.course.title,
+          moduleTitle: module.title,
+          questions: module.quiz.questions,
+        };
+      })
+    );
+
+    res.json(quizzes);
+  } catch (err) {
+    console.error("Error fetching quizzes:", err);
+    res.status(500).json({ error: "Error fetching quizzes", details: err.message });
+  }
+};
+
 

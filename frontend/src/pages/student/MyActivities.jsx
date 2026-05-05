@@ -1,15 +1,10 @@
 import React, { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
 import DashboardCard from "../../components/layouts/DashboardCard";
+import Quizzes from "../../components/student/Quizzes";   
+import Exercises from "../../components/student/Exercises"; 
 
 export default function MyActivities() {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("quizzes");
-
-  const handleClick = (tab) => {
-    setActiveTab(tab);
-    navigate(tab);
-  };
 
   return (
     <div className="md:m-10 m-5">
@@ -17,7 +12,7 @@ export default function MyActivities() {
         {/* Toggle Buttons */}
         <div className="flex gap-6 mb-6">
           <button
-            onClick={() => handleClick("quizzes")}
+            onClick={() => setActiveTab("quizzes")}
             className={`pb-2 font-semibold transition ${
               activeTab === "quizzes"
                 ? "text-yellow-500 border-b-2 border-yellow-500"
@@ -27,7 +22,7 @@ export default function MyActivities() {
             Quizzes
           </button>
           <button
-            onClick={() => handleClick("exercises")}
+            onClick={() => setActiveTab("exercises")}
             className={`pb-2 font-semibold transition ${
               activeTab === "exercises"
                 ? "text-yellow-500 border-b-2 border-yellow-500"
@@ -38,8 +33,10 @@ export default function MyActivities() {
           </button>
         </div>
 
+        {/* Render Components */}
         <div className="mt-4">
-          <Outlet />
+          {activeTab === "quizzes" && <Quizzes />}
+          {activeTab === "exercises" && <Exercises />}
         </div>
       </DashboardCard>
     </div>

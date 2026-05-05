@@ -5,7 +5,7 @@ export default function CompletionCriteria({ criteria = [] }) {
     <div>
       <h3 className="font-bold mb-2">Completion Criteria</h3>
       {criteria.length > 0 ? (
-        <ul className="list-disc pl-6">
+        <ul className="list-disc pl-6 space-y-1 text-sm sm:text-base">
           {criteria.map((c, i) => (
             <li key={c || i}>{c}</li>
           ))}

@@ -22,9 +22,8 @@ import StudentDiscussions from "./pages/student/StudentDiscussions";
 import StudentProfile from "./pages/student/StudentProfile";
 import MyActivities from "./pages/student/MyActivities";
 import TraineeServices from "./pages/student/TraineeServices";
-import QuizzesPage from "./pages/student/QuizzesPage";
 import QuizPage from "./pages/student/QuizPage";
-import ExercisesPage from "./pages/student/ExercisesPage";
+import SubmitExercise from "./pages/student/SubmitExercise";
 
 // Instructor Pages
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
@@ -42,6 +41,7 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
+
 
 function App() {
   return (
@@ -67,12 +67,10 @@ function App() {
         </Route>
 
         {/* Activities */}
-        <Route path="/student/activities" element={<MyActivities />}>
-          <Route path="quizzes" element={<QuizzesPage />} />
-          <Route path="exercises" element={<ExercisesPage />} />
-        </Route>
+        <Route path="/student/activities" element={<MyActivities />}> </Route>
 
         <Route path="/student/quiz/:id" element={<QuizPage />} />
+        <Route path="/student/exercises/:exerciseId/submit" element={<SubmitExercise />} />
 
         <Route path="/student/discussions" element={<StudentDiscussions />} />
         <Route path="/student/services" element={<TraineeServices />} />

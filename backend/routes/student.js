@@ -10,6 +10,7 @@ import {
   submitExercise,
   getExercises,
   getProfile,
+  getQuizzes,
 } from "../controllers/studentController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import upload from "../middleware/upload.js";
@@ -25,14 +26,12 @@ router.get("/course/:id", protect, getCourseDetails);
 router.get("/activities", protect, getActivities);
 router.get("/progress", protect, getProgress);
 
+// Quizzes
+router.get("/quizzes", protect, getQuizzes);
+
 // Exercises
 router.get("/exercises", protect, getExercises);
-router.post(
-  "/exercises/:exerciseId/submit",
-  protect,
-  upload.single("pdf"),
-  submitExercise
-);
+router.post( "/exercises/:exerciseId/submit", protect, upload.single("pdf"), submitExercise);
 
 // Profile
 router.get("/profile", protect, getProfile);

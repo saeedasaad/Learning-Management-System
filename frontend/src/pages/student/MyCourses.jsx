@@ -37,12 +37,12 @@ export default function MyCourses() {
     <div className="md:m-10 m-5">
       <DashboardCard title="My Courses">
         {/* Course Selector */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex flex-wrap gap-3 mb-6">
           {enrollments.map((enrollment) => (
             <button
               key={enrollment.course._id}
               onClick={() => setActiveCourse(enrollment.course)}
-              className={`px-4 py-2 rounded ${
+              className={`px-3 py-2 rounded text-sm sm:text-base ${
                 activeCourse._id === enrollment.course._id
                   ? "bg-yellow-500 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-yellow-100"
@@ -54,12 +54,12 @@ export default function MyCourses() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-6 mb-10">
+        <div className="flex flex-wrap gap-4 mb-8 border-b">
           {["topics", "faqs", "glossary", "completion"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-2 font-semibold transition ${
+              className={`pb-2 font-semibold text-sm sm:text-base transition ${
                 activeTab === tab
                   ? "text-yellow-500 border-b-2 border-yellow-500"
                   : "text-gray-600 hover:text-yellow-500"
@@ -74,19 +74,21 @@ export default function MyCourses() {
         </div>
 
         {/* Render Components */}
-        {activeTab === "topics" && (
-          <CourseTopics modules={activeCourse.modules} />
-        )}
-        {activeTab === "faqs" && <FAQs faqs={activeCourse.faqs} />}
-        {activeTab === "glossary" && (
-          <Glossary
-            glossary={activeCourse.glossary}
-            modules={activeCourse.modules}
-          />
-        )}
-        {activeTab === "completion" && (
-          <CompletionCriteria criteria={activeCourse.completionCriteria} />
-        )}
+        <div className="mt-4">
+          {activeTab === "topics" && (
+            <CourseTopics modules={activeCourse.modules} />
+          )}
+          {activeTab === "faqs" && <FAQs faqs={activeCourse.faqs} />}
+          {activeTab === "glossary" && (
+            <Glossary
+              glossary={activeCourse.glossary}
+              modules={activeCourse.modules}
+            />
+          )}
+          {activeTab === "completion" && (
+            <CompletionCriteria criteria={activeCourse.completionCriteria} />
+          )}
+        </div>
       </DashboardCard>
     </div>
   );

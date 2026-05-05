@@ -32,6 +32,7 @@ export const enrollCourse = async (courseId) => {
   return data;
 };
 
+// Get Courses
 export const getCourses = async () => {
   const { data } = await api.get("/courses");
   return data;
@@ -42,31 +43,37 @@ export const getCourseById = async (id) => {
   return data;
 };
 
+// Get Course Details
 export const getCourseDetails = async (id) => {
   const { data } = await api.get(`/student/course/${id}`);
   return data;
 };
 
+// Get MYCourses
 export const getMyCourses = async () => {
   const { data } = await api.get("/student/courses");
   return data;
 };
 
+// Get progress
 export const getProgress = async () => {
   const { data } = await api.get("/student/progress");
   return data;
 };
 
+// Get Activities
 export const getActivities = async () => {
   const { data } = await api.get("/student/activities");
   return data;
 };
 
+// Get Exercises
 export const getExercises = async () => {
   const { data } = await api.get("/student/exercises");
   return data;
 };
 
+// Submit Exercise
 export const submitExercise = async (exerciseId, formData) => {
   const { data } = await api.post(
     `/student/exercises/${exerciseId}/submit`,
@@ -77,6 +84,13 @@ export const submitExercise = async (exerciseId, formData) => {
   );
   return data;
 };
+
+// GetQuizzes
+export const getQuizzes = async () => {
+  const { data } = await api.get("/student/quizzes");
+  return data;
+};
+
 
 //  Instructor endpoints 
 export const getInstructorProfile = async () => {
