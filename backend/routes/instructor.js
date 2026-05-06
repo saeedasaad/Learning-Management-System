@@ -23,6 +23,8 @@ router.get("/students", protect, instructorOnly, getInstructorStudents);
 router.get("/exercise/:exerciseId/submissions", protect, getSubmissions);
 router.patch("/submission/:submissionId", protect, gradeSubmission);
 
+router.post("/messages/:studentId", protect, instructorOnly, sendMessageToStudent);
+
 router.get("/profile", protect, instructorOnly, getInstructorProfile);
 router.patch("/profile", protect, instructorOnly, updateInstructorProfile);
 

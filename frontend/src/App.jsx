@@ -33,6 +33,7 @@ import ManageStudents from "./pages/instructor/ManageStudents";
 import Revenue from "./pages/instructor/Revenue";
 import Chat from "./pages/instructor/Chat";
 import InstructorProfile from "./pages/instructor/InstructorProfile";
+import Inbox from "./pages/instructor/Inbox";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -41,6 +42,7 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
+
 
 
 function App() {
@@ -83,10 +85,8 @@ function App() {
 
         {/* Core Pages */}
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
-        <Route
-          path="/instructor/manage-students"
-          element={<ManageStudents />}
-        />
+        <Route path="/instructor/manage-students" element={<ManageStudents />}/>
+        <Route path="/inbox/:studentId" element={<Inbox />} />
         <Route path="/instructor/manage-content" element={<ManageContent />} />
         <Route path="/instructor/revenue" element={<Revenue />} />
         <Route path="/instructor/profile" element={<InstructorProfile />} />

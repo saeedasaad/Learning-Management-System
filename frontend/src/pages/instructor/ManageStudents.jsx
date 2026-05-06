@@ -3,6 +3,8 @@ import DashboardCard from "../../components/layouts/DashboardCard";
 import api from "../../utils/api";
 import Table from "../../components/common/Table";
 import "remixicon/fonts/remixicon.css";
+import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function ManageStudents() {
   const [students, setStudents] = useState([]);
@@ -10,6 +12,7 @@ export default function ManageStudents() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+
     const fetchStudents = async () => {
       try {
         const { data } = await api.get("/instructor/students");
@@ -74,15 +77,15 @@ export default function ManageStudents() {
               >
                 <i className="ri-delete-bin-5-line text-lg"></i>
               </button>
-
               {/* Message student */}
-              <button
-                onClick={() => alert(`Message sent to ${student.name}`)}
+              <Link
+                to={`/inbox/${student._id}`}
+                state={{ student }}
                 className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-110"
                 title="Message Student"
               >
                 <i className="ri-mail-send-line text-lg"></i>
-              </button>
+              </Link>
             </div>
           )}
         />

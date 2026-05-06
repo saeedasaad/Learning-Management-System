@@ -44,46 +44,50 @@ export default function ManageModuleContent() {
   return (
     <div className="md:m-10 m-5">
       <DashboardCard title="Manage Module Content">
-        {modules.map((module, index) => (
-          <div key={index} className="mb-8 border rounded p-4">
-            <h2
-              className="text-lg font-bold cursor-pointer mb-4"
-              onClick={() =>
-                setActiveModule(activeModule === index ? null : index)
-              }
-            >
-              {module.title}
-            </h2>
+        {Array.isArray(modules) && modules.length > 0 ? (
+          modules.map((module, index) => (
+            <div key={index} className="mb-8 border rounded p-4">
+              <h2
+                className="text-lg font-bold cursor-pointer mb-4"
+                onClick={() =>
+                  setActiveModule(activeModule === index ? null : index)
+                }
+              >
+                {module.title}
+              </h2>
 
-            {activeModule === index && (
-              <>
-                {/* Upload Forms */}
-                <LectureUploadForm
-                  courseId={selectedCourseId}
-                  moduleIndex={index}
-                />
-                <NotesUploadForm
-                  courseId={selectedCourseId}
-                  moduleIndex={index}
-                />
-                <QuizUploadForm
-                  courseId={selectedCourseId}
-                  moduleIndex={index}
-                />
-                <ExerciseUploadForm
-                  courseId={selectedCourseId}
-                  moduleIndex={index}
-                />
+              {activeModule === index && (
+                <>
+                  <LectureUploadForm
+                    courseId={selectedCourseId}
+                    moduleIndex={index}
+                  />
+                  <NotesUploadForm
+                    courseId={selectedCourseId}
+                    moduleIndex={index}
+                  />
+                  <QuizUploadForm
+                    courseId={selectedCourseId}
+                    moduleIndex={index}
+                  />
+                  <ExerciseUploadForm
+                    courseId={selectedCourseId}
+                    moduleIndex={index}
+                  />
 
-                {/* Display Lists */}
-                <LectureList lectures={module.lectures} />
-                <NotesList notes={module.pdfUrl} />
-                <QuizList quiz={module.quiz} />
-                <ExerciseList exercises={module.exercises} />
-              </>
-            )}
-          </div>
-        ))}
+                  <LectureList lectures={module.lectures || []} />
+                  <NotesList notes={module.pdfUrl || []} />
+                  <QuizList quiz={module.quiz || []} />
+                  <ExerciseList exercises={module.exercises || []} />
+                </>
+              )}
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">
+            No modules found for this course.
+          </p>
+        )}
       </DashboardCard>
     </div>
   );

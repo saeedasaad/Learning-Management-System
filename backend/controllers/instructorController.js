@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import Enrollment from "../models/Enrollment.js";
 import Submission from "../models/Submission.js";
 
+// Create Course
 export const createCourse = async (req, res) => {
   try {
     const course = new Course({ ...req.body, instructorId: req.user._id });
@@ -13,18 +14,34 @@ export const createCourse = async (req, res) => {
   }
 };
 
+// Get Instructor Courses
 export const getInstructorCourses = async (req, res) => {
   try {
-    console.log("Logged in user:", req.user);
-    const courses = await Course.find({ instructorId: req.user._id });
-    res.json(courses);
+    // Fetch all courses created by the logged-in instructor
+    const courses = await Course.find({ instructorId: req.user._id })
+      .select("title category price duration description status rating modules");
+
+    // Fetch enrollments for those courses
+    const enrollments = await Enrollment.find({
+      course: { $in: courses.map(c => c._id) }
+    });
+
+    // Attach enrolledCount to each course
+    const coursesWithCounts = courses.map(c => {
+      const enrolledCount = enrollments.filter(
+        e => e.course.toString() === c._id.toString()
+      ).length;
+      return { ...c.toObject(), enrolledCount };
+    });
+
+    res.json(coursesWithCounts);
   } catch (err) {
-    res
-      .status(500)
-      .json({ error: "Error fetching courses", details: err.message });
+    res.status(500).json({ error: "Error fetching courses", details: err.message });
   }
 };
 
+
+// Update Course
 export const updateCourse = async (req, res) => {
   const course = await Course.findById(req.params.id);
   if (!course) return res.status(404).json({ message: "Course not found" });
@@ -38,6 +55,7 @@ export const updateCourse = async (req, res) => {
   res.json(course);
 };
 
+// Get Instructor Profile
 export const getInstructorProfile = async (req, res) => {
   try {
     const instructor = await User.findById(req.user._id).select("-password");
@@ -51,6 +69,7 @@ export const getInstructorProfile = async (req, res) => {
   }
 };
 
+// Update Instructor Profile
 export const updateInstructorProfile = async (req, res) => {
   try {
     const instructor = await User.findById(req.user._id);
@@ -137,6 +156,28 @@ export const gradeSubmission = async (req, res) => {
     res.json({ message: "Submission graded successfully", submission });
   } catch (err) {
     res.status(500).json({ error: "Error grading submission", details: err.message });
+  }
+};
+
+// Send message to student
+export const sendMessageToStudent = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const { message } = req.body;
+
+    const newMessage = new Message({
+      sender: req.user._id,
+      recipient: studentId,
+      content: message,
+      role: "instructor",
+      createdAt: new Date(),
+    });
+
+    await newMessage.save();
+
+    res.json({ message: "Message sent successfully", newMessage });
+  } catch (err) {
+    res.status(500).json({ error: "Error sending message", details: err.message });
   }
 };
 
