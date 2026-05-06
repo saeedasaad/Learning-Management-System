@@ -71,6 +71,100 @@ learning-management-system/
 └── frontend/
 ````
 
+# 📁 LMS Frontend Project Structure
+
+```
+frontend/
+├── node_modules/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── icons/
+│   ├── components/
+│   │   ├── about/
+│   │   │   ├── AboutSection.jsx
+│   │   │   ├── Highlight.jsx
+│   │   │   ├── MissionVision.jsx
+│   │   │   └── TeamSection.jsx
+│   │   ├── common/
+│   │   │   ├── Banner.jsx
+│   │   │   ├── Button.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── FormLayout.jsx
+│   │   │   ├── InputField.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Table.jsx
+│   │   ├── Courses/
+│   │   │   ├── CertificationSection.jsx
+│   │   │   ├── CourseHero.jsx
+│   │   │   ├── CourseListing.jsx
+│   │   │   ├── CurriculumSection.jsx
+│   │   │   ├── EnrollmentModal.jsx
+│   │   │   ├── FAQ.jsx
+│   │   │   └── ProjectSection.jsx
+│   │   ├── home/
+│   │   │   ├── Hero.jsx
+│   │   │   ├── CallToAction.jsx
+│   │   │   ├── InstructorHighlight.jsx
+│   │   │   ├── PopularCourses.jsx
+│   │   │   └── Testimonials.jsx
+│   │   ├── instructor/
+│   │   │   ├── LectureUploadForm.jsx
+│   │   │   ├── LectureList.jsx
+│   │   │   ├── NotesUploadForm.jsx
+│   │   │   ├── NotesList.jsx
+│   │   │   ├── QuizUploadForm.jsx
+│   │   │   ├── QuizList.jsx
+│   │   │   ├── ExerciseUploadForm.jsx
+│   │   │   └── ExerciseList.jsx
+│   │   ├── layouts/
+│   │   │   ├── DashboardCard.jsx
+│   │   │   ├── DashboardNavbar.jsx
+│   │   │   ├── InstructorDropdown.jsx
+│   │   │   ├── ProfileCard.jsx
+│   │   │   ├── ProfileForm.jsx
+│   │   │   └── ResponsiveSidebar.jsx
+│   │   └── student/
+│   │       ├── Exercises.jsx
+│   │       ├── Quizzes.jsx
+│   │       ├── CompletionCriteria.jsx
+│   │       ├── CourseTopics.jsx
+│   │       ├── FAQ.jsx
+│   │       └── Glossary.jsx
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   └── useFetch.js
+│   ├── layouts/
+│   │   ├── DashboardLayout.jsx
+│   │   └── PublicLayout.jsx
+│   ├── pages/
+│   │   ├── admin/
+│   │   ├── instructor/
+│   │   ├── public/
+│   │   ├── shared/
+│   │   └── student/
+│   ├── redux/
+│   │   ├── authSlice.js
+│   │   └── store.js
+│   ├── utils/
+│   │   ├── api.js
+│   │   └── helpers.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
 ##  Installation & Setup
 
 ### 1. Clone the repository
