@@ -15,7 +15,7 @@ export default function CourseTopics({ modules }) {
       {modules.map((module, moduleIndex) => (
         <div
           key={module.id || module.title || moduleIndex}
-          className="mb-6 bg-white shadow rounded-lg p-4"
+          className="md:mb-6 mb-3 bg-white border md:p-4 p-2"
         >
           {/* Module toggle */}
           <button

@@ -14,7 +14,7 @@ export default function InputField({
     <div>
       {label && <label className="text-sm text-gray-600">{label}</label>}
       <div
-        className={`flex ${textarea ? "items-start" : "items-center"} border mt-1 px-3 py-2 rounded`}
+        className={`flex ${textarea ? "items-start" : "items-center"} border mt-1 px-3 py-2 `}
       >
         {icon && <i className={`${icon} text-gray-400 mr-2 ${textarea ? "mt-1" : ""}`}></i>}
         {textarea ? (

@@ -11,7 +11,7 @@ export default function FAQs({ faqs = [] }) {
   return (
     <div className="space-y-4">
       {faqs.map((faq, i) => (
-        <div key={faq.q || i} className="border rounded shadow-sm">
+        <div key={faq.q || i} className="border">
           <button
             onClick={() => setOpenFaq(openFaq === i ? null : i)}
             className="w-full text-left px-4 py-3 font-semibold bg-gray-50 hover:bg-yellow-50 text-sm sm:text-base"

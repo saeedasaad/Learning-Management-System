@@ -8,7 +8,7 @@ export default function Glossary({ glossary = [], modules = [] }) {
       <div>
         <h3 className="font-bold mb-2">Glossary Terms</h3>
         {glossary.length > 0 ? (
-          <ul className="list-disc pl-6 space-y-1 text-sm sm:text-base">
+          <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base">
             {glossary.map((item, i) => (
               <li key={item.term || i}>
                 <strong>{item.term}:</strong> {item.definition}
@@ -29,7 +29,7 @@ export default function Glossary({ glossary = [], modules = [] }) {
                 href={`${BASE_URL}${m.pdfUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-2 border rounded hover:bg-yellow-50 text-blue-600 underline"
+                className="block p-2 border text-black underline hover:text-[#f0b100] poiter"
               >
                 Download {m.title} PDF
               </a>

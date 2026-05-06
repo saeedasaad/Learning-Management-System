@@ -5,7 +5,7 @@ export default function FormLayout({ title, subtitle, children }) {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="bg-white shadow-2xl w-full max-w-lg p-8 rounded-lg">
         {/* Heading */}
-        <h1 className="text-3xl font-extrabold text-gray-800 mb-2 text-center">
+        <h1 className="md:text-3xl text-2xl font-extrabold text-gray-800 mb-2 text-center">
           {title}
         </h1>
         {subtitle && (

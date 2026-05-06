@@ -19,27 +19,42 @@ function ManageUsers() {
 
   if (loading)
     return (
-      <DashboardCard title="Manage Users">
-        <p>Loading...</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Users">
+          <p>Loading...</p>
+        </DashboardCard>
+      </div>
     );
   if (error)
     return (
-      <DashboardCard title="Manage Users">
-        <p>Error: {error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Users">
+          <p>Error: {error}</p>
+        </DashboardCard>
+      </div>
     );
 
   return (
     <div className="md:m-10 m-5">
       <DashboardCard title="Manage Users">
-        <Table columns={["name", "email", "role", "status"]} data={users} renderActions={(u) => (
+        <Table
+          columns={["name", "email", "role", "status"]}
+          data={users}
+          renderActions={(u) => (
             <div className="flex flex-wrap gap-2">
-              <button onClick={() => updateRole(u._id, "instructor")} className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130" title="Promote to Instructor" >
+              <button
+                onClick={() => updateRole(u._id, "instructor")}
+                className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130"
+                title="Promote to Instructor"
+              >
                 <i className="ri-edit-2-fill text-lg"></i>
               </button>
 
-              <button onClick={() => suspendUser(u._id)} className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130" title="Suspend User" >
+              <button
+                onClick={() => suspendUser(u._id)}
+                className="text-[#152956] hover:text-[#feaf0c] p-2 cursor-pointer transition-transform duration-200 transform hover:scale-130"
+                title="Suspend User"
+              >
                 <i className="ri-delete-bin-5-line text-lg"></i>
               </button>
             </div>

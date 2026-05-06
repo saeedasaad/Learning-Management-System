@@ -35,9 +35,11 @@ export default function ManageModuleContent() {
 
   if (loading) {
     return (
-      <DashboardCard title="Manage Module Content">
-        <p className="text-center text-gray-500">Loading modules...</p>
-      </DashboardCard>
+      <div className="md:m-10 m-5">
+        <DashboardCard title="Manage Module Content">
+          <p className="text-center text-gray-500">Loading modules...</p>
+        </DashboardCard>
+      </div>
     );
   }
 
@@ -46,9 +48,9 @@ export default function ManageModuleContent() {
       <DashboardCard title="Manage Module Content">
         {Array.isArray(modules) && modules.length > 0 ? (
           modules.map((module, index) => (
-            <div key={index} className="mb-8 border rounded p-4">
+            <div key={index} className="md:mb-8 mb-4 border rounded md:p-4 p-2">
               <h2
-                className="text-lg font-bold cursor-pointer mb-4"
+                className="md:text-lg text-md font-bold cursor-pointer md:mb-4 mb-2"
                 onClick={() =>
                   setActiveModule(activeModule === index ? null : index)
                 }
@@ -78,7 +80,7 @@ export default function ManageModuleContent() {
                   <LectureList lectures={module.lectures || []} />
                   <NotesList notes={module.pdfUrl || []} />
                   <QuizList quiz={module.quiz || []} />
-                  <ExerciseList exercises={module.exercises || []} />
+                  <ExerciseList exercise={module.exercise || []} />
                 </>
               )}
             </div>

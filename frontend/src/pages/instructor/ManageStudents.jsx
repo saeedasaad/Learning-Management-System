@@ -12,7 +12,6 @@ export default function ManageStudents() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-
     const fetchStudents = async () => {
       try {
         const { data } = await api.get("/instructor/students");
@@ -47,17 +46,21 @@ export default function ManageStudents() {
 
   if (error) {
     return (
-      <DashboardCard title="Manage Students">
-        <p className="text-red-500 text-center">{error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Students">
+          <p className="text-red-500 text-center">{error}</p>
+        </DashboardCard>
+      </div>
     );
   }
 
   if (!students.length) {
     return (
-      <DashboardCard title="Manage Students">
-        <p className="text-gray-500 text-center">No students enrolled yet.</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Students">
+          <p className="text-gray-500 text-center">No students enrolled yet.</p>
+        </DashboardCard>
+      </div>
     );
   }
 

@@ -27,7 +27,6 @@ export default function Exercises() {
 
   return (
     <div className="md:p-6 p-1">
-      <h2 className="text-xl font-bold mb-4">Hand’s On Exercise</h2>
 
       {/* Desktop / Tablet view */}
       <div className="hidden sm:block overflow-x-auto">

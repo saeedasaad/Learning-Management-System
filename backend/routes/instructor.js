@@ -8,7 +8,8 @@ import {
   updateInstructorProfile,
   getInstructorStudents,
   getSubmissions, 
-  gradeSubmission
+  gradeSubmission,
+  sendMessageToStudent
 
 } from "../controllers/instructorController.js";
 

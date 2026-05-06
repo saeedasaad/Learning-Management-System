@@ -5,6 +5,9 @@ export default function LectureList({ lectures }) {
     return <p className="text-gray-500">No lectures uploaded yet.</p>;
   }
 
+  // Use backend URL from .env
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   return (
     <table className="w-full border mb-6">
       <thead className="bg-gray-100">
@@ -20,14 +23,16 @@ export default function LectureList({ lectures }) {
           <tr key={i} className="border-t text-center">
             <td className="p-2">{lec.title}</td>
             <td className="p-2">
-              <a
-                href={lec.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline"
-              >
-                View File
-              </a>
+              {lec.videoUrl && (
+                <a
+                  href={`${backendUrl}${lec.videoUrl}`}  
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline"
+                >
+                  View File
+                </a>
+              )}
             </td>
             <td className="p-2">{lec.releaseDate}</td>
             <td className="p-2">{lec.duration}</td>

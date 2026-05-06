@@ -61,22 +61,19 @@ export default function StudentProfile() {
   return (
     <div className="md:m-10 m-5">
       <DashboardCard title="Student Profile">
-        <form
-          onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          {/* Left Profile Card (Reusable) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Left Profile Card */}
           <ProfileCard profile={profile} BASE_URL={BASE_URL} />
 
-          {/* Right Form Section (Reusable) */}
+          {/* Right Form Section */}
           <ProfileForm
             formData={formData}
             handleChange={handleChange}
             handleAvatarChange={handleAvatarChange}
             onSubmit={handleSubmit}
-            setFormData={setFormData} 
+            setFormData={setFormData}
           />
-        </form>
+        </div>
       </DashboardCard>
     </div>
   );

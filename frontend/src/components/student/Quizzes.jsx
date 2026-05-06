@@ -122,7 +122,7 @@ export default function Quizzes() {
       {/* Modal */}
       {showModal && selectedQuiz && (
         <div className="fixed inset-0 bg-gray-200 bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded shadow-lg w-[400px]">
+          <div className="bg-white p-6 rounded shadow-lg w-[400px] m-5">
             <h3 className="text-lg font-bold mb-4">Quiz Instructions</h3>
             <p className="mb-4">
               You will have {selectedQuiz.questions.length} questions to answer.

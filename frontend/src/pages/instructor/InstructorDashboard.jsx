@@ -46,7 +46,7 @@ export default function InstructorDashboard() {
       {/* My Courses */}
       <DashboardCard title="My Courses">
         {courses.map((course) => (
-          <div key={course._id} className="flex justify-between items-center border-b py-2">
+          <div key={course._id} className="flex justify-between items-center py-2">
             <span className="text-gray-700">{course.title}</span>
             <span className="text-sm text-gray-500">{course.enrolledCount} Enrolled</span>
           </div>

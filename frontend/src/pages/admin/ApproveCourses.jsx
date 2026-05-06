@@ -10,7 +10,7 @@ function ApproveCourses() {
   const approveCourse = async (id) => {
     try {
       await api.patch(`/admin/courses/${id}/approve`);
-      setApproved([...approved, id]); // update UI instantly
+      setApproved([...approved, id]);
     } catch (err) {
       console.error("Error approving course:", err);
     }
@@ -18,15 +18,19 @@ function ApproveCourses() {
 
   if (loading)
     return (
-      <DashboardCard title="Approve Courses">
-        <p>Loading...</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Approve Courses">
+          <p>Loading...</p>
+        </DashboardCard>
+      </div>
     );
   if (error)
     return (
-      <DashboardCard title="Approve Courses">
-        <p>Error: {error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Approve Courses">
+          <p>Error: {error}</p>
+        </DashboardCard>
+      </div>
     );
 
   return (

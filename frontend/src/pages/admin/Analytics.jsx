@@ -6,15 +6,19 @@ function Analytics() {
 
   if (loading)
     return (
-      <DashboardCard title="Analytics">
-        <p>Loading...</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Analytics">
+          <p>Loading...</p>
+        </DashboardCard>
+      </div>
     );
   if (error)
     return (
-      <DashboardCard title="Analytics">
-        <p>Error: {error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Analytics">
+          <p>Error: {error}</p>
+        </DashboardCard>
+      </div>
     );
 
   return (

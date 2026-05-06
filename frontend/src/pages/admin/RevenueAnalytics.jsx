@@ -6,15 +6,19 @@ function RevenueAnalytics() {
 
   if (loading)
     return (
-      <DashboardCard title="Revenue Analytics">
-        <p>Loading...</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Revenue Analytics">
+          <p>Loading...</p>
+        </DashboardCard>
+      </div>
     );
   if (error)
     return (
-      <DashboardCard title="Revenue Analytics">
-        <p>Error: {error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Revenue Analytics">
+          <p>Error: {error}</p>
+        </DashboardCard>
+      </div>
     );
 
   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Button from "../../components/common/Button";
 
 export default function QuizPage() {
   const { id } = useParams(); 
@@ -114,17 +115,18 @@ export default function QuizPage() {
           </button>
         </>
       ) : (
-        <div className="p-6 bg-green-50 rounded shadow-md">
-          <h3 className="text-xl font-bold text-green-700 mb-4">Quiz Submitted!</h3>
+        <div className="p-6 rounded shadow-md border">
+          <h3 className="text-xl font-bold  mb-4">Quiz Submitted!</h3>
           <p className="text-gray-700 mb-2">
             You scored <span className="font-bold">{score}</span> out of {quizData.totalMarks}.
           </p>
-          <button
-            onClick={() => navigate("/student/activities/quizzes")}
-            className="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Back to Quizzes
-          </button>
+          
+          <div className="flex justify-center mt-4">
+            <Button variant="primaryBlue" onClick={() => navigate("/student/activities")} className="px-6 py-2">
+              Back to Activitie
+            </Button>
+          </div>
+
         </div>
       )}
     </div>

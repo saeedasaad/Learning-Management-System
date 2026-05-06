@@ -17,7 +17,7 @@ import NotFound from "./pages/shared/NotFound";
 import DashboardOverview from "./pages/student/DashboardOverview";
 import MyCourses from "./pages/student/MyCourses";
 import CourseLearning from "./pages/student/CourseLearning";
-import VideoPlayer from "./pages/student/VideoPlayer";
+// import VideoPlayer from "./pages/student/VideoPlayer";
 import StudentDiscussions from "./pages/student/StudentDiscussions";
 import StudentProfile from "./pages/student/StudentProfile";
 import MyActivities from "./pages/student/MyActivities";
@@ -65,13 +65,13 @@ function App() {
         <Route path="/student/dashboard" element={<DashboardOverview />} />
         <Route path="/student/my-courses" element={<MyCourses />}>
           <Route path=":id" element={<CourseLearning />} />
-          <Route path=":id/video/:videoId" element={<VideoPlayer />} />
+          {/* <Route path=":id/video/:videoId" element={<VideoPlayer />} /> */}
         </Route>
 
         {/* Activities */}
         <Route path="/student/activities" element={<MyActivities />}> </Route>
 
-        <Route path="/student/quiz/:id" element={<QuizPage />} />
+
         <Route path="/student/exercises/:exerciseId/submit" element={<SubmitExercise />} />
 
         <Route path="/student/discussions" element={<StudentDiscussions />} />
@@ -82,8 +82,6 @@ function App() {
       {/* Instructor Dashboard */}
       <Route element={<DashboardLayout role="instructor" />}>
         <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
-
-        {/* Core Pages */}
         <Route path="/instructor/manage-courses" element={<ManageCourses />} />
         <Route path="/instructor/manage-students" element={<ManageStudents />}/>
         <Route path="/inbox/:studentId" element={<Inbox />} />
@@ -108,6 +106,8 @@ function App() {
 
       {/* Catch-all for 404 */}
       <Route path="*" element={<NotFound />} />
+
+              <Route path="/student/quiz/:id" element={<QuizPage />} />
 
     </Routes>
   );

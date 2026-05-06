@@ -31,15 +31,19 @@ function ManageCourses() {
 
   if (loading)
     return (
-      <DashboardCard title="Manage Courses">
-        <p>Loading courses...</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Courses">
+          <p>Loading courses...</p>
+        </DashboardCard>
+      </div>
     );
   if (error)
     return (
-      <DashboardCard title="Manage Courses">
-        <p>Error: {error}</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="Manage Courses">
+          <p>Error: {error}</p>
+        </DashboardCard>
+      </div>
     );
 
   const displayCourses = updatedCourses.length > 0 ? updatedCourses : courses;

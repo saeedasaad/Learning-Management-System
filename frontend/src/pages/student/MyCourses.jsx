@@ -27,9 +27,11 @@ export default function MyCourses() {
 
   if (!activeCourse) {
     return (
-      <DashboardCard title="My Courses">
-        <p className="text-center text-gray-500">No enrolled courses yet.</p>
-      </DashboardCard>
+      <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <DashboardCard title="My Courses">
+          <p className="text-center text-gray-500">No enrolled courses yet.</p>
+        </DashboardCard>
+      </div>
     );
   }
 

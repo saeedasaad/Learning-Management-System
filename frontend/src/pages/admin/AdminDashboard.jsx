@@ -4,8 +4,8 @@ import DashboardCard from "../../components/layouts/DashboardCard";
 function AdminDashboard() {
   const { data: analytics, loading, error } = useFetch("/admin/analytics");
 
-  if (loading) return <DashboardCard title="Admin Dashboard"><p>Loading...</p></DashboardCard>;
-  if (error) return <DashboardCard title="Admin Dashboard"><p>Error: {error}</p></DashboardCard>;
+  if (loading) return<div className="p-6 grid lg:grid-cols-2 gap-6"> <DashboardCard title="Admin Dashboard"><p>Loading...</p></DashboardCard></div>;
+  if (error) return<div className="p-6 grid lg:grid-cols-2 gap-6"><DashboardCard title="Admin Dashboard"><p>Error: {error}</p></DashboardCard></div> ;
 
   return (
     <div className="p-6 grid lg:grid-cols-2 gap-6">
