@@ -108,4 +108,17 @@ export const getInstructorCourses = async () => {
   return data;
 };
 
+// Get notifications for logged-in user
+export const getNotifications = async (userId) => {
+  const { data } = await api.get(`/notifications/${userId}`);
+  return data;
+};
+
+// Mark notification as read
+export const markNotificationAsRead = async (id) => {
+  const { data } = await api.patch(`/notifications/${id}/read`);
+  return data;
+};
+
+
 export default api;

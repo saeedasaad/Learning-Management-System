@@ -2,6 +2,9 @@ import Course from "../models/Course.js";
 import User from "../models/User.js";
 import Enrollment from "../models/Enrollment.js";
 import Submission from "../models/Submission.js";
+import Notification from "../models/Notification.js";
+import ChatMessage from "../models/ChatMessage.js";
+
 
 // Create Course
 export const createCourse = async (req, res) => {
@@ -153,31 +156,48 @@ export const gradeSubmission = async (req, res) => {
     submission.status = status || "graded";
     await submission.save();
 
+    //  Notify student
+    await Notification.create({
+      userId: submission.studentId,
+      role: "student",
+      message: `Your submission for exercise ${submission.exerciseId} has been graded.`,
+      type: "submission"
+    });
+
     res.json({ message: "Submission graded successfully", submission });
   } catch (err) {
     res.status(500).json({ error: "Error grading submission", details: err.message });
   }
 };
 
+
 // Send message to student
 export const sendMessageToStudent = async (req, res) => {
   try {
     const { studentId } = req.params;
-    const { message } = req.body;
+    const { message, courseId } = req.body;
 
-    const newMessage = new Message({
-      sender: req.user._id,
-      recipient: studentId,
-      content: message,
-      role: "instructor",
-      createdAt: new Date(),
+    const newMessage = new ChatMessage({
+      senderId: req.user._id,
+      receiverId: studentId,
+      courseId: courseId || null,
+      message,
     });
 
     await newMessage.save();
+
+    //  Notify student
+    await Notification.create({
+      userId: studentId,
+      role: "student",
+      message: "You have a new message from your instructor.",
+      type: "message"
+    });
 
     res.json({ message: "Message sent successfully", newMessage });
   } catch (err) {
     res.status(500).json({ error: "Error sending message", details: err.message });
   }
 };
+
 

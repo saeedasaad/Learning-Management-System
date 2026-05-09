@@ -1,11 +1,13 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import Notification from "../models/Notification.js";
 
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
+// Student Registration
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -22,9 +24,28 @@ export const registerUser = async (req, res) => {
 
     const token = generateToken(user._id, user.role);
 
+    //  Create notifications
+    await Notification.create({
+      userId: user._id,
+      role: "student",
+      message: `Welcome, ${user.name}! Your account is active.`,
+      type: "welcome"
+    });
+
+    await Notification.create({
+      role: "admin",
+      message: `New student registered: ${user.name}`,
+      type: "registration"
+    });
+
     res.json({
       message: "Student registered successfully",
-      user: { name: user.name, email: user.email, role: user.role },
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      },
       token,
     });
   } catch (err) {
@@ -32,6 +53,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
+// Login
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -43,11 +65,25 @@ export const loginUser = async (req, res) => {
 
     const token = generateToken(user._id, user.role);
 
+    //  Create login notification
+    await Notification.create({
+      userId: user._id,
+      role: user.role,
+      message: `Login successful for ${user.name}`,
+      type: "login"
+    });
+
     res.json({
       message: "Login successful",
-      user: { name: user.name, email: user.email, role: user.role },
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      },
       token,
     });
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
