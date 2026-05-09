@@ -6,6 +6,8 @@ import User from "../models/User.js";
 import Stripe from "stripe";
 import keys from "../config/keys.js";
 import Submission from "../models/Submission.js";
+import ChatMessage from "../models/ChatMessage.js";
+import Notification from "../models/Notification.js";
 
 const stripeSecretKey = keys.stripeSecretKey;
 
@@ -129,7 +131,6 @@ export const enrollCourse = async (req, res) => {
   }
 };
 
-
 // Stripe Webhook
 export const stripeWebhook = async (req, res) => {
   const sig = req.headers["stripe-signature"];
@@ -154,7 +155,6 @@ export const stripeWebhook = async (req, res) => {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-
 
     console.log("Webhook session object:", session);
     console.log("Looking for enrollment with user:", session.client_reference_id, "course:", session.metadata.courseId);
@@ -185,8 +185,6 @@ export const stripeWebhook = async (req, res) => {
   res.json({ received: true });
 };
 
-
-// Get student profile
 // Get student profile
 export const getProfile = async (req, res) => {
   try {
@@ -337,6 +335,33 @@ export const getQuizzes = async (req, res) => {
   } catch (err) {
     console.error("Error fetching quizzes:", err);
     res.status(500).json({ error: "Error fetching quizzes", details: err.message });
+  }
+};
+
+export const sendMessageToStudent = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const { message } = req.body;
+
+    const newMessage = new ChatMessage({
+      senderId: req.user._id,
+      receiverId: studentId,
+      message,
+      courseId: req.body.courseId || null,
+    });
+
+    await newMessage.save();
+
+    await Notification.create({
+      userId: studentId,
+      role: "student",
+      message: "You have a new message from your instructor.",
+      type: "message",
+    });
+
+    res.json({ message: "Message sent successfully", newMessage });
+  } catch (err) {
+    res.status(500).json({ error: "Error sending message", details: err.message });
   }
 };
 

@@ -11,4 +11,4 @@ frontend/node_modules/
 # Ignore build outputs
 dist/
 build/
-backend/.env
+backend/.env 
