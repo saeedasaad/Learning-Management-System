@@ -21,6 +21,7 @@ export const registerUser = async (userData) => {
   return data;
 };
 
+// login User
 export const loginUser = async (credentials) => {
   const { data } = await api.post("/auth/login", credentials);
   return data;
@@ -38,6 +39,7 @@ export const getCourses = async () => {
   return data;
 };
 
+// Get Course By Id
 export const getCourseById = async (id) => {
   const { data } = await api.get(`/courses/${id}`);
   return data;
@@ -98,11 +100,13 @@ export const getInstructorProfile = async () => {
   return data;
 };
 
+// Update Instructors profile
 export const updateInstructorProfile = async (formData) => {
   const { data } = await api.patch("/instructor/profile", formData);
   return data;
 };
 
+// Get Instructor Courses
 export const getInstructorCourses = async () => {
   const { data } = await api.get("/instructor/courses");
   return data;
@@ -120,5 +124,10 @@ export const markNotificationAsRead = async (id) => {
   return data;
 };
 
+// Get private messages for a user
+export const getMessages = async (userId) => {
+  const { data } = await api.get(`/chat/${userId}`);
+  return data;
+};
 
 export default api;

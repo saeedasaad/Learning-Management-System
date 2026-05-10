@@ -6,7 +6,7 @@ export const createNotification = async (req, res) => {
     const { userId, role, message, type } = req.body;
 
     const notification = new Notification({
-      userId,
+      userId: userId || null,
       role,
       message,
       type,
@@ -23,7 +23,14 @@ export const createNotification = async (req, res) => {
 export const getUserNotifications = async (req, res) => {
   try {
     const { userId } = req.params;
-    const notifications = await Notification.find({ userId }).sort({ createdAt: -1 });
+
+    const notifications = await Notification.find({
+      $or: [
+        { userId }, 
+        { role: req.user.role }
+      ]
+    }).sort({ createdAt: -1 });
+
     res.json(notifications);
   } catch (err) {
     res.status(500).json({ error: "Error fetching notifications", details: err.message });

@@ -56,7 +56,7 @@ export default function MyCourses() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap gap-4 mb-8 border-b">
+        <div className="flex flex-wrap gap-4 mb-8">
           {["topics", "faqs", "glossary", "completion"].map((tab) => (
             <button
               key={tab}

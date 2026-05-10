@@ -18,7 +18,7 @@ export const protect = async (req, res, next) => {
   }
 };
 
-// 🔹 Admin-only middleware
+// Admin-only middleware
 export const adminOnly = (req, res, next) => {
   if (req.user && req.user.role === "admin") {
     next();
@@ -27,7 +27,7 @@ export const adminOnly = (req, res, next) => {
   }
 };
 
-// 🔹 Instructor-only middleware
+// Instructor-only middleware
 export const instructorOnly = (req, res, next) => {
   if (req.user && req.user.role === "instructor") {
     next();
@@ -35,3 +35,4 @@ export const instructorOnly = (req, res, next) => {
     res.status(403).json({ error: "Access denied: Instructors only" });
   }
 };
+

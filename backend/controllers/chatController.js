@@ -4,7 +4,7 @@ import Notification from "../models/Notification.js";
 // Send a new chat message
 export const sendMessage = async (req, res) => {
   try {
-    const { receiverId, message, courseId } = req.body;
+    const { receiverId, message } = req.body;
 
     if (!receiverId || !message) {
       return res.status(400).json({ error: "Receiver and message are required" });
@@ -13,7 +13,6 @@ export const sendMessage = async (req, res) => {
     const newMessage = new ChatMessage({
       senderId: req.user._id,
       receiverId,
-      courseId: courseId || null,
       message,
     });
 
@@ -33,7 +32,7 @@ export const sendMessage = async (req, res) => {
   }
 };
 
-// Get all messages between two users
+// Get all messages between two users (Inbox)
 export const getMessages = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -51,7 +50,7 @@ export const getMessages = async (req, res) => {
   }
 };
 
-// Get all course-based messages (group chat)
+// Get all course-based messages (Discussions)
 export const getCourseMessages = async (req, res) => {
   try {
     const { courseId } = req.params;
@@ -72,7 +71,7 @@ export const markMessageAsSeen = async (req, res) => {
     const message = await ChatMessage.findById(messageId);
     if (!message) return res.status(404).json({ error: "Message not found" });
 
-    message.seen = true;
+    message.isSeen = true;
     await message.save();
 
     res.json({ message: "Message marked as seen", message });

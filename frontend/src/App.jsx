@@ -24,6 +24,7 @@ import MyActivities from "./pages/student/MyActivities";
 import TraineeServices from "./pages/student/TraineeServices";
 import QuizPage from "./pages/student/QuizPage";
 import SubmitExercise from "./pages/student/SubmitExercise";
+import StudentInbox from "./pages/student/StudentInbox";
 
 // Instructor Pages
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
@@ -42,6 +43,7 @@ import AdminManageCourses from "./pages/admin/ManageCourses";
 import ApproveCourses from "./pages/admin/ApproveCourses";
 import Analytics from "./pages/admin/Analytics";
 import RevenueAnalytics from "./pages/admin/RevenueAnalytics";
+
 
 function App() {
   return (
@@ -63,13 +65,13 @@ function App() {
         <Route path="/student/dashboard" element={<DashboardOverview />} />
         <Route path="/student/my-courses" element={<MyCourses />}>
           <Route path=":id" element={<CourseLearning />} />
-          {/* <Route path=":id/video/:videoId" element={<VideoPlayer />} /> */}
         </Route>
 
         {/* Activities */}
         <Route path="/student/activities" element={<MyActivities />}>
           {" "}
         </Route>
+        <Route path="/student/inbox" element={<StudentInbox />} />
         <Route
           path="/student/exercises/:exerciseId/submit"
           element={<SubmitExercise />}
