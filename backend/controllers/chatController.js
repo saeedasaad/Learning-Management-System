@@ -42,13 +42,22 @@ export const getMessages = async (req, res) => {
         { senderId: req.user._id, receiverId: userId },
         { senderId: userId, receiverId: req.user._id },
       ],
-    }).sort({ createdAt: 1 });
+    }).populate("senderId", "name").sort({ createdAt: 1 });
 
-    res.json(messages);
+    // Group by sender
+    const conversation = {
+      _id: userId,
+      senderName: messages[0]?.senderId?.name || "Unknown",
+      lastMessage: messages[messages.length - 1]?.message || "",
+      messages,
+    };
+
+    res.json([conversation]); 
   } catch (err) {
     res.status(500).json({ error: "Error fetching messages", details: err.message });
   }
 };
+
 
 // Get all course-based messages (Discussions)
 export const getCourseMessages = async (req, res) => {

@@ -15,7 +15,8 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-//  Auth endpoints 
+// AUTH 
+// Register User 
 export const registerUser = async (userData) => {
   const { data } = await api.post("/auth/register", userData);
   return data;
@@ -27,7 +28,8 @@ export const loginUser = async (credentials) => {
   return data;
 };
 
-//  Student endpoints 
+//  STUDENT
+//  Enroll Course 
 export const enrollCourse = async (courseId) => {
   const { data } = await api.post(`/student/enroll/${courseId}`);
   return data;
@@ -93,8 +95,8 @@ export const getQuizzes = async () => {
   return data;
 };
 
-
-//  Instructor endpoints 
+//  INSTRUCTOR 
+//  Get Instructor Profile
 export const getInstructorProfile = async () => {
   const { data } = await api.get("/instructor/profile");
   return data;
@@ -112,6 +114,7 @@ export const getInstructorCourses = async () => {
   return data;
 };
 
+// NOTIFICATION
 // Get notifications for logged-in user
 export const getNotifications = async (userId) => {
   const { data } = await api.get(`/notifications/${userId}`);
@@ -124,9 +127,35 @@ export const markNotificationAsRead = async (id) => {
   return data;
 };
 
+// CHAT
 // Get private messages for a user
 export const getMessages = async (userId) => {
   const { data } = await api.get(`/chat/${userId}`);
+  return data;
+};
+
+// Send Message
+export const sendMessage = async (receiverId, message) => {
+  const { data } = await api.post("/chat", { receiverId, message });
+  return data;
+};
+
+// Mark Message As Seen
+export const markMessageAsSeen = async (messageId) => {
+  const { data } = await api.patch(`/chat/${messageId}/seen`);
+  return data;
+};
+
+// COURSE DISCUSSIONS
+// Get Course Messages
+export const getCourseMessages = async (courseId) => {
+  const { data } = await api.get(`/discussions/${courseId}`);
+  return data;
+};
+
+// Send Course Message
+export const sendCourseMessage = async (courseId, message) => {
+  const { data } = await api.post(`/discussions/${courseId}`, { message });
   return data;
 };
 

@@ -38,9 +38,11 @@ export default function ManageStudents() {
 
   if (loading) {
     return (
+      <div className="md:p-10 p-5 ">
       <DashboardCard title="Manage Students">
         <p className="text-gray-500 text-center">Loading students...</p>
       </DashboardCard>
+      </div>
     );
   }
 

@@ -1,34 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardCard from "../../components/layouts/DashboardCard";
+import { getMessages, sendMessage, markMessageAsSeen } from "../../utils/api";
+import avatar from "../../assets/user-avatar.png";
 
 export default function InstructorChat() {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: "student",
-      text: "Sir, when is the next lecture?",
-      reply: "Tomorrow at 10 AM.",
-    },
-    {
-      id: 2,
-      sender: "student",
-      text: "Can you explain question 3?",
-      reply: "",
-    },
-  ]);
-
+  const [messages, setMessages] = useState([]);
   const [replyText, setReplyText] = useState("");
   const [selectedMessage, setSelectedMessage] = useState(null);
 
-  const handleReply = () => {
+  // Fetch messages between instructor and students
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+    if (currentUser && currentUser._id) {
+      getMessages(currentUser._id).then(setMessages);
+    }
+  }, []);
+
+  const handleReply = async () => {
     if (!replyText.trim() || !selectedMessage) return;
-    setMessages(
-      messages.map((msg) =>
-        msg.id === selectedMessage.id ? { ...msg, reply: replyText } : msg,
-      ),
+
+    const newMsg = await sendMessage(selectedMessage.senderId, replyText);
+
+    // Update messages list
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg._id === selectedMessage._id
+          ? { ...msg, reply: replyText, isSeen: true }
+          : msg
+      )
     );
+
     setReplyText("");
     setSelectedMessage(null);
+  };
+
+  const handleSelectMessage = async (msg) => {
+    setSelectedMessage(msg);
+    if (!msg.isSeen) {
+      await markMessageAsSeen(msg._id);
+      setMessages((prev) =>
+        prev.map((m) => (m._id === msg._id ? { ...m, isSeen: true } : m))
+      );
+    }
   };
 
   return (
@@ -38,20 +51,34 @@ export default function InstructorChat() {
           {/* Left: Student Messages */}
           <div className="bg-gray-50 border rounded p-4 h-80 overflow-y-auto">
             <h3 className="text-lg font-semibold mb-3">Student Messages</h3>
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className="border-b py-2 cursor-pointer hover:bg-gray-100"
-                onClick={() => setSelectedMessage(msg)}
-              >
-                <p className="text-gray-800 font-medium">{msg.text}</p>
-                {msg.reply && (
-                  <p className="text-green-600 text-sm mt-1">
-                    Reply: {msg.reply}
-                  </p>
-                )}
-              </div>
-            ))}
+            {messages.length === 0 ? (
+              <p className="text-gray-500">No messages yet.</p>
+            ) : (
+              messages.map((msg) => (
+                <div
+                  key={msg._id}
+                  className="border-b py-2 cursor-pointer hover:bg-gray-100"
+                  onClick={() => handleSelectMessage(msg)}
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={avatar}
+                      alt="avatar"
+                      className="w-8 h-8 rounded-full border"
+                    />
+                    <p className="text-gray-800 font-medium">{msg.message}</p>
+                  </div>
+                  {msg.reply && (
+                    <p className="text-green-600 text-sm mt-1">
+                      Reply: {msg.reply}
+                    </p>
+                  )}
+                  {msg.isSeen && (
+                    <span className="text-xs text-gray-500">✓ Seen</span>
+                  )}
+                </div>
+              ))
+            )}
           </div>
 
           {/* Right: Reply Box */}
@@ -61,7 +88,7 @@ export default function InstructorChat() {
               <>
                 <p className="text-gray-700 mb-2">
                   <span className="font-bold">Question:</span>{" "}
-                  {selectedMessage.text}
+                  {selectedMessage.message}
                 </p>
                 <textarea
                   value={replyText}
