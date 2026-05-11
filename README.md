@@ -30,139 +30,41 @@ with role-based access control.
 
 ## Project Structure
 
-```
-learning-management-system/
-├── backend/
-│   ├── config/
-│   │   ├── db.js
-│   │   └── keys.js
-│   ├── controllers/
-│   │   ├── adminController.js
-│   │   ├── authController.js
-│   │   ├── courseController.js
-│   │   ├── instructorController.js
-│   │   └── studentController.js
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
-│   ├── models/
-│   │   ├── ChatMessage.js
-│   │   ├── Course.js
-│   │   ├── Enrollment.js
-│   │   ├── Payment.js
-│   │   └── User.js
-│   ├── routes/
-│   │   ├── admin.js
-│   │   ├── auth.js
-│   │   ├── course.js
-│   │   ├── instructor.js
-│   │   └── student.js
-│   ├── seed/
-│   │   ├── adminSeed.js
-│   │   ├── courseSeed.js
-│   │   ├── instructorSeed.js
-│   │   └── studentSeed.js
-│   ├── uploads/
-│   ├── utils/
-│   │   ├── generateToken.js
-│   │   └── logger.js
-│   ├── .env
-│   └── server.js
-└── frontend/
-````
+### Backend
 
-# 📁 LMS Frontend Project Structure
+```
+backend/
+├── config/              # DB & keys
+├── controllers/         # Business logic
+├── middleware/          # Auth & error handling
+├── models/              # Mongoose schemas
+├── routes/              # API routes
+├── seed/                # Seed scripts
+├── uploads/             # File uploads
+├── utils/               # Helpers (token, logger)
+├── .env                 # Environment variables
+└── server.js            # Entry point
+
+```
+
+### Frontend
 
 ```
 frontend/
-├── node_modules/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
+├── public/              # index.html, favicon
 ├── src/
-│   ├── assets/
-│   │   ├── images/
-│   │   └── icons/
-│   ├── components/
-│   │   ├── about/
-│   │   │   ├── AboutSection.jsx
-│   │   │   ├── Highlight.jsx
-│   │   │   ├── MissionVision.jsx
-│   │   │   └── TeamSection.jsx
-│   │   ├── common/
-│   │   │   ├── Banner.jsx
-│   │   │   ├── Button.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── FormLayout.jsx
-│   │   │   ├── InputField.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Table.jsx
-│   │   ├── Courses/
-│   │   │   ├── CertificationSection.jsx
-│   │   │   ├── CourseHero.jsx
-│   │   │   ├── CourseListing.jsx
-│   │   │   ├── CurriculumSection.jsx
-│   │   │   ├── EnrollmentModal.jsx
-│   │   │   ├── FAQ.jsx
-│   │   │   └── ProjectSection.jsx
-│   │   ├── home/
-│   │   │   ├── Hero.jsx
-│   │   │   ├── CallToAction.jsx
-│   │   │   ├── InstructorHighlight.jsx
-│   │   │   ├── PopularCourses.jsx
-│   │   │   └── Testimonials.jsx
-│   │   ├── instructor/
-│   │   │   ├── LectureUploadForm.jsx
-│   │   │   ├── LectureList.jsx
-│   │   │   ├── NotesUploadForm.jsx
-│   │   │   ├── NotesList.jsx
-│   │   │   ├── QuizUploadForm.jsx
-│   │   │   ├── QuizList.jsx
-│   │   │   ├── ExerciseUploadForm.jsx
-│   │   │   └── ExerciseList.jsx
-│   │   ├── layouts/
-│   │   │   ├── DashboardCard.jsx
-│   │   │   ├── DashboardNavbar.jsx
-│   │   │   ├── InstructorDropdown.jsx
-│   │   │   ├── ProfileCard.jsx
-│   │   │   ├── ProfileForm.jsx
-│   │   │   └── ResponsiveSidebar.jsx
-│   │   └── student/
-│   │       ├── Exercises.jsx
-│   │       ├── Quizzes.jsx
-│   │       ├── CompletionCriteria.jsx
-│   │       ├── CourseTopics.jsx
-│   │       ├── FAQ.jsx
-│   │       └── Glossary.jsx
-│   ├── hooks/
-│   │   ├── useAuth.js
-│   │   └── useFetch.js
-│   ├── layouts/
-│   │   ├── DashboardLayout.jsx
-│   │   └── PublicLayout.jsx
-│   ├── pages/
-│   │   ├── admin/
-│   │   ├── instructor/
-│   │   ├── public/
-│   │   ├── shared/
-│   │   └── student/
-│   ├── redux/
-│   │   ├── authSlice.js
-│   │   └── store.js
-│   ├── utils/
-│   │   ├── api.js
-│   │   └── helpers.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── .env
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
-└── README.md
+│   ├── assets/          # Images, icons
+│   ├── components/      # Reusable UI
+│   ├── hooks/           # Custom hooks
+│   ├── layouts/         # Dashboard & Public layouts
+│   ├── pages/           # Role-based pages
+│   ├── redux/           # State management
+│   ├── utils/           # API helpers
+│   ├── App.jsx          # Routes
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+└── vite.config.js
+
 ```
 
 ##  Installation & Setup
